@@ -30,7 +30,7 @@ namespace ConsoleA1._06_Arrays_and_Tuples
         }
     }
 
-    class TupleComp : IEqualityComparer
+    public class TupleComp : IEqualityComparer
     {
         public new bool Equals(object x, object y)
         {

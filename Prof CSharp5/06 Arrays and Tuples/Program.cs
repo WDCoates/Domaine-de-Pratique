@@ -173,9 +173,10 @@ namespace ConsoleA1._06_Arrays_and_Tuples
                 Console.WriteLine($"t1 has same content as t2");
             //use my new TupleComp 
 
+            
             //Error but don't know why!!!!!!!!!!!
             //if (t1.Equals(t2, new TupleComp()))
-            //    Console.WriteLine("!");
+              //  Console.WriteLine("!");
 
 
         }
