@@ -39,15 +39,17 @@ namespace ConsoleA1._07_Operators_and_Casts
             try
             {
                 int? a = null;
-                int b = (int)a;
+                int b = checked((int)a);
             }
             catch (Exception ex)
             {
 
-                throw ex;
+                
             }
 
             Boolean res = BoxUnBox.Box();
+
+            res = TypeSafe.sTypeSafe();
 
         }
     }

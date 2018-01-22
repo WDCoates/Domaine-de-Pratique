@@ -14,6 +14,10 @@ namespace ConsoleA1._07_Operators_and_Casts
             {
                 int myInt = 20;
                 object intBoxed = myInt;
+
+                long myLongNumber = 3333333333333;
+                object mObj = (object) myLongNumber;
+                int mInt = (int) mObj;
             }
             catch (Exception ex)
             {
