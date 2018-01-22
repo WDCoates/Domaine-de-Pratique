@@ -41,11 +41,13 @@ namespace ConsoleA1._07_Operators_and_Casts
                 int? a = null;
                 int b = (int)a;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
+
+            Boolean res = BoxUnBox.Box();
 
         }
     }

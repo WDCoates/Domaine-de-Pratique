@@ -75,6 +75,7 @@
     <Compile Include="06 Arrays and Tuples\Program.cs" />
     <Compile Include="06 Arrays and Tuples\Segments.cs" />
     <Compile Include="06 Arrays and Tuples\Tuples.cs" />
+    <Compile Include="07 Operators and Casts\BoxUnBox.cs" />
     <Compile Include="07 Operators and Casts\MainProgram.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
