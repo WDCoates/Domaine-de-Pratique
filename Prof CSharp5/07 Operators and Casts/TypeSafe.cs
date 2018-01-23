@@ -19,6 +19,11 @@ namespace ConsoleA1._07_Operators_and_Casts
                 y = new Person();
 
                 T1 = ReferenceEquals(x, y);
+
+                bool b1 = (x == y); //Compares References
+
+
+
             }
             return T1;
         }

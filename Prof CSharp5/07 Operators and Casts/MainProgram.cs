@@ -51,6 +51,10 @@ namespace ConsoleA1._07_Operators_and_Casts
 
             res = TypeSafe.sTypeSafe();
 
+            OpOverloading oL = new OpOverloading();
+            res = oL.eTest(null);
+            res = oL.eTest("Dave");
+
         }
     }
 }

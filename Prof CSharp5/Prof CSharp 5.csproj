@@ -77,6 +77,7 @@
     <Compile Include="06 Arrays and Tuples\Tuples.cs" />
     <Compile Include="07 Operators and Casts\BoxUnBox.cs" />
     <Compile Include="07 Operators and Casts\MainProgram.cs" />
+    <Compile Include="07 Operators and Casts\OpOverloading.cs" />
     <Compile Include="07 Operators and Casts\TypeSafe.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
