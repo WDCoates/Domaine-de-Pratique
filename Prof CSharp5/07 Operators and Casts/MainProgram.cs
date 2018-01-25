@@ -1,4 +1,5 @@
 ﻿using System;
+using Cons = System.Console;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,6 +55,11 @@ namespace ConsoleA1._07_Operators_and_Casts
             OpOverloading oL = new OpOverloading();
             res = oL.eTest(null);
             res = oL.eTest("Dave");
+
+            MVector sVec = new MVector(1, 2, 3);
+            MVector eVec = new MVector(4, 5, -3);
+            MVector rVec = sVec + eVec;
+            Cons.WriteLine($"sVec {sVec.ToString()} + eVec {eVec.ToString()} = rVec {rVec.ToString()}.");
 
         }
     }

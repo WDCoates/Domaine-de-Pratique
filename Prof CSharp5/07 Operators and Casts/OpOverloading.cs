@@ -13,6 +13,40 @@ namespace ConsoleA1._07_Operators_and_Casts
         public string Name { get; set; }
 
     }
+
+    struct MVector
+    {
+        public double x, y, z;
+
+        public MVector(double x, double y, double z)
+        {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+
+        public MVector(MVector rhs)
+        {
+            x = rhs.x;
+            y = rhs.y;
+            z = rhs.z;
+        }
+
+        public static MVector operator + (MVector lhs, MVector rhs)
+        {
+            MVector res = new MVector(lhs);
+            res.x += rhs.x;
+            res.y += rhs.y;
+            res.z += rhs.z;
+
+            return res;
+        }
+
+        public override string ToString()
+        {
+            return $"({x}, {y}, {z})";
+        }
+    }
     class OpOverloading
     {
         internal bool eTest(string name)
