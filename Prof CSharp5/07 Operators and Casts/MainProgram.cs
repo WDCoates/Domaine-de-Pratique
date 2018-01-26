@@ -61,6 +61,15 @@ namespace ConsoleA1._07_Operators_and_Casts
             MVector rVec = sVec + eVec;
             Cons.WriteLine($"sVec {sVec.ToString()} + eVec {eVec.ToString()} = rVec {rVec.ToString()}.");
 
+            rVec = 2 * sVec;
+            rVec = (sVec * 3) * 3;
+
+            double r = sVec * eVec;
+            Cons.WriteLine($"{sVec} * {eVec} in dot notation = {r}");
+
+            rVec -= eVec;
+            Cons.WriteLine($"rVec -= eVec gives us {rVec}");
+
         }
     }
 }

@@ -42,6 +42,32 @@ namespace ConsoleA1._07_Operators_and_Casts
             return res;
         }
 
+        public static MVector operator * (MVector lhs, double rhs)
+        {
+            return new MVector(lhs.x * rhs, lhs.y * rhs, lhs.z * rhs );
+        }
+
+        public static MVector operator *(double lhs, MVector rhs)
+        {
+            //return new MVector(rhs.x * lhs, rhs.y * lhs, rhs.z * lhs);  //First stab ok but better to do...
+            return rhs * lhs;
+        }
+
+        public static double operator * (MVector lhs, MVector rhs)
+        {
+            return (lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z);
+        }
+
+        public static MVector operator - (MVector lhs, MVector rhs)
+        {
+            MVector res = new MVector(lhs);
+            res.x -= rhs.x;
+            res.y -= rhs.y;
+            res.z -= rhs.z;
+
+            return res;
+        }
+
         public override string ToString()
         {
             return $"({x}, {y}, {z})";
