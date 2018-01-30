@@ -2,6 +2,8 @@
 using Cons = System.Console;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -73,6 +75,25 @@ namespace ConsoleA1._07_Operators_and_Casts
             Cur w = new Cur(32200,33);
             SimpleCur sCur = new SimpleCur("Dave", w);
 
+            float aAmount = 4500.12f;
+            Cur cAmount = (Cur) aAmount;
+
+            //The Issue
+            try
+            {
+                Cur bal = new Cur(50, 35);
+                float fBal = bal;
+                bal = (Cur) fBal;
+
+                checked   //This is not needed when Checked in Cur operator.
+                {
+                    bal = (Cur) (-555.33);  
+                }
+            }
+            catch (Exception ex)
+            {
+                Cons.WriteLine("Exception is {0}", ex.Message);
+            }
         }
     }
 }

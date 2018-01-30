@@ -12,7 +12,7 @@ namespace ConsoleA1._07_Operators_and_Casts
         public uint Dollars;
         public ushort Cents;
 
-        public Cur(uint dollars, ushort cents)
+        public Cur(uint dollars, ushort  cents)
         {
             this.Dollars = dollars;
             this.Cents = cents;
@@ -31,10 +31,15 @@ namespace ConsoleA1._07_Operators_and_Casts
 
         public static explicit operator Cur(float value)
         {
-            uint dollars = (uint) value;
-            ushort cents = (ushort) ((value - dollars) * 100);
-            return new Cur(dollars, cents);
+            checked
+            {
+                uint dollars = (uint)value;
+                //ushort cents = (ushort) ((value - dollars) * 100); using ushort gives a rounding error Microsoft has better ones now!
+                ushort cents = Convert.ToUInt16((value - dollars) * 100);
+                return new Cur(dollars, cents);
+            }
         }
+
     }
     class SimpleCur
     {
