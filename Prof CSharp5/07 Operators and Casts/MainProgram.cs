@@ -70,6 +70,9 @@ namespace ConsoleA1._07_Operators_and_Casts
             rVec -= eVec;
             Cons.WriteLine($"rVec -= eVec gives us {rVec}");
 
+            Cur w = new Cur(32200,33);
+            SimpleCur sCur = new SimpleCur("Dave", w);
+
         }
     }
 }
