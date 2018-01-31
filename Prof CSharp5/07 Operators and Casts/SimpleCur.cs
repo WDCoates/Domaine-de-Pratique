@@ -53,5 +53,23 @@ namespace ConsoleA1._07_Operators_and_Casts
             _wage = wage;
         }
 
+        public string Name
+        {
+            get => _name;
+            set => _name = Name;
+        }
+        public float Wage
+        {
+            get => _wage;
+            set => _wage = Wage;
+        }
+    }
+
+    class MoreSimpleCur : SimpleCur
+    {
+        public MoreSimpleCur (SimpleCur sCur) : base(sCur.Name, (Cur)sCur.Wage)
+        {
+            
+        }
     }
 }

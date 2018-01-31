@@ -50,7 +50,7 @@ namespace ConsoleA1._07_Operators_and_Casts
                 
             }
 
-            Boolean res = BoxUnBox.Box();
+            Boolean res = BoxUnBox.Box(false);
 
             res = TypeSafe.sTypeSafe();
 
@@ -94,6 +94,11 @@ namespace ConsoleA1._07_Operators_and_Casts
             {
                 Cons.WriteLine("Exception is {0}", ex.Message);
             }
+
+
+            //More Boxing unBoxing
+            Boolean res2 = BoxUnBox.Box(true);
+
         }
     }
 }
