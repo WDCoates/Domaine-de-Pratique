@@ -40,6 +40,13 @@ namespace ConsoleA1._07_Operators_and_Casts
             }
         }
 
+        public static implicit operator Cur(uint value)
+        {
+            checked
+            {
+                return new Cur(value/100u, (ushort) (value%100));   //Do not do this!!!!!
+            }
+        }
     }
     class SimpleCur
     {

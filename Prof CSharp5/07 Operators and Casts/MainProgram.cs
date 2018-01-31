@@ -99,6 +99,18 @@ namespace ConsoleA1._07_Operators_and_Casts
             //More Boxing unBoxing
             Boolean res2 = BoxUnBox.Box(true);
 
+            //Multiple Casting...
+            Cur bal2 = new Cur(10, 35);
+            long lAmt = (long) bal2;    //implicit from Cur to float and explicit from float to long
+            //long lAmt2 = bal2;        //wont compile
+            double dAmt = bal2;         //both implicit
+
+
+            //Do not use this
+            uint iBal = 3535;
+            Cur cBal = iBal;
+            uint nBal = (uint) cBal;
+
         }
     }
 }
