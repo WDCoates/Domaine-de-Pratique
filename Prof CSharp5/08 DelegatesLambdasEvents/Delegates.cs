@@ -4,7 +4,7 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
 {
     delegate string GetAString();
 
-    public struct  Delegates
+    public struct Delegates
     {
         public static void DemoDelegates()
         {
