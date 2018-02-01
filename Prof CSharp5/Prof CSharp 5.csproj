@@ -51,7 +51,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ConsoleA1._08_DelegatesLambdasEvents._08_EntryClass</StartupObject>
+    <StartupObject>ConsoleA1._08_DelegatesLambdasEvents._EntryClass</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>TextTemplate.ico</ApplicationIcon>
@@ -83,6 +83,7 @@
     <Compile Include="07 Operators and Casts\OpOverloading.cs" />
     <Compile Include="07 Operators and Casts\SimpleCur.cs" />
     <Compile Include="07 Operators and Casts\TypeSafe.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\Delegates.cs" />
     <Compile Include="08 DelegatesLambdasEvents\_EntryClass.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
