@@ -51,7 +51,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ConsoleA1._07_Operators_and_Casts.MainProgram</StartupObject>
+    <StartupObject>ConsoleA1._08_DelegatesLambdasEvents._08_EntryClass</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>TextTemplate.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -80,6 +83,7 @@
     <Compile Include="07 Operators and Casts\OpOverloading.cs" />
     <Compile Include="07 Operators and Casts\SimpleCur.cs" />
     <Compile Include="07 Operators and Casts\TypeSafe.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\_EntryClass.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,7 +103,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="TextTemplate.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
