@@ -51,7 +51,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ConsoleA1._06_Arrays_and_Tuples.Program</StartupObject>
+    <StartupObject>ConsoleA1._08_DelegatesLambdasEvents._08_EntryClass</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>TextTemplate.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -67,6 +70,7 @@
   <ItemGroup>
     <Compile Include="00 Common\Person.cs" />
     <Compile Include="00 Common\ShoeCollection.cs" />
+    <Compile Include="02 Core\Prog02.cs" />
     <Compile Include="05 Generics\GDocMan.cs" />
     <Compile Include="05 Generics\Generics.cs" />
     <Compile Include="05 Generics\MethodsExample.cs" />
@@ -74,7 +78,12 @@
     <Compile Include="06 Arrays and Tuples\Program.cs" />
     <Compile Include="06 Arrays and Tuples\Segments.cs" />
     <Compile Include="06 Arrays and Tuples\Tuples.cs" />
-    <Compile Include="EastWestArrayGaps.cs" />
+    <Compile Include="07 Operators and Casts\BoxUnBox.cs" />
+    <Compile Include="07 Operators and Casts\MainProgram.cs" />
+    <Compile Include="07 Operators and Casts\OpOverloading.cs" />
+    <Compile Include="07 Operators and Casts\SimpleCur.cs" />
+    <Compile Include="07 Operators and Casts\TypeSafe.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\_EntryClass.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,7 +103,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="TextTemplate.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
