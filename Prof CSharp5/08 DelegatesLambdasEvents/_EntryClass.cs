@@ -3,13 +3,14 @@
 namespace ConsoleA1._08_DelegatesLambdasEvents
 {
     class _EntryClass
+{
+    public static void Main()
     {
-        public static void Main()
-        {
-            Cns.WriteLine("Chapter 08!");
+        Cns.WriteLine("Chapter 08!");
 
+        Delegates.DemoDelegates();
 
-            Cns.ReadKey();
-        }
+        Cns.ReadKey();
     }
+}
 }
