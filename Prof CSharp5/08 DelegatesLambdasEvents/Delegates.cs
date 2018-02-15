@@ -12,10 +12,7 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
             return val * 2;
         }
 
-        public static double Sqr(double val)
-        {
-            return val * val;
-        }
+        public static double Sqr(double val) => val * val;
     }
 
 
