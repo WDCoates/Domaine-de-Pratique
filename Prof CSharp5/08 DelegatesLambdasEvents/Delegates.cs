@@ -45,10 +45,27 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
                 ProAndDis(ops[i], 1.555);
             }
 
+            //Now with a Func to it.
+            Func<double, double>[] fOps =
+            {
+                MathOps.TimesTwo,
+                MathOps.Sqr
+            };
+
+            foreach (var o in fOps)
+            {
+                ProAndDispFunc(o, 3.0);
+            }
 
         }
 
         static void ProAndDis(DoubleOp action, double val)
+        {
+            double res = action(val);
+            Con.WriteLine($"Value is {val}, result of operation is {res}");
+        }
+
+        static void ProAndDispFunc(Func<double, double> action, double val)
         {
             double res = action(val);
             Con.WriteLine($"Value is {val}, result of operation is {res}");
