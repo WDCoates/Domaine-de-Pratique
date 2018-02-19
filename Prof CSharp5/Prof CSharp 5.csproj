@@ -83,6 +83,7 @@
     <Compile Include="07 Operators and Casts\OpOverloading.cs" />
     <Compile Include="07 Operators and Casts\SimpleCur.cs" />
     <Compile Include="07 Operators and Casts\TypeSafe.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\BubbleSorter.cs" />
     <Compile Include="08 DelegatesLambdasEvents\Delegates.cs" />
     <Compile Include="08 DelegatesLambdasEvents\_EntryClass.cs" />
     <Compile Include="IAccount.cs" />
