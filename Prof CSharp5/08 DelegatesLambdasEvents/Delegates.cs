@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using ConsoleA1._00_Common;
 using Con = System.Console;
 
 namespace ConsoleA1._08_DelegatesLambdasEvents
@@ -57,7 +59,10 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
                 ProAndDispFunc(o, 3.0);
             }
 
-            //ToDo: A bubble Sort!
+            //Using our bubble Sort with our Employee Records
+            Employee[] emps = {new Employee(1001, (decimal)110233.35), new Employee(1002, (decimal)20233.35), new Employee(1003, (decimal)130233.35)};
+            BubbleSorter.Sort(emps, Employee.CompareSalary);
+
 
         }
 

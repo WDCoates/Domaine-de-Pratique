@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="00 Common\Employee.cs" />
     <Compile Include="00 Common\Person.cs" />
     <Compile Include="00 Common\ShoeCollection.cs" />
     <Compile Include="02 Core\Prog02.cs" />
