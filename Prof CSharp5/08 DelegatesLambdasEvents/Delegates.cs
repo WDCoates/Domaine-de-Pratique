@@ -13,10 +13,24 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
         {
             return val * 2;
         }
-
+        
         public static double Sqr(double val) => val * val;
     }
 
+    class MathOpsV
+    {
+        public static void TimesTwo(double val)
+        {
+            double res =  val * 2;
+            Con.WriteLine($"{res}");
+        }
+
+        public static void Sqr(double val)
+        {
+            double res = val * val;
+            Con.WriteLine($"{res}");
+        }
+    }
 
     delegate double DoubleOp(double x);
     public struct Delegates
@@ -63,6 +77,51 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
             Employee[] emps = {new Employee(1001, (decimal)110233.35), new Employee(1002, (decimal)20233.35), new Employee(1003, (decimal)130233.35)};
             BubbleSorter.Sort(emps, Employee.CompareSalary);
 
+            //Multicast delegates
+            Action<double> operAction = MathOpsV.TimesTwo;
+            operAction += MathOpsV.Sqr;
+
+            ProcAndDisAction(operAction, 3.5);
+
+            operAction -= MathOpsV.TimesTwo;
+            operAction += MathOpsV.TimesTwo;    //Order of execution not guaranteed
+
+            ProcAndDisAction(operAction, 3.5);
+
+            Delegate[] delInv = operAction.GetInvocationList();
+            foreach (var delegatev in delInv)
+            {
+                var a = (Action<double>) delegatev;
+                Con.WriteLine($"{a.Method}");
+
+                //Somehow it should be possible to invoke these methods individually.
+            }
+
+            Action a1 = One;
+            a1 += Two;
+            try
+            {
+                a1();
+            }
+            catch (Exception ex)
+            {
+                Con.WriteLine("Exception caught!");
+            }
+
+            Delegate[] dA = a1.GetInvocationList();
+            foreach (Action d in dA)
+            {
+                try
+                {
+                    d();
+                }
+                catch (Exception ex)
+                {
+                    Con.WriteLine("Exception what exception!");
+                }
+            }
+
+            //ToDo: Anonymous Methods P 197
 
         }
 
@@ -76,6 +135,22 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
         {
             double res = action(val);
             Con.WriteLine($"Value is {val}, result of operation is {res}");
+        }
+
+        static void ProcAndDisAction(Action<double> action, double vala)
+        {
+            action(vala);
+        }
+
+        static void One()
+        {
+            Con.WriteLine($"One!");
+            throw new Exception("Error in one!");
+        }
+
+        static void Two()
+        {
+            Con.WriteLine($"Two");
         }
     }
 
