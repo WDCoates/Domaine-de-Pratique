@@ -122,6 +122,16 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
             }
 
             //ToDo: Anonymous Methods P 197
+            string mid = ", middle bit, ";
+
+            Func<string, string> anonDel = delegate(string parm)
+            {
+                parm += mid;
+                parm += " end bit.";
+                return parm;
+            };
+
+            Con.WriteLine(anonDel("Start"));
 
         }
 
