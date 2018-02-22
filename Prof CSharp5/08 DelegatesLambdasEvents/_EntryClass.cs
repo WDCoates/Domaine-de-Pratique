@@ -10,6 +10,8 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
 
         Delegates.DemoDelegates();
 
+        LambdaExpressions.MidL();
+
         Cns.ReadKey();
     }
 }
