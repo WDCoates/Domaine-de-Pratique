@@ -13,6 +13,8 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
         LambdaExpressions.MidL();
         Cns.WriteLine($"{LambdaExpressions.StringToUpper("Test all goes to upper through one Parm Lambda function")}"); 
         Cns.WriteLine($"{LambdaExpressions.twoToUpper("two Parm Lambda function ()")}"); 
+        
+        LambdaExpressions.lambdaExamples();
 
         Cns.ReadKey();
     }
