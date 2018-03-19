@@ -16,9 +16,10 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
         
         LambdaExpressions.lambdaExamples();
 
-        Cns.ReadKey();
-
         SandPit.Test();
+
+        //Just to stop the console disapearing...
+        Cns.ReadKey();
     }
 }
 }
