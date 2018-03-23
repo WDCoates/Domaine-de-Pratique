@@ -67,10 +67,11 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
                 MathOps.TimesTwo,
                 MathOps.Sqr
             };
-
+            var val = 3.35;
             foreach (var o in fOps)
             {
-                ProAndDispFunc(o, 3.0);
+                ProAndDispFunc(o, ref val);
+                Console.WriteLine($@"Val: {val}");
             }
 
             //Using our bubble Sort with our Employee Records
@@ -141,10 +142,10 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
             Con.WriteLine($"Value is {val}, result of operation is {res}");
         }
 
-        static void ProAndDispFunc(Func<double, double> action, double val)
+        static void ProAndDispFunc(Func<double, double> action, ref double val)
         {
-            double res = action(val);
-            Con.WriteLine($"Value is {val}, result of operation is {res}");
+            val = action(val);
+            Con.WriteLine($"Value is {val}, result of operation is {val}");
         }
 
         static void ProcAndDisAction(Action<double> action, double vala)
