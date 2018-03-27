@@ -19,6 +19,22 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
 
             SandPit.Test();
 
+            //Car Dealer and Delgate Events
+            var dealer = new CarDealer();
+
+            //New customer
+            var michelle = new Consumer("Michelle");
+            dealer.NewCarInfo += michelle.NewCarIsHere;
+
+            dealer.NewCar("Lotus");
+
+            var christine = new Consumer("Chrissie");
+            dealer.NewCarInfo += christine.NewCarIsHere;
+
+            dealer.NewCar("Mini");
+            
+            dealer.NewCarInfo -= michelle.NewCarIsHere;
+            dealer.NewCar("BMW 325i");
             //Just to stop the console disapearing...
             Cns.ReadKey();
         }

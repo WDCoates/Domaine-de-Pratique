@@ -19,17 +19,33 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
 
         public void NewCar(string car)
         {
-            Con.WriteLine($"CarDealer: new car {car}");
+            Con.WriteLine($"CarDealer: Notice of a new car a {car}.");
             RaiseNewCarInfo(car);
         }
 
         protected virtual void RaiseNewCarInfo(string car)
         {
-            EventHandler<CarInfoEventsArgs> newCarInfo = NewCarInfo;
+            //EventHandler<CarInfoEventsArgs> newCarInfo = NewCarInfo;
+            var newCarInfo = NewCarInfo;
             if (newCarInfo != null)
             {
                 newCarInfo(this, new CarInfoEventsArgs(car));
             }
+        }
+    }
+
+    public class Consumer
+    {
+        private string name;
+
+        public Consumer(string name)
+        {
+            this.name = name;
+        }
+
+        public void NewCarIsHere(object sender, CarInfoEventsArgs e)
+        {
+            Con.WriteLine($@"{name}: A new {e.Car} has arrived.");
         }
     }
 }
