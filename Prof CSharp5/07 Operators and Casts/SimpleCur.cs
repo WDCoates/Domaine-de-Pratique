@@ -62,13 +62,13 @@ namespace ConsoleA1._07_Operators_and_Casts
 
         public string Name
         {
-            get => _name;
-            set => _name = Name;
+            get { return _name; }
+            set { _name = Name; }
         }
         public float Wage
         {
-            get => _wage;
-            set => _wage = Wage;
+            get { return _wage; }
+            set { _wage = Wage; }
         }
     }
 

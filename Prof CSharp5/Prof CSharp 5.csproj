@@ -40,6 +40,7 @@
     <DocumentationFile>
     </DocumentationFile>
     <RunCodeAnalysis>true</RunCodeAnalysis>
+    <LangVersion>default</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,7 +52,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ConsoleA1._08_DelegatesLambdasEvents._08_EntryClass</StartupObject>
+    <StartupObject>ConsoleA1._08_DelegatesLambdasEvents._EntryClass</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>TextTemplate.ico</ApplicationIcon>
@@ -60,14 +61,20 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase">
+      <HintPath>..\packages\WindowsBase.4.6.1055.0\lib\WindowsBase.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="00 Common\Employee.cs" />
     <Compile Include="00 Common\Person.cs" />
     <Compile Include="00 Common\ShoeCollection.cs" />
     <Compile Include="02 Core\Prog02.cs" />
@@ -83,13 +90,21 @@
     <Compile Include="07 Operators and Casts\OpOverloading.cs" />
     <Compile Include="07 Operators and Casts\SimpleCur.cs" />
     <Compile Include="07 Operators and Casts\TypeSafe.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\BubbleSorter.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\Delegates.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\EventsCode.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\LambdaExpressions.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\SandPit.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\WeakCarInfoEM.cs" />
     <Compile Include="08 DelegatesLambdasEvents\_EntryClass.cs" />
+    <Compile Include="09 Strings and RegExp\_Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
