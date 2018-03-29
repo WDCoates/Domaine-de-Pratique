@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using Con = System.Console;
 
 namespace ConsoleA1._08_DelegatesLambdasEvents
@@ -46,6 +47,26 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
         public void NewCarIsHere(object sender, CarInfoEventsArgs e)
         {
             Con.WriteLine($@"{name}: A new {e.Car} has arrived.");
+        }
+    }
+
+    public class WeakConsumer : IWeakEventListener
+    {
+        private string name;
+
+        public WeakConsumer(string name)
+        {
+            this.name = name;
+        }
+        public void NewCarIsHere(object sender, CarInfoEventsArgs e)
+        {
+            Con.WriteLine($@"{name}: A new {e.Car} has arrived.");
+        }
+
+        public bool ReceiveWeakEvent(Type managerType, object sender, EventArgs e)
+        {
+            NewCarIsHere(sender, e as CarInfoEventsArgs);
+            return true;
         }
     }
 }

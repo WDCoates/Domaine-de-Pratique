@@ -1,4 +1,6 @@
-﻿using Cns = System.Console;
+﻿using System.Linq.Expressions;
+using System.Windows;
+using Cns = System.Console;
 
 namespace ConsoleA1._08_DelegatesLambdasEvents
 {
@@ -35,7 +37,28 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
             
             dealer.NewCarInfo -= michelle.NewCarIsHere;
             dealer.NewCar("BMW 325i");
+            dealer.NewCarInfo -= christine.NewCarIsHere;
+            System.GC.Collect();
+
             //Just to stop the console disapearing...
+
+            //Weak Class Listeners
+            var wendy = new WeakConsumer("Wendy");
+            WeakCarInfoEM.AddListener(dealer, wendy);
+            dealer.NewCar("Willie Wonker Wanger");
+            WeakCarInfoEM.RemoveListener(dealer, wendy);
+            dealer.NewCar("Nothing Today");
+            System.GC.Collect();
+
+            //Generic WeakEvent
+            var gCus = new Consumer("Gena");
+            WeakEventManager<CarDealer, CarInfoEventsArgs>.AddHandler(dealer, "NewCarInfo", gCus.NewCarIsHere);
+
+            dealer.NewCar("Genevieve");
+
+            WeakEventManager<CarDealer, CarInfoEventsArgs>.RemoveHandler(dealer, "NewCarInfo", gCus.NewCarIsHere);
+            dealer.NewCar("Renault");
+
             Cns.ReadKey();
         }
     }
