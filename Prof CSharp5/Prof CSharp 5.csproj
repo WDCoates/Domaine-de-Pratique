@@ -52,7 +52,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ConsoleA1._08_DelegatesLambdasEvents._EntryClass</StartupObject>
+    <StartupObject>ConsoleA1._09_Strings_and_RegExp._Main</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>TextTemplate.ico</ApplicationIcon>
