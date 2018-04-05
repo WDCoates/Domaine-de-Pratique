@@ -13,7 +13,7 @@ namespace ConsoleA1._09_Strings_and_RegExp
         {
             Cons.WriteLine($@"Chapter 09 Strings and Regular Expressions");
 
-            var test = "Test";
+            var test = "111";
             StringBuilder sbGreetings = new StringBuilder($@"Just A little note to say hello...{test}.", 150);
             sbGreetings.AppendFormat($" This goes on the end.");
 
@@ -28,7 +28,9 @@ namespace ConsoleA1._09_Strings_and_RegExp
             } 
             Cons.WriteLine($"After Encryption: {sbGreetings}");
 
-            
+            var test2 = Int32.Parse(test);
+
+            var test3 = test2 is IFormattable;
             
             Cons.ReadKey();
         }
