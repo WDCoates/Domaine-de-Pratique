@@ -35,10 +35,10 @@ namespace ConsoleA1._09_Strings_and_RegExp
             FVector v1 = new FVector(1, 22, 333);
             FVector v2 = new FVector(482.5, 54.3, -17.18);
 
-            Cons.WriteLine($"\nIn default format, \nV1 is {v1}\n v2 is {v2}.");
-            Cons.WriteLine($"\nIn IJK format, \nV1 is {v1, 20:Ijk}\n v2 is {v2, 20:iJk}.");
-            Cons.WriteLine($"\nIn VE format, \nV1 is {v1, 10:ve}\n v2 is {v2, 10:ve}.");
-            Cons.WriteLine($"\nIn N format, \nV1 is {v1, 10:n}\n v2 is {v2, 10:N}.");
+            Cons.WriteLine($"\nIn default format, \nV1 is {v1} \nv2 is {v2}.");
+            Cons.WriteLine($"\nIn IJK format, \nV1 is {v1, 30:Ijk} \nv2 is {v2, 30:iJk}");
+            Cons.WriteLine($"\nIn VE format, \nV1 is {v1, 50:ve}\nv2 is {v2, 50:ve}");
+            Cons.WriteLine($"\nIn N format, \nV1 is {v1, -30:n}\nv2 is {v2, -30:N}");
 
             Cons.ReadKey();
         }
