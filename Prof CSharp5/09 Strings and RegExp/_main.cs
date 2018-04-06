@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +42,8 @@ namespace ConsoleA1._09_Strings_and_RegExp
             Cons.WriteLine($"\nIn N format, \nV1 is {v1, -30:n}\nv2 is {v2, -30:N}");
 
             Cons.ReadKey();
+
+            //Change A everywhere
         }
     }
 }
