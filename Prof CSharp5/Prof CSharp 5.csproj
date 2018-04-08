@@ -97,6 +97,7 @@
     <Compile Include="08 DelegatesLambdasEvents\SandPit.cs" />
     <Compile Include="08 DelegatesLambdasEvents\WeakCarInfoEM.cs" />
     <Compile Include="08 DelegatesLambdasEvents\_EntryClass.cs" />
+    <Compile Include="09 Strings and RegExp\RegExp.cs" />
     <Compile Include="09 Strings and RegExp\Vector.cs" />
     <Compile Include="09 Strings and RegExp\_Main.cs" />
     <Compile Include="IAccount.cs" />
