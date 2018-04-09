@@ -41,10 +41,18 @@ namespace ConsoleA1._09_Strings_and_RegExp
             Cons.WriteLine($"\nIn VE format, \nV1 is {v1, 50:ve}\nv2 is {v2, 50:ve}");
             Cons.WriteLine($"\nIn N format, \nV1 is {v1, -30:n}\nv2 is {v2, -30:N}");
 
+            Cons.WriteLine(@"And now for something Regular....");
+
+            var pat = @"\S+an\S+";
+            RegExp.runReg(pat);
+            pat = @"\?";
+            RegExp.runReg(pat);
+
             Cons.ReadKey();
 
             //Change A everywhere
             //Change B Commited to Local Repository
+            //Change C Only in file in project folder
         }
     }
 }
