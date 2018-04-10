@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using Cons = System.Console;
@@ -36,7 +37,9 @@ One from the pitiless wave?
 Is all that we see or seem
 But a dream within a dream?";
 
+
         
+
         public static void runReg (string pat)
         {
             MatchCollection matches = Regex.Matches(myTest, pat, RegexOptions.ExplicitCapture);
@@ -45,6 +48,30 @@ But a dream within a dream?";
             {
                 Cons.WriteLine($"Match: {m} at {m.Index}");
             }
+
+
+            Cons.WriteLine($"Breakup a url...");
+
+
+            string sUrl = @"Is there a great url in here http://www.davecoates.co.uk and with a port? http://www.davecoates.co.uk:4444";
+            
+            pat = @"\b(\S+):\/\/([^: ]+)(?::(\S+))?\b";    //this does not quite work as a pattern but work in online tools!???
+            
+            matches = Regex.Matches(sUrl, pat);
+
+            foreach (Match m in matches)
+            {
+                Cons.WriteLine($"Match: {m} at {m.Index}");
+
+
+                foreach (var g in m.Groups)
+                {
+                    Cons.WriteLine($"Group in Match: {g}");
+    
+                }
+                
+            }
+
         }
     }
 }
