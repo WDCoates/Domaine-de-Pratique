@@ -16,6 +16,7 @@ namespace ConsoleA1._10_Collections
             Cons.WriteLine($"Chapter 10 - Collections...");
 
             Play._Time(1);
+            Play._Time(2);
 
             return;
         }
@@ -42,8 +43,16 @@ namespace ConsoleA1._10_Collections
 
                 //Thread Safe collections!
                 case 2:
-
-                    Col.Concurrent.BlockingCollection<string> bC = new BlockingCollection<string>();
+                    //Col.Concurrent.BlockingCollection<string> bC = new BlockingCollection<string>();
+                    var intList = new List<int>(10);
+                    Cons.WriteLine($"intList's capacity is {intList.Capacity}, used {intList.Count}.");
+                    intList.Add(444);
+                    Cons.WriteLine($"intList's capacity is {intList.Capacity}, used {intList.Count}.");
+                    intList.TrimExcess();
+                    Cons.WriteLine($"intList's capacity is {intList.Capacity}, used {intList.Count}.");
+                    intList.Add(22);
+                    intList.Add(33);
+                    Cons.WriteLine($"intList's capacity is {intList.Capacity}, used {intList.Count}.");
                     break;
             }
 
