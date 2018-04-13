@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleA1._00_Common
 {
-    public class Racer : IComparable<Racer>, IFormattable, IDisposable
+    public class Racer : IComparable<Racer>, IFormattable
     {
         public int Id { get; private set; }
         public string FirstName { get; set; }
@@ -20,14 +16,11 @@ namespace ConsoleA1._00_Common
         }
         public Racer(int id, string firstName, string lastName, string country, int wins)
         {
-            using (this)
-            {
-                Id = id;
-                FirstName = firstName;
-                LastName = lastName;
-                Country = country;
-                Wins = wins;
-            }
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+            Country = country;
+            Wins = wins;
         }
 
         public override string ToString()
@@ -59,17 +52,12 @@ namespace ConsoleA1._00_Common
         public int CompareTo(Racer other)
         {
             if (other == null) return -1;
-            int compare = string.Compare(this.LastName, other.LastName);
+            int compare = string.Compare(LastName, other.LastName);
             if (compare == 0)
-                return string.Compare(this.FirstName, other.FirstName);
+                return string.Compare(FirstName, other.FirstName);
             return compare;
             
         }
 
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
