@@ -12,9 +12,9 @@ using Cons = System.Console;
 
 namespace ConsoleA1._10_Collections
 {
-    class _Main
+    class _10Main
     {
-        static void Main()
+        public static void Main()
         {
             Cons.WriteLine($"Chapter 10 - Collections...");
 
@@ -49,6 +49,19 @@ namespace ConsoleA1._10_Collections
             Cons.WriteLine("Now using lambda to format.........................................");
             racers.ForEach(r => Cons.WriteLine($"{r:w}"));
 
+            Racer R1 = new Racer(22, "Ayrton", "Senna", "Brazil", 41);
+
+            if (!racers.Remove(R1))
+            {
+                Cons.WriteLine($"Racer {R1.Id} not found to remove.");
+            }
+
+            R1 = DHill;
+            if (!racers.Remove(R1))
+            {
+                Cons.WriteLine($"Racer {DHill.Id} not found to remove.");
+            }
+            
             Cons.ReadKey();
         }
 
