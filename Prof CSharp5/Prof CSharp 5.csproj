@@ -101,6 +101,7 @@
     <Compile Include="09 Strings and RegExp\RegExp.cs" />
     <Compile Include="09 Strings and RegExp\Vector.cs" />
     <Compile Include="09 Strings and RegExp\_Main.cs" />
+    <Compile Include="10 Collections\FindCountry.cs" />
     <Compile Include="10 Collections\_10Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />

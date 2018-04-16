@@ -62,6 +62,9 @@ namespace ConsoleA1._10_Collections
                 Cons.WriteLine($"Racer {DHill.Id} not found to remove.");
             }
             
+            //Using Find Predicate
+            int i2 = racers.FindIndex(new FindCountry("Finland").FindCountryPredicate);
+
             Cons.ReadKey();
         }
 
