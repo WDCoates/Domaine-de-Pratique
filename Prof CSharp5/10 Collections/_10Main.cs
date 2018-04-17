@@ -25,10 +25,10 @@ namespace ConsoleA1._10_Collections
             var intList = new List<int>() {1, 2, 3, 4, 5};
 
             //Racers
-            Racer DHill = new Racer(2,"Graham","Dameon", "UK", 10);
-            Racer GHill = new Racer(7,"Graham","Hill", "UK", 14);
+            Racer GHill = new Racer(2,"Graham","Hill", "UK", 10);
+            Racer DHill = new Racer(7,"Dameon","Hill", "UK", 14);
 
-            var racers = new List<Racer>(10) {DHill, GHill};
+            var racers = new List<Racer>(10) {GHill, DHill};
 
             Cons.WriteLine($"{racers.Count} racers so far.");
 
@@ -62,8 +62,19 @@ namespace ConsoleA1._10_Collections
                 Cons.WriteLine($"Racer {DHill.Id} not found to remove.");
             }
             
+            racers.Add(R1);
             //Using Find Predicate
-            int i2 = racers.FindIndex(new FindCountry("Finland").FindCountryPredicate);
+            //int i2 = racers.FindIndex(new FindCountry("Finland").FindCountryPredicate);   This works but has a bugget, not my code!
+            int i3 = racers.FindIndex(r => r.Country == "UK"); //Sane as line above and more likely to be used...
+            i3 = racers.FindLastIndex(r => r.Country == "UK"); //Sane as line above and more likely to be used...
+
+            var R2 = racers.FindLast(r => r.LastName == "Louder");
+            var someWins = racers.FindAll(r => r.Wins < 20);
+            someWins.Sort();
+
+            var bigWiners = racers.FindAll(r => r.Wins > 20);
+            bigWiners.Sort();
+
 
             Cons.ReadKey();
         }
