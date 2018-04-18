@@ -74,7 +74,10 @@ namespace ConsoleA1._10_Collections
 
             var bigWiners = racers.FindAll(r => r.Wins > 20);
             bigWiners.Sort();
+            
+            racers.Sort(new RacerComp(RacerComp.CompareType.LastName));
 
+            racers.Sort(new RacerComp(RacerComp.CompareType.Country));
 
             Cons.ReadKey();
         }
