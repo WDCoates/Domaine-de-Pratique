@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Common;
 using ConsoleA1._00_Common;
 using Cons = System.Console;
 
@@ -78,6 +79,13 @@ namespace ConsoleA1._10_Collections
             racers.Sort(new RacerComp(RacerComp.CompareType.LastName));
 
             racers.Sort(new RacerComp(RacerComp.CompareType.Country));
+
+            //Sort using delagte and Lambda expression.
+            racers.Sort((r1, r2) => r2.Wins.CompareTo(r1.Wins));
+            racers.Reverse();
+
+            //Type Conversion...
+            var rPeople = racers.ConvertAll<Person>(r => new Person(r.FirstName +','+ r.LastName));
 
             Cons.ReadKey();
         }
