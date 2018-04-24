@@ -87,6 +87,13 @@ namespace ConsoleA1._10_Collections
             //Type Conversion...
             var rPeople = racers.ConvertAll<Person>(r => new Person(r.FirstName +','+ r.LastName));
 
+            //Read-Only Collections
+            var roRacers = racers.AsReadOnly();
+          
+            //Queues
+
+
+
             Cons.ReadKey();
         }
 
