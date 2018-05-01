@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using Col = System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using Common;
 using ConsoleA1._00_Common;
 using Cons = System.Console;
@@ -91,8 +86,17 @@ namespace ConsoleA1._10_Collections
             var roRacers = racers.AsReadOnly();
           
             //Queues
+            var dm = new DocsManager();
+            ProcessDocs.Start(dm);
 
-
+            //Create docs and add too dm
+            for (int i = 0; i < 100; i++)
+            {
+                var doc = new Doc("Doc" + i.ToString(), "AID" + new Random().Next(20).ToString());
+                dm.AddDoc(doc);
+                Console.WriteLine($"Added Document: {doc.Title} by {doc.Auther} to queue.");
+                Thread.Sleep(new Random().Next(20));
+            }
 
             Cons.ReadKey();
         }
