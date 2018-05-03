@@ -116,7 +116,7 @@ namespace ConsoleA1._10_Collections
             {
                 Cons.Write(lets.Pop());
             }
-            Cons.WriteLine();
+            Cons.WriteLine($"Next...");
 
             Cons.ReadKey();
         }
