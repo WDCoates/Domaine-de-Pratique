@@ -8,11 +8,18 @@ namespace ConsoleA1._10_Collections
     public class ProcessDocs
     {
         private DocsManager docManager;
+        private static Task _t;
+        
         public static void Start(DocsManager dm)
         {
-            Task.Factory.StartNew(new ProcessDocs(dm).Run);
+            _t = Task.Factory.StartNew(new ProcessDocs(dm).Run);
+            
         }
-
+        public static void Stop()
+        {
+            if(_t.IsCompleted)
+                _t.Dispose();
+        }
         protected ProcessDocs(DocsManager dm)
         {
             ////if (dm == null)
@@ -24,10 +31,12 @@ namespace ConsoleA1._10_Collections
 
         protected void Run()
         {
-            while (true)
+            var waits = 0;
+            while (waits < 20)
             {
                 if (docManager.AnyDocs)
                 {
+                    waits = 0;
                     Doc doc = docManager.GetDoc();
                     Console.WriteLine($"Document Title: {doc.Title}; by {doc.Auther}");
                 }
@@ -37,6 +46,7 @@ namespace ConsoleA1._10_Collections
                 }
 
                 Thread.Sleep(new Random().Next(20));
+                waits++;
             }
         }
     }

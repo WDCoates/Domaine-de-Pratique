@@ -88,7 +88,6 @@ namespace ConsoleA1._10_Collections
             //Queues
             var dm = new DocsManager();
             ProcessDocs.Start(dm);
-
             //Create docs and add too dm
             for (int i = 0; i < 100; i++)
             {
@@ -97,6 +96,27 @@ namespace ConsoleA1._10_Collections
                 Console.WriteLine($"Added Document: {doc.Title} by {doc.Auther} to queue.");
                 Thread.Sleep(new Random().Next(20));
             }
+            
+            Thread.Sleep(2000);
+            ProcessDocs.Stop();
+
+            //Stacks Quick one...
+            var lets = new Stack<char>();
+            lets.Push('A');
+            lets.Push('B');
+            lets.Push('C');
+
+            foreach (var l in lets)
+            {
+                Cons.Write(l);
+            }
+            Cons.WriteLine();
+           
+            while (lets.Count > 0)
+            {
+                Cons.Write(lets.Pop());
+            }
+            Cons.WriteLine();
 
             Cons.ReadKey();
         }
