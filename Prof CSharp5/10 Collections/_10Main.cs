@@ -118,6 +118,9 @@ namespace ConsoleA1._10_Collections
             }
             Cons.WriteLine($"Next...");
 
+            //Linked Lists...
+            var pDL = new PDocManager();
+
             Cons.ReadKey();
         }
 
@@ -125,16 +128,16 @@ namespace ConsoleA1._10_Collections
 
     public struct Play
     {
-        public static void _Time(int Step)
+        public static void _Time(int step)
         {
-            switch (Step)
+            switch (step)
             {
                 case 1:
-                    Col.Generic.ISet<string> sSet = new SortedSet<string>();
+                    ISet<string> sSet = new SortedSet<string>();
                     sSet.Add("Test");
                     sSet.Add("Set");
 
-                    Col.Generic.ISet<string> sSet2 = new SortedSet<string>();
+                    ISet<string> sSet2 = new SortedSet<string>();
                     sSet2.Add("Test");
                     sSet2.Add("Something");
 

@@ -14,7 +14,7 @@ namespace ConsoleA1._10_Collections
             this.Title = title;
         }
     }
-
+    
     public class DocsManager
     {
         private readonly Queue<Doc> docQueue = new Queue<Doc>();
@@ -44,4 +44,29 @@ namespace ConsoleA1._10_Collections
             get => docQueue.Count > 0;
         }
     }
+    public class PDoc : Doc
+    {
+        public byte Priority { get; private set; }
+        public PDoc(string title, string auther, byte priority) : base(title, auther)
+        {
+            this.Priority = priority;
+        }
+    }
+
+    public class PDocManager
+    {
+        private readonly LinkedList<PDoc> pDocList;
+        private readonly List<LinkedListNode<PDoc>> pNodes;
+
+        public PDocManager()
+        {
+            pDocList = new LinkedList<PDoc>();
+            pNodes = new List<LinkedListNode<PDoc>>(10);
+            for (var n=0; n < 10; n++)
+            {
+                pNodes.Add(new LinkedListNode<PDoc>(null));
+            }
+        }
+    }
+
 }
