@@ -119,7 +119,9 @@ namespace ConsoleA1._10_Collections
             Cons.WriteLine($"Next...");
 
             //Linked Lists...
-            var pDL = new PDocManager();
+            var pDM = new PDocManager();
+
+            pDM.AddPDoc(new PDoc("Adoc", "AAAdams", 4));
 
             Cons.ReadKey();
         }
