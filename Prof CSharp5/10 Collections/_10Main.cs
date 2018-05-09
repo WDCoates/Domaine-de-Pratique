@@ -122,6 +122,12 @@ namespace ConsoleA1._10_Collections
             var pDM = new PDocManager();
 
             pDM.AddPDoc(new PDoc("Adoc", "AAAdams", 4));
+            pDM.AddPDoc(new PDoc("Bdoc", "BBabs", 8));
+            pDM.AddPDoc(new PDoc("Cdoc", "CCock", 4));
+            pDM.AddPDoc(new PDoc("Ddoc", "AAAdams", 8));
+            pDM.AddPDoc(new PDoc("Edoc", "CCock", 8));
+
+            pDM.DisplayAllNodes();
 
             Cons.ReadKey();
         }
