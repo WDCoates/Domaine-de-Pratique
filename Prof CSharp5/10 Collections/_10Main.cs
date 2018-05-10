@@ -1,6 +1,7 @@
 ﻿using System;
 using Col = System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Common;
 using ConsoleA1._00_Common;
@@ -128,6 +129,25 @@ namespace ConsoleA1._10_Collections
             pDM.AddPDoc(new PDoc("Edoc", "CCock", 8));
 
             pDM.DisplayAllNodes();
+
+            //Simple Sorted List
+            var boots = new SortedList<int, string>();
+            boots.Add(18, "Knee High");
+            boots.Add(27, "Thigh Length");
+            boots[12] = "Calfe";
+            boots[6] = "Ankle";
+
+            foreach (var b in boots)
+            {
+                Cons.WriteLine($"{b.Key}, {b.Value}");
+            }
+
+            boots[27] = "Thigh High";
+            
+            foreach (var b in boots)
+            {
+                Cons.WriteLine($"{b.Key}, {b.Value}");
+            }
 
             Cons.ReadKey();
         }
