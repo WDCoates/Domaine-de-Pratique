@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="00 Common\Employee.cs" />
+    <Compile Include="00 Common\EmployeeId.cs" />
     <Compile Include="00 Common\Person.cs" />
     <Compile Include="00 Common\Racer.cs" />
     <Compile Include="00 Common\ShoeCollection.cs" />
