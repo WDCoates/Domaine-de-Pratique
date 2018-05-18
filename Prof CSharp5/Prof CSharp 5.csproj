@@ -51,6 +51,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+	  <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
+	  <PropertyGroup Condition=" '$(Configuration)' != 'Release' ">
+		<DebugType>full</DebugType>
+	  </PropertyGroup>
+	  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+		<CodeContractsRuntimeCheckingLevel>ReleaseRequires</CodeContractsRuntimeCheckingLevel>
+		<DebugType>pdbonly</DebugType>
+	  </PropertyGroup>
+	  <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
   <PropertyGroup>
     <StartupObject>ConsoleA1._10_Collections._10Main</StartupObject>
   </PropertyGroup>
@@ -74,6 +83,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="00 Common\DicEmployee .cs" />
     <Compile Include="00 Common\Employee.cs" />
     <Compile Include="00 Common\EmployeeId.cs" />
     <Compile Include="00 Common\Person.cs" />

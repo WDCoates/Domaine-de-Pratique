@@ -2,6 +2,7 @@
 using Col = System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading;
 using Common;
 using ConsoleA1._00_Common;
@@ -150,6 +151,28 @@ namespace ConsoleA1._10_Collections
             }
 
             //What Next....for DCoates
+            var employees = new Dictionary<EmployeeId, DicEmployee>();
+            
+            var idCat = new EmployeeId("A000001");
+            var eCat = new DicEmployee(idCat, "Cat", 100000.00m);
+            employees.Add(idCat, eCat);
+            
+            var idAnt = new EmployeeId("A012345");
+            var eAnt = new DicEmployee(idAnt, "Ant", 23000.00m);
+            employees.Add(idAnt, eAnt);
+
+            var idBee = new EmployeeId("B000001");
+            var eBee = new DicEmployee(idBee, "Bee", 40000.00m);
+            employees.Add(idBee, eBee);
+
+            var idDog = new EmployeeId("A000002");
+            var eDog = new DicEmployee(idDog, "Dog", 10000.00m);
+            employees.Add(idDog, eDog);
+
+            foreach (var e in employees)
+            {
+                Cons.WriteLine(e.ToString());
+            }
 
             Cons.ReadKey();
         }
