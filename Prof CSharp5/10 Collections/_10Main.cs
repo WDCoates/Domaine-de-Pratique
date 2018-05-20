@@ -174,7 +174,36 @@ namespace ConsoleA1._10_Collections
                 Cons.WriteLine(e.ToString());
             }
 
-            Cons.ReadKey();
+            while (true)
+            {
+                Cons.Write("Enter am Empolyee Id: (X to exit)>");
+                var uIn = Cons.ReadLine();
+                if (uIn.ToLower() == "x") break;
+
+                EmployeeId eId;
+                try
+                {
+                    eId = new EmployeeId(uIn);
+
+                    DicEmployee dEmp;
+                    if (!employees.TryGetValue(eId, out dEmp))
+                    {
+                        Cons.WriteLine($"Employee with {eId} does not exist.");
+                    }
+                    else
+                    {
+                        Cons.WriteLine(dEmp);
+                    }
+
+                }
+                catch (EmployeeIdException ee)
+                {
+                    Cons.WriteLine(ee.Message);
+                }
+
+            }
+
+            //Cons.ReadKey();
         }
 
     }

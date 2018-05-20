@@ -11,7 +11,7 @@ namespace ConsoleA1._00_Common
         
         public EmployeeId(string id)
         {
-            //Contract.Requires<ArgumentNullException>(id != null);     -- Not in VS 2017 !
+            //Contract.Requires<ArgumentNullException>(id != null);     //-- Not in VS 2017 !
             
             prefix = (id.ToUpper())[0];
             int numLength = id.Length - 1;
@@ -39,8 +39,6 @@ namespace ConsoleA1._00_Common
         {
             if (other == null) return false;
             return (prefix == other.prefix && number == other.number);
-
-
         }
 
         public override bool Equals(Object obj)
