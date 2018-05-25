@@ -203,7 +203,28 @@ namespace ConsoleA1._10_Collections
 
             }
 
-            //Cons.ReadKey();
+            //Lookups from System.core
+            //Use the racers list from above
+
+            var lookupRacers = racers.ToLookup(r => r.Country);
+            foreach (var r in lookupRacers["UK"])
+            {
+                Cons.WriteLine($"name:{r.LastName}, {r.FirstName}");
+            }
+            //Nice but not sorted!
+
+            //Sorted Dics....
+            //Simple Sorted List
+            var sdBoots = new SortedDictionary<int, string> {{18, "Knee High"}, {27, "Thigh Length"}};
+            sdBoots[12] = "Calfe";
+            sdBoots[6] = "Ankle";
+
+            foreach (var b in sdBoots)
+            {
+                Cons.WriteLine($"{b.Key}, {b.Value}");
+            }
+
+            Cons.ReadKey();
         }
 
     }
