@@ -224,6 +224,15 @@ namespace ConsoleA1._10_Collections
                 Cons.WriteLine($"{b.Key}, {b.Value}");
             }
 
+            //Sets...
+            var coTeams = new HashSet<string>() { "Ferrari", "Lotus", "McLaren", "Honda" };
+            var oldTeams = new HashSet<string>() { "Ferrari", "Lotus", "BRM", "Aston Martin"};
+            var newTeams = new HashSet<string>() { "Red Bull", "Force India", "Sauber" };
+
+            var res = coTeams.Add("Williams");
+            res = coTeams.Add("Williams");
+
+
             Cons.ReadKey();
         }
 
