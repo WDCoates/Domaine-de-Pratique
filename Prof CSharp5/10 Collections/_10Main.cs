@@ -225,6 +225,7 @@ namespace ConsoleA1._10_Collections
             }
 
             //Sets...
+            var allTeams = new HashSet<string>() { "Ferrari", "Lotus", "McLaren", "Honda", "BRM", "Aston Martin", "Red Bull", "Force India", "Sauber", "Williams" };
             var coTeams = new HashSet<string>() { "Ferrari", "Lotus", "McLaren", "Honda" };
             var oldTeams = new HashSet<string>() { "Ferrari", "Lotus", "BRM", "Aston Martin"};
             var newTeams = new HashSet<string>() { "Red Bull", "Force India", "Sauber" };
@@ -232,6 +233,16 @@ namespace ConsoleA1._10_Collections
             var res = coTeams.Add("Williams");
             res = coTeams.Add("Williams");
 
+            res = coTeams.IsSubsetOf(allTeams);
+            res = allTeams.IsSupersetOf(coTeams);
+            res = oldTeams.Overlaps(coTeams);
+            res = newTeams.Overlaps(coTeams);
+            
+            var allTeams2 = new SortedSet<string>(coTeams);
+            allTeams2.UnionWith(oldTeams);
+            allTeams2.UnionWith(newTeams);
+
+            res = allTeams2.SetEquals(allTeams);
 
             Cons.ReadKey();
         }
