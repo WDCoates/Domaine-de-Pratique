@@ -244,6 +244,11 @@ namespace ConsoleA1._10_Collections
 
             res = allTeams2.SetEquals(allTeams);
 
+            var tTeams = new SortedSet<string>(allTeams);
+            tTeams.SymmetricExceptWith(oldTeams);
+            var yTeams = new SortedSet<string>(allTeams);
+            var yI = new SortedSet<string>(yTeams.Intersect(oldTeams));
+
             Cons.ReadKey();
         }
 
