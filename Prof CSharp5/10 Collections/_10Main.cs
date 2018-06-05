@@ -1,8 +1,9 @@
 ﻿using System;
 using Col = System.Collections;
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading;
 using Common;
 using ConsoleA1._00_Common;
@@ -10,8 +11,12 @@ using Cons = System.Console;
 
 namespace ConsoleA1._10_Collections
 {
-    class _10Main
+    internal class _10Main
     {
+        public _10Main()
+        {
+        }
+
         public static void Main()
         {
             Cons.WriteLine($"Chapter 10 - Collections...");
@@ -249,9 +254,53 @@ namespace ConsoleA1._10_Collections
             var yTeams = new SortedSet<string>(allTeams);
             var yI = new SortedSet<string>(yTeams.Intersect(oldTeams));
 
+            //Observable Collections
+            Cons.Clear();
+            Cons.WriteLine("Observable Collections....");
+            var data = new ObservableCollection<string>();
+            data.CollectionChanged += Data_CollectionChanged;
+            data.Add("First");
+            data.Add("Second");
+            data.Insert(1, "Three");
+            data.Remove("Three");
+
+
             Cons.ReadKey();
         }
+        
+        public static void Data_CollectionChanged(object sender, NotifyCollectionChangedEventArgs eArgs)
+        {
+            Cons.WriteLine($"Action: {eArgs.Action}.");
+            if (eArgs.OldItems != null)
+            {
+                foreach (var itm in eArgs.OldItems)
+                {
+                    Cons.WriteLine($"Item {itm} removed.");
+                }
+            }
+            if (eArgs.NewItems != null)
+            {
+                foreach (var itm in eArgs.NewItems)
+                {
+                    Cons.WriteLine($"Item {itm} added.");
+                }
+            }
+        }
 
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 
     public struct Play
