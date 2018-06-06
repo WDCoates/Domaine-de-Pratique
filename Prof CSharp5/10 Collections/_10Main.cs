@@ -264,10 +264,35 @@ namespace ConsoleA1._10_Collections
             data.Insert(1, "Three");
             data.Remove("Three");
 
+            //Bits and bobs....
+            Cons.WriteLine("Bits and Bobs....");
+            var bitsA = new Col.BitArray(8);
+            bitsA.SetAll(true);
+            bitsA.Set(1, false);
+            DisplayBits(bitsA);
+
+            Cons.WriteLine();
+            bitsA.Not();
+            DisplayBits(bitsA);
+            
+            byte[] aI = {22};
+            var bitsB = new Col.BitArray(aI);
+            DisplayBits(bitsB);
+            
+            bitsA.Or(bitsB);
+            DisplayBits(bitsA);
 
             Cons.ReadKey();
         }
-        
+
+        static void DisplayBits(Col.BitArray bitArray)
+        {
+            foreach (bool bit in bitArray)
+            {
+                Cons.Write($"{(bit? 1 : 0)}");
+            }
+            Cons.WriteLine();
+        }
         public static void Data_CollectionChanged(object sender, NotifyCollectionChangedEventArgs eArgs)
         {
             Cons.WriteLine($"Action: {eArgs.Action}.");
