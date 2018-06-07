@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using Col = System.Collections;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
@@ -281,6 +282,25 @@ namespace ConsoleA1._10_Collections
             
             bitsA.Or(bitsB);
             DisplayBits(bitsA);
+
+            //BitVector32 Struct
+            var vBits = new Col.Specialized.BitVector32();
+            int m1 = BitVector32.CreateMask();
+            int m2 = BitVector32.CreateMask(m1);
+            int m3 = BitVector32.CreateMask(m2);
+            int m4 = BitVector32.CreateMask(m3);
+            int m5 = BitVector32.CreateMask(128);
+
+            vBits[m1] = true;
+            vBits[m3] = true;
+            vBits[m4] = true;
+            vBits[m5] = true;
+            
+            Cons.WriteLine(vBits);
+
+            int rec = 0x88abcde;
+            var vBitRSet = new BitVector32(rec);
+            Cons.WriteLine(vBitRSet);
 
             Cons.ReadKey();
         }
