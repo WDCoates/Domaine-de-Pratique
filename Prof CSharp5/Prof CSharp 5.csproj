@@ -51,15 +51,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-	  <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
-	  <PropertyGroup Condition=" '$(Configuration)' != 'Release' ">
-		<DebugType>full</DebugType>
-	  </PropertyGroup>
-	  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-		<CodeContractsRuntimeCheckingLevel>ReleaseRequires</CodeContractsRuntimeCheckingLevel>
-		<DebugType>pdbonly</DebugType>
-	  </PropertyGroup>
-	  <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
+  <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
+  <PropertyGroup Condition=" '$(Configuration)' != 'Release' ">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <CodeContractsRuntimeCheckingLevel>ReleaseRequires</CodeContractsRuntimeCheckingLevel>
+    <DebugType>pdbonly</DebugType>
+  </PropertyGroup>
+  <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
   <PropertyGroup>
     <StartupObject>ConsoleA1._10_Collections._10Main</StartupObject>
   </PropertyGroup>
@@ -68,6 +68,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.2.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows" />
@@ -114,6 +117,7 @@
     <Compile Include="09 Strings and RegExp\_Main.cs" />
     <Compile Include="10 Collections\Docs.cs" />
     <Compile Include="10 Collections\FindCountry.cs" />
+    <Compile Include="10 Collections\ImmutabeThings.cs" />
     <Compile Include="10 Collections\ProcessDocs.cs" />
     <Compile Include="10 Collections\RacerComp.cs" />
     <Compile Include="10 Collections\_10Main.cs" />

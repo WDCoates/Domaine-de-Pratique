@@ -302,6 +302,9 @@ namespace ConsoleA1._10_Collections
             var vBitRSet = new BitVector32(rec);
             Cons.WriteLine(vBitRSet);
 
+            //Immutable Collections
+            ImmutabeThings.ImmutableTing1();
+
             Cons.ReadKey();
         }
 
