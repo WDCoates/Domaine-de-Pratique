@@ -1,14 +1,19 @@
-﻿using System.Collections.Immutable;     //Added through NuGet first
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Collections.Immutable;     //Added through NuGet first
+using System.Collections.Concurrent;
 using System.Threading.Tasks;
 using Cons = System.Console;
+using System;
+using ConsoleA1._00_Common;
 
 namespace ConsoleA1._10_Collections
 {
+    class Acc
+    {
+        internal string Name { get; set; }
+        internal int Number { get; set; }
+    }
+
     public static class ImmutabeThings
     {
         public static ImmutableArray<string> ImArray1;
@@ -41,12 +46,47 @@ namespace ConsoleA1._10_Collections
             {
                 Cons.WriteLine($"New Account: {nAcc.Name}");
             }
+
+            //Concurrent Collections: Thread safe. Pipes
+            
+
+
+        }
+        private static async void StartPipeline()
+        {
+            var fName = new BlockingCollection<string>();
+            var lines = new BlockingCollection<string>();
+            var words = new ConcurrentDictionary<string, int>();
+            var items = new BlockingCollection<Info>();
+            var colItems = new BlockingCollection<Info>();
+
+            Task s1 = PipelineStage.ReadFileNameAsync(@"../../..", fName);
+            ConsHelper.WriteLine($"Started Stage 1");
+            Task s2 = PipelineStage.LoadContentAsync(fName, lines);
+            ConsHelper.WriteLine($"Started Stage 2");
+            Task s3 = PipelineStage.ProcessContentAsync(lines, words);
+            ConsHelper.WriteLine($"Started Stage 3");
+            await Task.WhenAll(s1, s2, s3);
+            ConsHelper.WriteLine("All stages 1,2,3 have completed");
+
         }
     }
 
-    class Acc
+    internal static class PipelineStage
     {
-        internal string Name { get; set; }
-        internal int Number { get; set; }
+        internal static Task ReadFileNameAsync(string v, BlockingCollection<string> fName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static Task LoadContentAsync(BlockingCollection<string> fName, BlockingCollection<string> lines)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static Task ProcessContentAsync(BlockingCollection<string> lines, ConcurrentDictionary<string, int> words)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
