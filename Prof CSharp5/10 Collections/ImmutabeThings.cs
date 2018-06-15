@@ -4,7 +4,10 @@ using System.Collections.Concurrent;
 using System.Threading.Tasks;
 using Cons = System.Console;
 using System;
+using System.IO;
+using System.Linq;
 using ConsoleA1._00_Common;
+using Task = System.Threading.Tasks.Task;
 
 namespace ConsoleA1._10_Collections
 {
@@ -48,8 +51,7 @@ namespace ConsoleA1._10_Collections
             }
 
             //Concurrent Collections: Thread safe. Pipes
-            
-
+            StartPipeline();
 
         }
         private static async void StartPipeline()
@@ -74,19 +76,83 @@ namespace ConsoleA1._10_Collections
 
     internal static class PipelineStage
     {
-        internal static Task ReadFileNameAsync(string v, BlockingCollection<string> fName)
+        internal static Task ReadFileNameAsync(string path, BlockingCollection<string> fName)
         {
-            throw new NotImplementedException();
+            return Task.Run(async () => {
+                    foreach (string fileName in Directory.EnumerateFiles(path, "*.cs", SearchOption.AllDirectories))
+                    {
+                        fName.Add(fileName);
+                        ConsHelper.WriteLine($"Stage 1: Added {fileName}");
+                    }
+
+                    fName.CompleteAdding();
+                }
+            );
         }
 
-        public static Task LoadContentAsync(BlockingCollection<string> fName, BlockingCollection<string> lines)
+        internal static Task LoadContentAsync(BlockingCollection<string> fName, BlockingCollection<string> lines)
         {
-            throw new NotImplementedException();
+            return Task.Run(async () =>
+            {
+                foreach (var f in fName.GetConsumingEnumerable())
+                {
+                    using (FileStream stream = File.OpenRead(f))
+                    {
+                        var reader = new StreamReader(stream);
+                        string line = null;
+                        while ((line = await reader.ReadLineAsync()) != null)
+                        {
+                            lines.Add(line);
+                            ConsHelper.WriteLine($"Stage 2: Added {line}");
+                        }
+                    }
+                }
+
+                lines.CompleteAdding();
+            });
         }
 
         internal static Task ProcessContentAsync(BlockingCollection<string> lines, ConcurrentDictionary<string, int> words)
         {
-            throw new NotImplementedException();
+            return Task.Run(() =>
+            {
+                foreach (var l in lines.GetConsumingEnumerable())
+                {
+                    string[] wrds = l.Split(' ', ';', '\t', '{', '}', '(', ')', ':', ',', '"');
+                    foreach (var w in wrds.Where(w => !string.IsNullOrEmpty(w)))
+                    {
+                        words.AddOrIncrementValue(w);
+                        ConsHelper.WriteLine($"Stage 3: Added {w}");
+                    }
+                }
+            });
         }
     }
+
+    internal static class ConcurrentDictionaryExtension
+    {
+        internal static void AddOrIncrementValue(this ConcurrentDictionary<string, int> dict, string key)
+        {
+            bool success = false;
+            while (!success)
+            {
+                int value;
+                if (dict.TryGetValue(key, out value))
+                {
+                    if (dict.TryUpdate(key, value + 1, value))
+                    {
+                        success = true;
+                    }
+                }
+                else
+                {
+                    if (dict.TryAdd(key, 1))
+                    {
+                        success = true;
+                    }
+                }
+            }
+        }
+    }
+
 }
