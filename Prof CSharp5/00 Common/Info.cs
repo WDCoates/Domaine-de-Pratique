@@ -6,7 +6,7 @@ namespace ConsoleA1._00_Common
     {
         public string Word { get; set; }
         public int Count { get; set; }
-        public string Color { get; set; }
+        public string Colour { get; set; }
 
         public override string ToString()
         {

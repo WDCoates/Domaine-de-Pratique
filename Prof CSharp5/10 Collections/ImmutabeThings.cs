@@ -4,6 +4,7 @@ using System.Collections.Concurrent;
 using System.Threading.Tasks;
 using Cons = System.Console;
 using System;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using ConsoleA1._00_Common;
@@ -60,7 +61,7 @@ namespace ConsoleA1._10_Collections
             var lines = new BlockingCollection<string>();
             var words = new ConcurrentDictionary<string, int>();
             var items = new BlockingCollection<Info>();
-            var colItems = new BlockingCollection<Info>();
+            var colouredItems = new BlockingCollection<Info>();
 
             Task s1 = PipelineStage.ReadFileNameAsync(@"../../..", fName);
             ConsHelper.WriteLine($"Started Stage 1");
@@ -70,7 +71,12 @@ namespace ConsoleA1._10_Collections
             ConsHelper.WriteLine($"Started Stage 3");
             await Task.WhenAll(s1, s2, s3);
             ConsHelper.WriteLine("All stages 1,2,3 have completed");
-
+            Task t4 = PipelineStage.TransferContentAsync(words, items);
+            Task t5 = PipelineStage.AddColourAsync(items, colouredItems);
+            await Task.WhenAll(t4, t5);
+            ConsHelper.WriteLine("Stages 4 and 5 completed.");
+            Task tf = PipelineStage.ShowContentAsync(colouredItems);
+            Cons.ReadKey();
         }
     }
 
@@ -127,6 +133,66 @@ namespace ConsoleA1._10_Collections
                 }
             });
         }
+
+        internal static Task TransferContentAsync(ConcurrentDictionary<string, int> input, BlockingCollection<Info> output)
+        {
+            return Task.Run(() =>
+            {
+                foreach (var word in input.Keys)
+                {
+                    int value;
+                    if (input.TryGetValue(word, out value))
+                    {
+                        var info = new Info { Word = word, Count = value };
+                        output.Add(info);
+                        ConsHelper.WriteLine($"Stage 4: Added {info}");
+                    }
+                }
+
+                output.CompleteAdding();
+            });
+
+        }
+
+        internal static Task AddColourAsync(BlockingCollection<Info> input, BlockingCollection<Info> output)
+        {
+            return Task.Run(() =>
+            {
+                foreach (var item in input.GetConsumingEnumerable())
+                {
+                    if (item.Count > 100)
+                    {
+                        item.Colour = ConsoleColor.Red.ToString();
+                    } else if (item.Count > 50)
+                    {
+                        item.Colour = ConsoleColor.DarkYellow.ToString();
+                    } else if (item.Count > 25)
+                    {
+                        item.Colour = ConsoleColor.Green.ToString();
+                    }
+                    else
+                    {
+                        item.Colour = ConsoleColor.White.ToString();
+                    }
+
+                    output.Add(item);
+                    ConsHelper.WriteLine($"Stage 5: Added Colour {item.Colour} to {item}");
+                }
+                output.CompleteAdding();
+            });
+        }
+
+        internal static Task ShowContentAsync(BlockingCollection<Info> info)
+        {
+            return Task.Run(() =>
+            {
+                foreach (var i in info.GetConsumingEnumerable())
+                {
+                    ConsHelper.WriteLine($"Final Stage: {i}", i.Colour);
+                }
+            });
+        }
+
     }
 
     internal static class ConcurrentDictionaryExtension
