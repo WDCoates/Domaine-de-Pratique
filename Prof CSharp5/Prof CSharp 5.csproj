@@ -61,7 +61,7 @@
   </PropertyGroup>
   <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
   <PropertyGroup>
-    <StartupObject>ConsoleA1._10_Collections._10Main</StartupObject>
+    <StartupObject>ConsoleA1._11_LINQ._11Main</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>TextTemplate.ico</ApplicationIcon>
@@ -123,6 +123,7 @@
     <Compile Include="10 Collections\ProcessDocs.cs" />
     <Compile Include="10 Collections\RacerComp.cs" />
     <Compile Include="10 Collections\_10Main.cs" />
+    <Compile Include="11 LINQ\_11Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
