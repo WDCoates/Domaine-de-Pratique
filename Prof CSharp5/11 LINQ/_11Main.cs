@@ -13,6 +13,7 @@ namespace ConsoleA1._11_LINQ
         public static void Main(string[] args)
         {
             Cons.WriteLine($"Start the LINQ Stuff.....{args[0]}");
+            var champs = Formula1.GetChampions();
 
             Cons.ReadKey();
         }

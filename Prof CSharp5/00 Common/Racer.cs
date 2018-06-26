@@ -14,9 +14,13 @@ namespace ConsoleA1._00_Common
         public IEnumerable<string> Cars { get; private set; }
         public IEnumerable<int> Years { get; private set; }
 
-
         public Racer(int id, string firstName, string lastName, string country)
-            :this(id, firstName, lastName, country, starts: 0, wins: 0, null, null)
+            : this(id, firstName, lastName, country, 0, 0, null, null)
+        {
+        }
+
+        public Racer(int id, string firstName, string lastName, string country, int wins)
+            :this(id, firstName, lastName, country, 0,  wins, null, null)
         {
         }
         public Racer(int id, string firstName, string lastName, string country, int starts, int wins, IEnumerable<int> years, IEnumerable<string> cars)
