@@ -89,6 +89,7 @@
     <Compile Include="00 Common\DicEmployee .cs" />
     <Compile Include="00 Common\Employee.cs" />
     <Compile Include="00 Common\EmployeeId.cs" />
+    <Compile Include="00 Common\F1 Teams.cs" />
     <Compile Include="00 Common\Person.cs" />
     <Compile Include="00 Common\Racer.cs" />
     <Compile Include="00 Common\ShoeCollection.cs" />
@@ -124,7 +125,7 @@
     <Compile Include="10 Collections\ProcessDocs.cs" />
     <Compile Include="10 Collections\RacerComp.cs" />
     <Compile Include="10 Collections\_10Main.cs" />
-    <Compile Include="11 LINQ\Formula1.cs" />
+    <Compile Include="00 Common\Formula1.cs" />
     <Compile Include="11 LINQ\_11Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />

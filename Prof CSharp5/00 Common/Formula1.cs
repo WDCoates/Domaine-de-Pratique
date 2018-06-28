@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ConsoleA1._00_Common;
+﻿using System.Collections.Generic;
 
-namespace ConsoleA1._11_LINQ
+namespace ConsoleA1._00_Common
 {
     public static class Formula1
     {
@@ -33,7 +28,7 @@ namespace ConsoleA1._11_LINQ
                 return racers;
             }
 
-            return null;
+            return racers;
 
         }
     }
