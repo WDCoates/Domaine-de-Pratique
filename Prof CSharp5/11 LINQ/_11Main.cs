@@ -21,9 +21,14 @@ namespace ConsoleA1._11_LINQ
                 Cons.WriteLine($"{r:A}");
             }
 
-            //Extension Method!
+            //Extension Method! Just another way to get at static classes!
             var s = "All";
             s.Boots();
+
+            //Q1 using extensions methods to for show...
+            var champs2 = new List<Racer>(Formula1.GetChampions());
+            IEnumerable<Racer> Brits = champs2.Where(c => c.Country == "British").OrderBy(o => o.LastName)
+                .Select(r => r);
 
             Cons.ReadKey();
         }
