@@ -21,6 +21,10 @@ namespace ConsoleA1._11_LINQ
                 Cons.WriteLine($"{r:A}");
             }
 
+            //Extension Method!
+            var s = "All";
+            s.Boots();
+
             Cons.ReadKey();
         }
     }
