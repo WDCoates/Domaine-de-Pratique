@@ -8,7 +8,7 @@ using Cons = System.Console;
 
 namespace ConsoleA1._11_LINQ
 {
-    class _11Main
+    internal class _11Main
     {
         public static void Main(string[] args)
         {
@@ -29,6 +29,8 @@ namespace ConsoleA1._11_LINQ
             var champs2 = new List<Racer>(Formula1.GetChampions());
             IEnumerable<Racer> Brits = champs2.Where(c => c.Country == "British").OrderBy(o => o.LastName)
                 .Select(r => r);
+
+            DeferredDemo.DeferredEx1();
 
             Cons.ReadKey();
         }

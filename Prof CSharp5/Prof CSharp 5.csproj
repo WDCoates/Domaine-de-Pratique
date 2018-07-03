@@ -127,6 +127,7 @@
     <Compile Include="10 Collections\RacerComp.cs" />
     <Compile Include="10 Collections\_10Main.cs" />
     <Compile Include="00 Common\Formula1.cs" />
+    <Compile Include="11 LINQ\DeferredDemo.cs" />
     <Compile Include="11 LINQ\_11Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
