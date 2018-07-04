@@ -29,6 +29,9 @@ namespace ConsoleA1._11_LINQ
             {
                 Console.WriteLine($"{n}");
             }
+
+            var Js3 = names.Where(n => n.StartsWith("J")).OrderBy(n => n).ToList();
+            Js3.Reverse();  //Works with the OrderBy...
         }
     }
 }
