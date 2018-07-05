@@ -41,6 +41,32 @@ namespace ConsoleA1._11_LINQ
             //Example where one can't use LINQ and have to use the extension method.
             var r1 = champs2.Where((r, Index) => r.LastName.StartsWith("A") || Index % 2 != 0);
 
+            //Type Filtering
+            object[] data = {"One", 1, 2, 3, 4, "Five", "Six"};
+            var int1 = data.OfType<int>().OrderBy(n => n);
+            foreach (var i in int1.Reverse())
+            {
+                Cons.WriteLine($"{i}");
+            }
+
+            //Compound froms
+            var ferrariDrives = from r in Formula1.GetChampions()
+                from c in r.Cars
+                where c == "Ferrari"
+                select r.LastName + " " + r.LastName + " => " + c;
+
+            var Drives1950s = from r in Formula1.GetChampions()
+                from y in r.Years
+                where y >=1950 && y <= 1959
+                orderby y 
+                select r.LastName + " " + r.LastName + " => " + y;
+
+            //Using Exstensions
+            var Drivers1960s = Formula1.GetChampions().SelectMany(r => r.Years, (r, y) => new {Racer = r, Year = y})
+                .Where(r => r.Year >= 1960 && r.Year <= 1969).OrderBy(r => r.Year).Select(r =>
+                    r.Racer.LastName + " " + r.Racer.FirstName + " " + r.Year);
+            
+
             Cons.ReadKey();
         }
     }
