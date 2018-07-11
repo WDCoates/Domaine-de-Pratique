@@ -95,7 +95,29 @@ namespace ConsoleA1._11_LINQ
                 where c.Count() >= 2
                 select new {Country = c.Key, Count = c.Count(), Racers = from r2 in c orderby r2.Wins select new {r2.LastName, r2.Wins}};
 
+            //Inner Joins
+            var ijRacers = from r in Formula1.GetChampions()
+                from y in r.Years
+                select new {Year = y, Name = r.LastName + ", " + r.FirstName};
 
+            var ijTeams = from t in F1_Teams.GetConstructorChampions()
+                from y in t.Years
+                select new {Year = y, Name = t.Name};
+
+            var ijRacerAndTeam =
+                (from r in ijRacers
+                    join t in ijTeams on r.Year equals t.Year
+                    orderby r.Year
+                    select new {r.Year, Champion = r.Name, Constructor = t.Name}
+                ).Take(10);
+
+            var loRacerAndTeam =
+                (from r in ijRacers
+                    join t in ijTeams on r.Year equals t.Year into rt
+                    from a in rt.DefaultIfEmpty()
+                    orderby r.Year
+                    select new {r.Year, Champion = r.Name, Constructor = a == null ? "Not One": a.Name}
+                ).Take(10);
             
             Cons.ReadKey();
         }
