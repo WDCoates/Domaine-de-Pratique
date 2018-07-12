@@ -20,7 +20,7 @@ namespace ConsoleA1._00_Common
         }
 
         public Racer(int id, string firstName, string lastName, string country, int wins)
-            :this(id, firstName, lastName, country, 0,  wins, null, null)
+            : this(id, firstName, lastName, country, 0, wins, null, null)
         {
         }
         public Racer(int id, string firstName, string lastName, string country, int starts, int wins, IEnumerable<int> years, IEnumerable<string> cars)
@@ -63,8 +63,8 @@ namespace ConsoleA1._00_Common
             }
 
         }
-        
-        
+
+
         public int CompareTo(Racer other)
         {
             if (other == null) return -1;
@@ -72,8 +72,18 @@ namespace ConsoleA1._00_Common
             if (compare == 0)
                 return string.Compare(FirstName, other.FirstName);
             return compare;
-            
+
         }
+
+    }
+
+    public class RacerInfo
+    {
+        public int Year { get; set; }
+        public int Position { get; set; }
+
+        
+
 
     }
 }
