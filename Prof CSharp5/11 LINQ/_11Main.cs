@@ -119,6 +119,50 @@ namespace ConsoleA1._11_LINQ
                     select new {r.Year, Champion = r.Name, Constructor = a == null ? "Not One": a.Name}
                 ).Take(10);
             
+            //Group Join Step 1 flattern! 
+            var gjRacers = Formula1.GetChampionships().SelectMany(c => new List<RacerInfo>()
+            {
+                new RacerInfo
+                {
+                    Year = c.Year,
+                    Position = 1,
+                    FirstName = c.Champion.FirstName(),
+                    LastName = c.Champion.LastName()
+                },
+                new RacerInfo
+                {
+                    Year = c.Year,
+                    Position = 2,
+                    FirstName = c.Second.FirstName(),
+                    LastName = c.Second.LastName()
+                },
+                new RacerInfo
+                {
+                    Year = c.Year,
+                    Position = 3,
+                    FirstName = c.Third.FirstName(),
+                    LastName = c.Third.LastName()
+                }
+            }).ToArray();
+            //Step 1 join
+            var q = (from r in Formula1.GetChampions()
+                    join ts in gjRacers on new {FirstName = r.FirstName, LastName = r.LastName} equals new
+                    {
+                        FirstName = ts.FirstName,
+                        LastName = ts.LastName
+
+                    } into yrResults
+                    select new
+                    {
+                        FirstName = r.FirstName,
+                        LastName = r.LastName,
+                        Wins = r.Wins,
+                        Starts = r.Starts,
+                        Results = yrResults
+                    }
+                ).ToArray();
+
+
             Cons.ReadKey();
         }
     }

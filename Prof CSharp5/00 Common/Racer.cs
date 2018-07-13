@@ -81,8 +81,8 @@ namespace ConsoleA1._00_Common
     {
         public int Year { get; set; }
         public int Position { get; set; }
-
-        
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
 
     }
