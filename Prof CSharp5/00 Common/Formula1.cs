@@ -13,19 +13,38 @@ namespace ConsoleA1._00_Common
             if (racers == null)
             {
                 racers = new List<Racer>(40);
-                racers.Add(new Racer(1, "Giuseppe", "Farina", "Italy", 33, 5, new int[] {1950}, new string[] {"Alfa Romeo"}));
-                racers.Add(new Racer(2, "Alberto", "Ascari", "Italy", 32, 10, new int[] {1952, 1953}, new string[] {"Ferrari"}));
-                racers.Add(new Racer(3, "Juan Manuel", "Fangio", "Argentina", 51, 24, new int[] {1951, 1954, 1955, 1956, 1957}, new string[] {"Alfa Romeo", "Maserati", "Mercedes", "Ferrari"}));
-                racers.Add(new Racer(4, "Mike", "Hawthorn", "British", 45, 3, new int[] {1958}, new string[] {"Ferrari"}));
-                racers.Add(new Racer(5, "Jack", "Brabham", "Australia", 125, 14, new int[] {1959, 1960, 1966}, new string[] {"Cooper", "Bragham"}));
-                racers.Add(new Racer(6, "Phil", "Hill", "USA", 48, 3, new int[] {1961}, new string[] {"Ferrari"}));
-                racers.Add(new Racer(7, "Jim", "Clark", "British", 72, 25, new int[] {1963, 1965}, new string[] {"Lotus"}));
-                racers.Add(new Racer(8, "John", "Surtees", "British", 111, 6, new int[] {1964}, new string[] {"Ferrari"}));
-                racers.Add(new Racer(9, "Denny", "Hulme", "New Zeland", 112, 8, new int[] {1967}, new string[] {"Brabham"}));
-                racers.Add(new Racer(10, "Graham", "Hill", "British", 176, 14, new int[] {1962, 1968}, new string[] {"BRM", "Lotus"}));
-                racers.Add(new Racer(11, "Jochen", "Rindt", "Austria", 60, 6, new int[] {1970}, new string[] {"Lotus"}));
-                racers.Add(new Racer(12, "Jackie", "Stewart", "British", 99, 27, new int[] {1969, 1971, 1973}, new string[] {"Matra", "Tyrrell"}));
-                racers.Add(new Racer(12, "Emerson", "Fittipaldi", "Brazil", 144, 14, new int[] {1972, 1974}, new string[] {"Lotus", "McLaren"}));
+                racers.Add(new Racer(1, "Giuseppe", "Farina", "Italy", 33, 5, new int[] { 1950 }, new string[] { "Alfa Romeo" }));
+                racers.Add(new Racer(2, "Alberto", "Ascari", "Italy", 32, 10, new int[] { 1952, 1953 }, new string[] { "Ferrari" }));
+                racers.Add(new Racer(3, "Juan Manuel", "Fangio", "Argentina", 51, 24, new int[] { 1951, 1954, 1955, 1956, 1957 }, new string[] { "Alfa Romeo", "Maserati", "Mercedes", "Ferrari" }));
+                racers.Add(new Racer(4, "Mike", "Hawthorn", "British", 45, 3, new int[] { 1958 }, new string[] { "Ferrari" }));
+                racers.Add(new Racer(5, "Jack", "Brabham", "Australia", 125, 14, new int[] { 1959, 1960, 1966 }, new string[] { "Cooper", "Bragham" }));
+                racers.Add(new Racer(6, "Phil", "Hill", "USA", 48, 3, new int[] { 1961 }, new string[] { "Ferrari" }));
+                racers.Add(new Racer(7, "Jim", "Clark", "British", 72, 25, new int[] { 1963, 1965 }, new string[] { "Lotus" }));
+                racers.Add(new Racer(8, "John", "Surtees", "British", 111, 6, new int[] { 1964 }, new string[] { "Ferrari" }));
+                racers.Add(new Racer(9, "Denny", "Hulme", "New Zeland", 112, 8, new int[] { 1967 }, new string[] { "Brabham" }));
+                racers.Add(new Racer(10, "Graham", "Hill", "British", 176, 14, new int[] { 1962, 1968 }, new string[] { "BRM", "Lotus" }));
+                racers.Add(new Racer(11, "Jochen", "Rindt", "Austria", 60, 6, new int[] { 1970 }, new string[] { "Lotus" }));
+                racers.Add(new Racer(12, "Jackie", "Stewart", "British", 99, 27, new int[] { 1969, 1971, 1973 }, new string[] { "Matra", "Tyrrell" }));
+                racers.Add(new Racer(12, "Emerson", "Fittipaldi", "Brazil", 144, 14, new int[] { 1972, 1974 }, new string[] { "Lotus", "McLaren" }));
+                racers.Add(new Racer(13, "James", "Hunt", "UK", 91, 10, new int[] { 1976 }, new string[] { "McLaren" }));
+                racers.Add(new Racer(14, "Mario", "Andretti", "USA", 128, 12, new int[] { 1978 }, new string[] { "Lotus" }));
+                racers.Add(new Racer(15, "Jody", "Scheckter", "South Africa", 112, 10, new int[] { 1979 }, new string[] { "Ferrari" }));
+                racers.Add(new Racer(16, "Alan", "Jones", "Australia", 115, 12, new int[] { 1980 }, new string[] { "Williams" }));
+                racers.Add(new Racer(17, "Keke", "Rosberg", "Finland", 114, 5, new int[] { 1982 }, new string[] { "Williams" }));
+                racers.Add(new Racer(18, "Niki", "Lauda", "Austria", 173, 25, new int[] { 1975, 1977, 1984 }, new string[] { "Ferrari", "McLaren" }));
+                racers.Add(new Racer(19,"Nelson", "Piquet", "Brazil", 204, 23, new int[] { 1981, 1983, 1987 }, new string[] { "Brabham", "Williams" }));
+                racers.Add(new Racer(20,"Ayrton", "Senna", "Brazil", 161, 41, new int[] { 1988, 1990, 1991 }, new string[] { "McLaren" }));
+                racers.Add(new Racer(21,"Nigel", "Mansell", "UK", 187, 31, new int[] { 1992 }, new string[] { "Williams" }));
+                racers.Add(new Racer(22,"Alain", "Prost", "France", 197, 51, new int[] { 1985, 1986, 1989, 1993 }, new string[] { "McLaren", "Williams" }));
+                racers.Add(new Racer(23,"Damon", "Hill", "UK", 114, 22, new int[] { 1996 }, new string[] { "Williams" }));
+                racers.Add(new Racer(24,"Jacques", "Villeneuve", "Canada", 165, 11, new int[] { 1997 }, new string[] { "Williams" }));
+                racers.Add(new Racer(25,"Mika", "Hakkinen", "Finland", 160, 20, new int[] { 1998, 1999 }, new string[] { "McLaren" }));
+                racers.Add(new Racer(26,"Michael", "Schumacher", "Germany", 287, 91, new int[] { 1994, 1995, 2000, 2001, 2002, 2003, 2004 }, new string[] { "Benetton", "Ferrari" }));
+                racers.Add(new Racer(27,"Fernando", "Alonso", "Spain", 177, 27, new int[] { 2005, 2006 }, new string[] { "Renault" }));
+                racers.Add(new Racer(28,"Kimi", "Räikkönen", "Finland", 148, 17, new int[] { 2007 }, new string[] { "Ferrari" }));
+                racers.Add(new Racer(29,"Lewis", "Hamilton", "UK", 90, 17, new int[] { 2008 }, new string[] { "McLaren" }));
+                racers.Add(new Racer(30,"Jenson", "Button", "UK", 208, 12, new int[] { 2009 }, new string[] { "Brawn GP" }));
+                racers.Add(new Racer(31,"Sebastian", "Vettel", "Germany", 81, 21, new int[] { 2010, 2011 }, new string[] { "Red Bull Racing" }));
 
                 return racers;
             }

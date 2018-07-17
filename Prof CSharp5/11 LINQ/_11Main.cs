@@ -144,7 +144,8 @@ namespace ConsoleA1._11_LINQ
                     LastName = c.Third.LastName()
                 }
             }).ToArray();
-            //Step 1 join
+            
+            //Step 2 Join
             var q = (from r in Formula1.GetChampions()
                     join ts in gjRacers on new {FirstName = r.FirstName, LastName = r.LastName} equals new
                     {
@@ -163,7 +164,31 @@ namespace ConsoleA1._11_LINQ
                 ).ToArray();
 
 
+            //Using Set Operators
+            //Using a static method
+            var ferrariDrivers = GetDrives("Ferrari");
+            var mcLarebDrivers = GetDrives("McLaren");
+            
+            //Better way to use delegates!
+            Func<string, IEnumerable<Racer>> racersByCar =
+                car => from r in Formula1.GetChampions() from c in r.Cars where c == car orderby r.LastName select r;
+
+            foreach (var r in racersByCar("Ferrari").Intersect(racersByCar("McLaren")))
+            {
+                Cons.WriteLine(r.LastName);
+            }
+
             Cons.ReadKey();
+        }
+
+        private static IEnumerable<Racer> GetDrives(string car)
+        {
+            var drives = from r in Formula1.GetChampions()
+                from c in r.Cars
+                where c == car 
+                orderby r.LastName
+                select r;
+            return drives;
         }
     }
 }
