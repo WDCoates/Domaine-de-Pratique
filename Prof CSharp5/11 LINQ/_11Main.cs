@@ -208,8 +208,21 @@ namespace ConsoleA1._11_LINQ
             //Complete crap lol
 
             //Partitioning
+            int pSize = 5;
+            int nPages = (int) Math.Ceiling(Formula1.GetChampions().Count / (double)pSize);
+            for (int p = 0; p < nPages; p++)
+            {
+                Cons.WriteLine($"Page {p+1} of {nPages}:");
+                var pR = (from r in Formula1.GetChampions()
+                    orderby r.LastName, r.FirstName
+                    select r.LastName + ", " + r.FirstName).Skip(p * pSize).Take(pSize);
+                foreach (var r in pR)
+                {
+                    Cons.WriteLine(r);
+                }
 
-
+                Cons.ReadKey();
+            }
 
             Cons.ReadKey();
         }
