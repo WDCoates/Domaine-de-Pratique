@@ -24,5 +24,11 @@ namespace ConsoleA1._00_Common
             int ix = name.LastIndexOf(' ');
             return name.Substring(ix + 1);
         }
+
+        public static string Initials(this string name)
+        {
+            int ix = name.LastIndexOf(' ');
+            return name.Substring(0,1)+(ix > 0 ? " "+name.Substring(ix + 1, 1):"");
+        }
     }
 }
