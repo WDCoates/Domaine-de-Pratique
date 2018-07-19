@@ -208,7 +208,7 @@ namespace ConsoleA1._11_LINQ
             //Complete crap lol
 
             //Partitioning
-            int pSize = 10;
+            int pSize = 20;
             int nPages = (int) Math.Ceiling(Formula1.GetChampions().Count / (double)pSize);
             for (int p = 0; p < nPages; p++)
             {
@@ -225,11 +225,26 @@ namespace ConsoleA1._11_LINQ
             }
 
             //Aggregate Operators Count, Sum, Min, Max, Average and Aggregate return single values.
+            //Count
             var aQ1 = from r in Formula1.GetChampions()
                 let nYears = r.Years.Count()
                 orderby nYears descending , r.LastName, r.FirstName
-                select new {Name = r.LastName, Initials = r.FirstName.Initials(),  Year = nYears};
+                select new {Name = r.LastName, Initials = r.FirstName.Initials(),  Years = nYears};
+            foreach (var r in aQ1)
+            {
+                Cons.WriteLine($"{r.Name}, {r.Initials} Wins = {r.Years}");
+            }
+            //Sum
+            var t1 = from c in
+                from r in Formula1.GetChampions()
+                group r by r.Country
+                select new {Key1 = c.Key};
 
+            var aS1 = (from c in 
+                    from r in Formula1.GetChampions() 
+                    group r by r.Country into c
+                    select new {Country = c.Key, Wins = (from r2 in c select r2.Wins).Sum()}
+                orderby c.Wins descending, c.Country select c).Take(5);
 
             Cons.ReadKey();
         }
