@@ -246,6 +246,9 @@ namespace ConsoleA1._11_LINQ
                     select new {Country = c.Key, Wins = (from r2 in c select r2.Wins).Sum()}
                 orderby c.Wins descending, c.Country select c).Take(5);
 
+            //Conversion Operators
+
+
             Cons.ReadKey();
         }
 
