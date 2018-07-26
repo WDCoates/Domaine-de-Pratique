@@ -259,6 +259,8 @@ namespace ConsoleA1._11_LINQ
             //Not sure what this is doing but it must be good!!!!
 
             //Generation Operators
+            var vRange = Enumerable.Range(1, 20);
+            var vRange2 = Enumerable.Range(1, 20).Select(i => i > 1? (i > 2? i * 2: i): i);
 
 
 
