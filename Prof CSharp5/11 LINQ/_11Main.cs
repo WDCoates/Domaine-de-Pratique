@@ -247,6 +247,19 @@ namespace ConsoleA1._11_LINQ
                 orderby c.Wins descending, c.Country select c).Take(5);
 
             //Conversion Operators
+            var lRacers = (from r in Formula1.GetChampions()
+                    from c in r.Cars
+                    select new {Car = c, Racer = r}
+                ).ToLookup(cr => cr.Car, cr => cr.Racer);
+            var lr = lRacers["Williams"];   //Gives us a lookup of just Williams drives
+
+            //Using the Cast method!
+            var oList = new System.Collections.ArrayList(Formula1.GetChampions() as System.Collections.ICollection ?? throw new InvalidOperationException());
+            var q2 = from r in oList.Cast<Racer>() where r.Country == "USA" select r;
+            //Not sure what this is doing but it must be good!!!!
+
+            //Generation Operators
+
 
 
             Cons.ReadKey();
