@@ -272,13 +272,20 @@ namespace ConsoleA1._11_LINQ
                 ).Average();
             watch.Stop();
             Cons.WriteLine($"Parallel run: {watch.Elapsed}");
+            
             watch.Reset();
             watch.Start();
             var nRes = (from x in lsData where Math.Log(x) < 4 select x
                 ).Average();
             watch.Stop();
             Cons.WriteLine($"Normal run: {watch.Elapsed}");
-            
+
+            watch.Reset();
+            watch.Start();
+            var mpRes = lsData.AsParallel().Where(x => Math.Log(x) < 4).Select(x => x).Average();
+            watch.Stop();
+            Cons.WriteLine($"Multi Parallel run: {watch.Elapsed}");
+
             //Parallel LINQ
 
             Cons.ReadKey();
