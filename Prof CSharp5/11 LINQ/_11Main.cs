@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Sockets;
 using System.Security.Cryptography;
@@ -262,7 +263,23 @@ namespace ConsoleA1._11_LINQ
             var vRange = Enumerable.Range(1, 20);
             var vRange2 = Enumerable.Range(1, 20).Select(i => i > 1? (i > 2? i * 2: i): i);
 
-
+            //Parallel LINQ
+            var lsData = LargeSample().ToList();
+            var watch = new Stopwatch();
+            
+            watch.Start();
+            var pRes = (from x in lsData.AsParallel() where Math.Log(x) < 4 select x
+                ).Average();
+            watch.Stop();
+            Cons.WriteLine($"Parallel run: {watch.Elapsed}");
+            watch.Reset();
+            watch.Start();
+            var nRes = (from x in lsData where Math.Log(x) < 4 select x
+                ).Average();
+            watch.Stop();
+            Cons.WriteLine($"Normal run: {watch.Elapsed}");
+            
+            //Parallel LINQ
 
             Cons.ReadKey();
         }
@@ -275,6 +292,13 @@ namespace ConsoleA1._11_LINQ
                 orderby r.LastName
                 select r;
             return drives;
+        }
+
+        private static IEnumerable<int> LargeSample()
+        {
+            const int arraySize = 100000000;
+            var r = new Random();
+            return Enumerable.Range(0, arraySize).Select(x => r.Next(140)).ToList();
         }
     }
 }
