@@ -1,10 +1,9 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Net.Sockets;
-using System.Security.Cryptography;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using ConsoleA1._00_Common;
 using Cons = System.Console;
@@ -15,7 +14,7 @@ namespace ConsoleA1._11_LINQ
     {
         public static void Main(string[] args)
         {
-            Cons.WriteLine($"Start the LINQ Stuff.....{args[0]}");
+            Cons.WriteLine($"Start the LINQ Stuff.....{args?[0]}");
             var champs = Formula1.GetChampions();
             var q1 = from r in Formula1.GetChampions() where r.Country == "UK" orderby r.Wins descending select r;
 
@@ -264,6 +263,7 @@ namespace ConsoleA1._11_LINQ
             var vRange2 = Enumerable.Range(1, 20).Select(i => i > 1? (i > 2? i * 2: i): i);
 
             //Parallel LINQ
+            Cons.WriteLine($"Loading large dataset, please wait.");
             var lsData = LargeSample().ToList();
             var watch = new Stopwatch();
             
@@ -284,10 +284,62 @@ namespace ConsoleA1._11_LINQ
             watch.Start();
             var mpRes = lsData.AsParallel().Where(x => Math.Log(x) < 4).Select(x => x).Average();
             watch.Stop();
-            Cons.WriteLine($"Multi Parallel run: {watch.Elapsed}");
-
+            Cons.WriteLine($"Working Average with Parallel run: {watch.Elapsed}");
             //Parallel LINQ
 
+            //Partitions
+            watch.Reset();
+            watch.Start();
+            var ppRes = (from x in Partitioner.Create(lsData, true).AsParallel().WithDegreeOfParallelism(4)
+                        where Math.Log(x) < 4
+                        select x
+                        ).Average();
+            watch.Stop();
+            Cons.WriteLine($"Average with Degree of Parallelism  set to 4: {watch.Elapsed}");
+            watch.Reset();
+            watch.Start();
+            var ppRes2 = (from x in Partitioner.Create(lsData, true).AsParallel().WithDegreeOfParallelism(8)
+                         where Math.Log(x) < 4
+                         select x
+                        ).Average();
+            watch.Stop();
+            Cons.WriteLine($"Avergare Degree of Parallelism  set to 8: {watch.Elapsed}");
+            watch.Reset();
+            watch.Start();
+            //Partitions
+
+
+            // Candellations and how to do it....
+            var cts = new CancellationTokenSource();        //From using System.Threading;
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                   Cons.WriteLine();
+                   Cons.WriteLine("Cancellable Query Started!");
+                    var cRes = (from x in lsData.AsParallel().WithCancellation(cts.Token)
+                                where Math.Log(x) < 4
+                                select x).Average();
+                    Cons.WriteLine($"Query not cancelled result: {cRes}");
+                }
+                catch (OperationCanceledException cex)
+                {
+                    Cons.WriteLine();
+                    Cons.Write($"Cancell message, {cex.Message}");
+                }
+            });
+
+            Cons.WriteLine("Cancell Query!");
+            cts.Cancel();
+
+            //Cons.Write($"Cancel ?");
+            //string input = Cons.ReadLine();
+            //if (input.ToLower().Equals("y"))
+            //    cts.Cancel();
+
+            // Candellations and how to do it....
+
+            Cons.Write($"Press anykey to finish and close.");
             Cons.ReadKey();
         }
 
