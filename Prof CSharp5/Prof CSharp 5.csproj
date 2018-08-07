@@ -62,7 +62,7 @@
   </PropertyGroup>
   <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
   <PropertyGroup>
-    <StartupObject>ConsoleA1._12_Dynamic_Language_Extensions._12Main</StartupObject>
+    <StartupObject>ConsoleA1._11_LINQ._11Main</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>TextTemplate.ico</ApplicationIcon>
@@ -129,7 +129,6 @@
     <Compile Include="00 Common\Formula1.cs" />
     <Compile Include="11 LINQ\DeferredDemo.cs" />
     <Compile Include="11 LINQ\_11Main.cs" />
-    <Compile Include="12 Dynamic Language Extensions\_12Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -153,7 +152,9 @@
   <ItemGroup>
     <Content Include="TextTemplate.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="12 Dynamic Language Extensions\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
