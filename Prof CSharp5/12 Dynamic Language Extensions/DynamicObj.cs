@@ -9,7 +9,7 @@ namespace ConsoleA1._12_Dynamic_Language_Extensions
 {
     class DynamicObj : DynamicObject
     {
-        Dictionary<string, object> _dynamicDic = new Dictionary<string, object>();
+        readonly Dictionary<string, object> _dynamicDic = new Dictionary<string, object>();
 
         public override bool TryGetMember(GetMemberBinder memBinder, out object result)
         {

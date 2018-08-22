@@ -56,9 +56,10 @@ namespace ConsoleA1._12_Dynamic_Language_Extensions
             dynamic myDyn = new DynamicObj();
             myDyn.NickName = "Cess";
             myDyn.Thing = "Shoes";
+            myDyn.Time = 10;
             
             Cons.WriteLine(myDyn.GetType());
-            Cons.WriteLine($"Nick Name: {myDyn.NickName}, Thing: {myDyn.Thing}!");
+            Cons.WriteLine($"Nick Name: {myDyn.NickName}, Thing: {myDyn.Thing}!, Times: {myDyn.Time * 4}");
 
 
             Cons.ReadKey();
