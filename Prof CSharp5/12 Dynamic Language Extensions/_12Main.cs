@@ -51,6 +51,14 @@ namespace ConsoleA1._12_Dynamic_Language_Extensions
                 Cons.WriteLine($"dyn type: {dyn.GetType()}, Value: {dyn.ToString()}");
             }
 
+            //Use my own Dynamic Object....
+
+            dynamic myDyn = new DynamicObj();
+            myDyn.NickName = "Cess";
+            myDyn.Thing = "Shoes";
+            
+            Cons.WriteLine(myDyn.GetType());
+            Cons.WriteLine($"Nick Name: {myDyn.NickName}, Thing: {myDyn.Thing}!");
 
 
             Cons.ReadKey();

@@ -129,6 +129,7 @@
     <Compile Include="00 Common\Formula1.cs" />
     <Compile Include="11 LINQ\DeferredDemo.cs" />
     <Compile Include="11 LINQ\_11Main.cs" />
+    <Compile Include="12 Dynamic Language Extensions\DynamicObj.cs" />
     <Compile Include="12 Dynamic Language Extensions\ILExample.cs" />
     <Compile Include="12 Dynamic Language Extensions\_12Main.cs" />
     <Compile Include="IAccount.cs" />
