@@ -137,6 +137,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="12 Dynamic Language Extensions\Test.csv" />
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
