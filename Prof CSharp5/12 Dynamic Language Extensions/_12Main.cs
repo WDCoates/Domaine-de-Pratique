@@ -107,8 +107,12 @@ namespace ConsoleA1._12_Dynamic_Language_Extensions
             }
 
             foreach (var r in rList)
-            {
-                Cons.WriteLine(r);      //ToDo: This needs work to get the at the data again....
+            {   
+                var t = (IDictionary<string, object>)r;
+                for (int i= 0; i < t.Count; i++)
+                {
+                    Cons.WriteLine($"{headLine?[i]}: {t[headLine?[i]]}");
+                } 
             }
             
             Cons.ReadKey();
