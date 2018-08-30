@@ -132,6 +132,7 @@
     <Compile Include="12 Dynamic Language Extensions\DynamicObj.cs" />
     <Compile Include="12 Dynamic Language Extensions\ILExample.cs" />
     <Compile Include="12 Dynamic Language Extensions\_12Main.cs" />
+    <Compile Include="13 Asynchronus Programming\AFoundationsOfAsync.cs" />
     <Compile Include="13 Asynchronus Programming\_13Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
