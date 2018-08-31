@@ -14,14 +14,17 @@ namespace ConsoleA1._13_Asynchronus_Programming
         {
             Cons.WriteLine($"Start Chapter 13 Asynchronus Programming");
 
-            AFoundationsOfAsync.GetGreetingAsync("Dave");
-
+            AFoundationsOfAsync.GetGreetingAs("Dave");
+            AFoundationsOfAsync.CallerWithContinuation("Caroline");
+            Cons.Write("Tick.");
             while (AFoundationsOfAsync._result == null)
             {
-                Thread.Sleep(1000);
+                Cons.Write(".");
+                Thread.Sleep(500);
             }
 
             Cons.WriteLine("Phew!");
+            Cons.WriteLine($"What _result is: {AFoundationsOfAsync._result}");
 
             Cons.ReadKey();
         }
