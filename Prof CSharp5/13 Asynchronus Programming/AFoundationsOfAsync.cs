@@ -61,19 +61,60 @@ namespace ConsoleA1._13_Asynchronus_Programming
             Console.WriteLine($"This is t1:{t1.Result}. and this is t2:{t2.Result}");
         }
 
-        //Converting the Asynchronus Pattern!!!!!
-        private static Func<string, int, string> greetingInvoker = Greeting;
+        //Converting the Asynchronus Pattern Old style coding not task based!!!!!
+        static Func<string, int, string> greetingInvoker = Greeting;
 
-        static IAsyncResult BegingGreeting(string name, int wait, AsyncCallback callback, object state)
+        private static IAsyncResult BegingGreeting(string name, int wait, AsyncCallback callback, object state)
         {
             return greetingInvoker.BeginInvoke(name, wait, callback, state);
         }
 
-        static string EndGreeting(IAsyncResult ar)
+        public static string EndGreeting(IAsyncResult ar)
         {
             return greetingInvoker.EndInvoke(ar);
         }
 
-        //Not Finsihed and not sure why I'm doing this.....
+        public static async void ConvAsyncPattern()
+        {
+            string s = await Task<string>.Factory.FromAsync<string>(BegingGreeting, EndGreeting, "Angela", null);
+            Console.WriteLine(s);
+        }
+
+        private static IAsyncResult BegingGreeting(string name, AsyncCallback arg2, object arg3)
+        {
+            return BegingGreeting(name, 1000, arg2, arg3);
+        }
+        //Not sure why I had to have two BegingGreeting methods here!
+
+
+        //Error Handling!
+        static async Task ThrowUpAfter(int ms, string error)
+        {
+            await Task.Delay(ms);
+            throw new Exception(error);
+        }
+
+        public static void DontHandle()
+        {
+            try
+            {
+                ThrowUpAfter(4000, "First Throw Up!"); //Won't be caught as in Try Catch Block because try catch has fnished...
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public static async void CanHandle()
+        {
+            try
+            {
+                await ThrowUpAfter(4000, "Second Throw Up!"); //Won't be caught as in Try Catch Block because try catch has fnished...
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }

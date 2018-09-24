@@ -27,8 +27,14 @@ namespace ConsoleA1._13_Asynchronus_Programming
             Cons.WriteLine($"What _result is: {AFoundationsOfAsync._result}");
 
             AFoundationsOfAsync.MultiAsCalls("Dick", "Tracey");
+            
+            AFoundationsOfAsync.ConvAsyncPattern();
 
+            //Looking at error handling.
+            AFoundationsOfAsync.DontHandle();
+            AFoundationsOfAsync.CanHandle();
 
+            Cons.Write("....Press Key To Exit!");
             Cons.ReadKey();
         }
     }
