@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -10,6 +11,7 @@ namespace ConsoleA1._13_Asynchronus_Programming
     class AFoundationsOfAsync
     {
         public static string _result;
+        private static CancellationTokenSource _cts;
 
         static string Greeting(string name, int wait)
         {
@@ -105,6 +107,7 @@ namespace ConsoleA1._13_Asynchronus_Programming
                 Console.WriteLine(ex.Message);
             }
         }
+
         public static async void CanHandle()
         {
             try
@@ -157,21 +160,56 @@ namespace ConsoleA1._13_Asynchronus_Programming
 
             Task et1 = null;
             Task et2 = null;
+            Task r;
             try
             {
                 et1 = ThrowUpAfter(4000, "T1 M4 Throw Up!");
                 et2 = ThrowUpAfter(1000, "T2 M4 Throw Up!");
-                Task r = await Task.WhenAny(et1, et2);
+                r = await Task.WhenAny(et1, et2);
                 if (r.IsFaulted)
                 {
                     Console.WriteLine("? WTF {0}", r.Exception?.InnerException);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine("Handled {0}", ex.Message);
+                if (et1 != null)
+                {
+                    if (_cts != null) _cts.Cancel();
+                    Console.WriteLine("Handled {0}", et1.Exception?.Message);
+                }
+                if (et2 != null) Console.WriteLine("Handled {0}", et2.Exception?.Message);
             }
 
+            //Cancellation
+            _cts = new CancellationTokenSource();
+
+            et1 = Task.Run(() =>
+                {
+                    for (var i = 0; i < 100000; i++)
+                    {
+                        if (_cts.IsCancellationRequested)
+                        {
+                            Console.WriteLine($"Get me out of here!!!!!!!");
+                            _cts.Token.ThrowIfCancellationRequested();
+                        }
+                        else
+                        {
+                            Task.Delay(10000);
+                        }
+                    }
+
+                    Console.WriteLine($"No Cancellation");
+                }, _cts.Token                                   //requires methods that take Cancellation Tokens!
+            );
+
+            et2 = Task.Delay(2000);
+
+            r = await Task.WhenAny(et1, et2);
+            if (r.IsCompleted)
+            {
+                _cts.Cancel();
+            }
 
         }
     }
