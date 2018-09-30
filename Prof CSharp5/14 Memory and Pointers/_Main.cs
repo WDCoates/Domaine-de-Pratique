@@ -14,6 +14,7 @@ namespace ConsoleA1._14_Memory_and_Pointers
         {
             Cons.WriteLine($"What is Memoery Management and all these Pointers all about!");
 
+            GC.Collect();
 
             Cons.WriteLine($"Press anykey to exit!");
             Cons.ReadKey();
