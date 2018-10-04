@@ -28,6 +28,13 @@ namespace ConsoleA1._14_Memory_and_Pointers
                     sd.Dispose();
                 }
             }
+
+            //Ensures Dispose is used on closing, },  brace.
+            using (SelfDestructor sd2 = new SelfDestructor())
+            {
+                sd2.Up();
+            }
+
         }
     }
 }
