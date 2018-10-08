@@ -13,7 +13,7 @@ namespace ConsoleA1._14_Memory_and_Pointers
     {
         public static void Main()
         {
-            Cons.WriteLine($"What is Memoery Management and all these Pointers all about!");
+            Cons.WriteLine($"What is Memoery Management and all these MemPointers all about!");
 
             GC.Collect();
             
@@ -26,6 +26,10 @@ namespace ConsoleA1._14_Memory_and_Pointers
 
 
             GC.Collect(10, mode: GCCollectionMode.Forced);
+
+            //Looking at MemPointers
+            MemPointers.MemPo();
+
 
             Cons.WriteLine($"Press anykey to exit!");
             Cons.ReadKey();

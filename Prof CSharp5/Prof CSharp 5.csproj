@@ -41,6 +41,7 @@
     </DocumentationFile>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <LangVersion>default</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -100,6 +101,8 @@
     <Compile Include="09 Strings and RegExp\RegExp.cs" />
     <Compile Include="09 Strings and RegExp\Vector.cs" />
     <Compile Include="09 Strings and RegExp\_Main.cs" />
+    <Compile Include="14 Memory and Pointers\BP_WithIDisposable.cs" />
+    <Compile Include="14 Memory and Pointers\MemPointers.cs" />
     <Compile Include="14 Memory and Pointers\Scope1.cs" />
     <Compile Include="14 Memory and Pointers\SelfDestructor.cs" />
     <Compile Include="14 Memory and Pointers\_Main.cs" />
