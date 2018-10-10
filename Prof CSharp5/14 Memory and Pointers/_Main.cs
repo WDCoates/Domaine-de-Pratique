@@ -30,6 +30,16 @@ namespace ConsoleA1._14_Memory_and_Pointers
             //Looking at MemPointers
             MemPointers.MemPo();
 
+            //Stack-based Arrays
+            Cons.WriteLine($"How Many?");
+            var input = Cons.ReadLine();
+            int len;
+            if (int.TryParse(input, out len))
+                MemPointers.Stack_Based_Array(len);
+            else
+            {
+                Cons.WriteLine($"That was not an integer!");
+            }
 
             Cons.WriteLine($"Press anykey to exit!");
             Cons.ReadKey();

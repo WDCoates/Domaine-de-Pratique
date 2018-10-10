@@ -1,15 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Cons = System.Console;
 
 namespace ConsoleA1._14_Memory_and_Pointers
 {
+    internal class MmeClass
+    {
+        internal long x, y;
+        internal int count;
+    }
     public class MemPointers
     {
+        private struct MemStruct
+        {
+            internal char N;
+            internal int Number;
+        }
         public static void MemPo()
         {
             unsafe
@@ -37,6 +42,35 @@ namespace ConsoleA1._14_Memory_and_Pointers
                 
                 x = CheckedExample(10);
 
+                MemStruct mS = new MemStruct();
+                mS.N = 'A';
+                mS.Number = 1;
+
+                MemStruct* pMemStruct;
+                pMemStruct = &mS;
+
+                (*pMemStruct).Number = 101;
+                pMemStruct->N = 'B';
+
+                int* pMsNo = &pMemStruct->Number;
+
+                //Pointers to class members!
+                MmeClass mClass = new MmeClass();
+                //long* pX = &(mClass->x);    //Wrong wrong wrong!!!
+                mClass.x = 1;
+                fixed (long* pObject = &(mClass.x))
+                fixed (long* pY = &mClass.y)            //Can be stacked or nested....
+                {
+                    Cons.WriteLine($"Address fixed: {(ulong)pObject}");
+                    Cons.WriteLine($"Address fixed: {(ulong)pY}");
+
+                    MmeClass mClass2 = new MmeClass();
+                    fixed (long* pY2 = &mClass.y, pX2 = &mClass2.x)
+                    fixed(int* pC2 = &mClass.count)
+                    {
+                        //Do something with pY2, pX2, pC2
+                    }
+                }
             }
         }
 
@@ -52,9 +86,16 @@ namespace ConsoleA1._14_Memory_and_Pointers
             catch (Exception e)
             {
                 Console.WriteLine($"Got you using checked: {e.Message}");
-                throw;
+                //throw;
             }
             return (ulong)res;
         }
+
+        public static unsafe void Stack_Based_Array(int len)
+        {
+            int* pInt = stackalloc int[len];
+
+        }
     }
+
 }
