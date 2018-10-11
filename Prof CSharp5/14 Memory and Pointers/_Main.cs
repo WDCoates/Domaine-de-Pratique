@@ -31,17 +31,28 @@ namespace ConsoleA1._14_Memory_and_Pointers
             MemPointers.MemPo();
 
             //Stack-based Arrays
-            Cons.WriteLine($"How Many?");
+            Cons.Write($"How Many?");
             var input = Cons.ReadLine();
             int len;
             if (int.TryParse(input, out len))
+            {
                 MemPointers.Stack_Based_Array(len);
+                try
+                {
+                    SupperFastArray.SFastArray(len);
+                }
+                catch (Exception e)
+                {
+                    Cons.WriteLine($"Error: {e.Message}");
+                }
+            }
             else
             {
                 Cons.WriteLine($"That was not an integer!");
             }
 
-            Cons.WriteLine($"Press anykey to exit!");
+            Cons.WriteLine();
+            Cons.WriteLine($"Press any key to exit!");
             Cons.ReadKey();
         }
     }

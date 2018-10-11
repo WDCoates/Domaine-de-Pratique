@@ -105,6 +105,7 @@
     <Compile Include="14 Memory and Pointers\MemPointers.cs" />
     <Compile Include="14 Memory and Pointers\Scope1.cs" />
     <Compile Include="14 Memory and Pointers\SelfDestructor.cs" />
+    <Compile Include="14 Memory and Pointers\SupperFastArray.cs" />
     <Compile Include="14 Memory and Pointers\_Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
