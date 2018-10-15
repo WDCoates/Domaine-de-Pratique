@@ -44,9 +44,8 @@ namespace ConsoleA1._07_Operators_and_Casts
                 int? a = null;
                 int b = checked((int)a);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
                 
             }
 
