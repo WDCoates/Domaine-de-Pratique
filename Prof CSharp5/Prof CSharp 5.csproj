@@ -51,7 +51,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ConsoleA1._07_Operators_and_Casts.MainProgram</StartupObject>
+    <StartupObject>ConsoleA1._15_Reflection._Main</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -80,6 +80,7 @@
     <Compile Include="07 Operators and Casts\OpOverloading.cs" />
     <Compile Include="07 Operators and Casts\SimpleCur.cs" />
     <Compile Include="07 Operators and Casts\TypeSafe.cs" />
+    <Compile Include="15-Reflection\_Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
