@@ -50,11 +50,23 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
+  <PropertyGroup Condition=" '$(Configuration)' != 'Release' ">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <CodeContractsRuntimeCheckingLevel>ReleaseRequires</CodeContractsRuntimeCheckingLevel>
+    <DebugType>pdbonly</DebugType>
+  </PropertyGroup>
+  <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
   <PropertyGroup>
     <StartupObject>ConsoleA1._15_Reflection._Main</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
@@ -65,7 +77,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="00 Common\DicEmployee .cs" />
+    <Compile Include="00 Common\Employee.cs" />
+    <Compile Include="00 Common\EmployeeId.cs" />
+    <Compile Include="00 Common\Info.cs" />
     <Compile Include="00 Common\Person.cs" />
+    <Compile Include="00 Common\Racer.cs" />
     <Compile Include="00 Common\ShoeCollection.cs" />
     <Compile Include="02 Core\Prog02.cs" />
     <Compile Include="05 Generics\GDocMan.cs" />
@@ -80,6 +97,23 @@
     <Compile Include="07 Operators and Casts\OpOverloading.cs" />
     <Compile Include="07 Operators and Casts\SimpleCur.cs" />
     <Compile Include="07 Operators and Casts\TypeSafe.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\BubbleSorter.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\Delegates.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\EventsCode.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\LambdaExpressions.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\SandPit.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\WeakCarInfoEM.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\_EntryClass.cs" />
+    <Compile Include="09 Strings and RegExp\RegExp.cs" />
+    <Compile Include="09 Strings and RegExp\Vector.cs" />
+    <Compile Include="09 Strings and RegExp\_Main.cs" />
+    <Compile Include="10 Collections\ConsHelper.cs" />
+    <Compile Include="10 Collections\Docs.cs" />
+    <Compile Include="10 Collections\FindCountry.cs" />
+    <Compile Include="10 Collections\ImmutabeThings.cs" />
+    <Compile Include="10 Collections\ProcessDocs.cs" />
+    <Compile Include="10 Collections\RacerComp.cs" />
+    <Compile Include="10 Collections\_10Main.cs" />
     <Compile Include="15-Reflection\FieldNames.cs" />
     <Compile Include="15-Reflection\_Main.cs" />
     <Compile Include="IAccount.cs" />
