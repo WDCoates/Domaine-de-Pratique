@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace ConsoleA1._00_Common
 {
     public static class Formula1
     {
-        private static List<Racer> racers;
-        private static List<Championship> championships;
+       private static List<Racer> racers;
+       private static List<Championship> championships;
 
-
-        internal static IList<Racer> GetChampions()
+      
+      internal static IList<Racer> GetChampions()
         {
             if (racers == null)
             {
@@ -46,11 +46,10 @@ namespace ConsoleA1._00_Common
                 racers.Add(new Racer(30,"Jenson", "Button", "UK", 208, 12, new int[] { 2009 }, new string[] { "Brawn GP" }));
                 racers.Add(new Racer(31,"Sebastian", "Vettel", "Germany", 81, 21, new int[] { 2010, 2011 }, new string[] { "Red Bull Racing" }));
 
-                return racers;
+              return racers;
             }
 
             return racers;
-
         }
 
         public static IEnumerable<Championship> GetChampionships()
@@ -496,7 +495,6 @@ namespace ConsoleA1._00_Common
             return championships;
         }
 
-
     }
 
     public class Championship
@@ -506,6 +504,5 @@ namespace ConsoleA1._00_Common
         public string Second { get; set; }
         public string Third { get; set; }
     }
-
 
 }
