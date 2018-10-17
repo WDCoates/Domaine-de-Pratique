@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using ConsoleA1._07_Operators_and_Casts;
 
 namespace ConsoleA1._09_Strings_and_RegExp
 {
