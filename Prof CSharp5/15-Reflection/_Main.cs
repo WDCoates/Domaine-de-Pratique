@@ -11,6 +11,10 @@ namespace ConsoleA1._15_Reflection
         public static void Main()
         {
             Cons.WriteLine($"Lets look at Reflection...");
+            
+
+
+
 
 
             Cons.WriteLine($"Press any key to exit.");
