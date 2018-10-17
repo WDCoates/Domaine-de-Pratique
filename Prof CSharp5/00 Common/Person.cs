@@ -17,6 +17,18 @@ namespace Common
         public String LastName { get; set; }
         public int Id { get; private set; }
 
+        public Person()
+        {
+
+        }
+
+        public Person(string name)
+        {
+            string[] split = name.Split(',');
+            this.FirstName = split[0];
+            this.LastName = split[1];
+        }
+
         //So sorting can happen need to add IComparable to this class
         public int CompareTo(Person target)
         {

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -50,14 +50,26 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
+  <PropertyGroup Condition=" '$(Configuration)' != 'Release' ">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <CodeContractsRuntimeCheckingLevel>ReleaseRequires</CodeContractsRuntimeCheckingLevel>
+    <DebugType>pdbonly</DebugType>
+  </PropertyGroup>
+  <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
   <PropertyGroup>
-    <StartupObject>ConsoleA1._09_Strings_and_RegExp._Main</StartupObject>
+    <StartupObject>ConsoleA1._10_Collections._10Main</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>TextTemplate.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
@@ -68,7 +80,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="00 Common\DicEmployee .cs" />
+    <Compile Include="00 Common\Employee.cs" />
+    <Compile Include="00 Common\EmployeeId.cs" />
     <Compile Include="00 Common\Person.cs" />
+    <Compile Include="00 Common\Racer.cs" />
     <Compile Include="00 Common\ShoeCollection.cs" />
     <Compile Include="02 Core\Prog02.cs" />
     <Compile Include="05 Generics\GDocMan.cs" />
@@ -93,6 +109,14 @@
     <Compile Include="09 Strings and RegExp\RegExp.cs" />
     <Compile Include="09 Strings and RegExp\Vector.cs" />
     <Compile Include="09 Strings and RegExp\_Main.cs" />
+    <Compile Include="10 Collections\ConsHelper.cs" />
+    <Compile Include="10 Collections\Docs.cs" />
+    <Compile Include="10 Collections\FindCountry.cs" />
+    <Compile Include="10 Collections\ImmutabeThings.cs" />
+    <Compile Include="00 Common\Info.cs" />
+    <Compile Include="10 Collections\ProcessDocs.cs" />
+    <Compile Include="10 Collections\RacerComp.cs" />
+    <Compile Include="10 Collections\_10Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
