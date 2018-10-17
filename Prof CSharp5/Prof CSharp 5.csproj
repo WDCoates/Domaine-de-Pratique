@@ -51,7 +51,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ConsoleA1._07_Operators_and_Casts.MainProgram</StartupObject>
+    <StartupObject>ConsoleA1._09_Strings_and_RegExp._Main</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>TextTemplate.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -80,6 +83,16 @@
     <Compile Include="07 Operators and Casts\OpOverloading.cs" />
     <Compile Include="07 Operators and Casts\SimpleCur.cs" />
     <Compile Include="07 Operators and Casts\TypeSafe.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\BubbleSorter.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\Delegates.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\EventsCode.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\LambdaExpressions.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\SandPit.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\WeakCarInfoEM.cs" />
+    <Compile Include="08 DelegatesLambdasEvents\_EntryClass.cs" />
+    <Compile Include="09 Strings and RegExp\RegExp.cs" />
+    <Compile Include="09 Strings and RegExp\Vector.cs" />
+    <Compile Include="09 Strings and RegExp\_Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
