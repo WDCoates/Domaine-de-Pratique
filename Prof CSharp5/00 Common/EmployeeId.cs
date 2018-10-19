@@ -21,7 +21,7 @@ namespace ConsoleA1._00_Common
             }
             catch (FormatException fE)
             {
-                throw new EmployeeIdException("Invalid EmployeeId format!");
+                throw new EmployeeIdException($"Invalid EmployeeId format! {fE.Message}");
             }
         }
 
@@ -57,6 +57,7 @@ namespace ConsoleA1._00_Common
         }
     }
     
+    [Serializable]
     public class EmployeeIdException : Exception
     {
         public EmployeeIdException (string message) : base(message) {}

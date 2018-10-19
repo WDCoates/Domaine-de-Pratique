@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prof CSharp 5", "Prof CSharp5\Prof CSharp 5.csproj", "{81A51005-B611-411F-B1B9-A5FDACA2CEB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhatsNewAttributes", "WhatsNewAttributes\WhatsNewAttributes.csproj", "{58F8A01A-7A47-426C-9FA6-434D9D230B9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhatsNewAttributes", "WhatsNewAttributes\WhatsNewAttributes.csproj", "{58F8A01A-7A47-426C-9FA6-434D9D230B9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VectorClass", "VectorClass\VectorClass.csproj", "{5CAF0D18-984D-4AC7-BABA-2090E9D51085}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyVectors", "ClassLibrary1\MyVectors.csproj", "{74855B95-674D-4E1C-872A-1933BA425BD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{58F8A01A-7A47-426C-9FA6-434D9D230B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58F8A01A-7A47-426C-9FA6-434D9D230B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58F8A01A-7A47-426C-9FA6-434D9D230B9E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5CAF0D18-984D-4AC7-BABA-2090E9D51085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5CAF0D18-984D-4AC7-BABA-2090E9D51085}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5CAF0D18-984D-4AC7-BABA-2090E9D51085}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5CAF0D18-984D-4AC7-BABA-2090E9D51085}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74855B95-674D-4E1C-872A-1933BA425BD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74855B95-674D-4E1C-872A-1933BA425BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74855B95-674D-4E1C-872A-1933BA425BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74855B95-674D-4E1C-872A-1933BA425BD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

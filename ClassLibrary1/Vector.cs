@@ -4,7 +4,7 @@ using WhatsNewAttributes;
 
 [assembly: SupportsWhatsNew]
 
-namespace VectorClass
+namespace MyVectors
 {
     [LastModified("17 Oct 2018", "IEnumerable interface implemented so Vector can now be treated as a collection.")]
     [LastModified("10 Feb 2018", "Fic date when looked at.")]
