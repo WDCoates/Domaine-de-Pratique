@@ -51,6 +51,11 @@ namespace Common
             
         }
 
+        public string GetFullName()
+        {
+            return string.Concat(FirstName, " ", LastName, ".");
+        }
+
         public override bool Equals(object other)
         {
             if (other == null)
@@ -68,6 +73,11 @@ namespace Common
 
             return this.Id == other.Id && this.FirstName == other.FirstName && this.LastName == other.LastName;
 
+        }
+
+        public override string ToString()
+        {
+            return String.Concat(FirstName, " ", LastName);
         }
 
     }

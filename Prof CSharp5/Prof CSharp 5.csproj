@@ -69,7 +69,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>C:\packages\System.Collections.Immutable.1.5.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -127,12 +127,15 @@
     <Compile Include="10 Collections\_10Main.cs" />
     <Compile Include="11 LINQ\DeferredDemo.cs" />
     <Compile Include="11 LINQ\_11Main.cs" />
+    <Compile Include="12 Dynamic Language Extensions\DynamicObj.cs" />
+    <Compile Include="12 Dynamic Language Extensions\ILExample.cs" />
     <Compile Include="12 Dynamic Language Extensions\_12Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="12 Dynamic Language Extensions\Test.csv" />
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
