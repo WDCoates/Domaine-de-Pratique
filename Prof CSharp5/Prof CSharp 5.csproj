@@ -71,6 +71,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -118,6 +119,7 @@
     <Compile Include="10 Collections\RacerComp.cs" />
     <Compile Include="10 Collections\_10Main.cs" />
     <Compile Include="15-Reflection\FieldNames.cs" />
+    <Compile Include="15-Reflection\TypeViewMessages.cs" />
     <Compile Include="15-Reflection\_Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />

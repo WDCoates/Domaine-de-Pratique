@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 using ConsoleA1._00_Common;
-using MyVectors; 
+using MyVectors;
 using Cons = System.Console;
 
 
@@ -32,8 +33,29 @@ namespace ConsoleA1._15_Reflection
             // var containingAssembly = new Assembly(t);   this I could not get to work first time!
 
             //Methods...
+            t = typeof(string);
+            MethodInfo[] methods = t.GetMethods();
+            foreach (var m in methods)
+            {
+                Cons.WriteLine($"{m.Name} => {m.Attributes}");
+            }
 
+            Cons.WriteLine($"Press any key to see events.");
+            Cons.ReadKey();
+            EventInfo[] events = t.GetEvents();
+            if (events.Any())
+            {
+                foreach (var ev in events)
+                {
+                    Cons.WriteLine($"{ev.Name} => {ev.Attributes}");
+                } 
+            }
+            else
+            {
+                Cons.WriteLine($"No Events for {t.FullName}");
+            }
 
+            TypeViewMessages.DispTypeView();
 
             Cons.WriteLine($"Press any key to exit.");
             Cons.ReadKey();
