@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+using System;
 using System.Text;
-using System.Threading.Tasks;
 using Cons = System.Console;
 
 namespace ConsoleA1._09_Strings_and_RegExp
