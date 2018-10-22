@@ -119,6 +119,7 @@
     <Compile Include="10 Collections\RacerComp.cs" />
     <Compile Include="10 Collections\_10Main.cs" />
     <Compile Include="15-Reflection\FieldNames.cs" />
+    <Compile Include="15-Reflection\LookupWhatsNew.cs" />
     <Compile Include="15-Reflection\TypeViewMessages.cs" />
     <Compile Include="15-Reflection\_Main.cs" />
     <Compile Include="IAccount.cs" />
@@ -141,9 +142,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\MyVectors.csproj">
+    <ProjectReference Include="..\MyVectorsLibrary\MyVectors.csproj">
       <Project>{74855b95-674d-4e1c-872a-1933ba425bd0}</Project>
       <Name>MyVectors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WhatsNewAttributes\WhatsNewAttributes.csproj">
+      <Project>{58f8a01a-7a47-426c-9fa6-434d9d230b9e}</Project>
+      <Name>WhatsNewAttributes</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

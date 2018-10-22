@@ -57,6 +57,11 @@ namespace ConsoleA1._15_Reflection
 
             TypeViewMessages.DispTypeView();
 
+            Cons.WriteLine($"Press any key Lookup Whats New...");
+            Cons.ReadKey();
+
+            LookupWhatsNew.LookWhatsNew();
+
             Cons.WriteLine($"Press any key to exit.");
             Cons.ReadKey();
         }

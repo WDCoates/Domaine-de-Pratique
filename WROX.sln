@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prof CSharp 5", "Prof CShar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhatsNewAttributes", "WhatsNewAttributes\WhatsNewAttributes.csproj", "{58F8A01A-7A47-426C-9FA6-434D9D230B9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyVectors", "ClassLibrary1\MyVectors.csproj", "{74855B95-674D-4E1C-872A-1933BA425BD0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyVectors", "MyVectorsLibrary\MyVectors.csproj", "{74855B95-674D-4E1C-872A-1933BA425BD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
