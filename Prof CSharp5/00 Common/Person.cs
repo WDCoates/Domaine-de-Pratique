@@ -17,6 +17,18 @@ namespace Common
         public String LastName { get; set; }
         public int Id { get; private set; }
 
+        public Person()
+        {
+
+        }
+
+        public Person(string name)
+        {
+            string[] split = name.Split(',');
+            this.FirstName = split[0];
+            this.LastName = split[1];
+        }
+
         //So sorting can happen need to add IComparable to this class
         public int CompareTo(Person target)
         {
@@ -39,6 +51,11 @@ namespace Common
             
         }
 
+        public string GetFullName()
+        {
+            return string.Concat(FirstName, " ", LastName, ".");
+        }
+
         public override bool Equals(object other)
         {
             if (other == null)
@@ -56,6 +73,11 @@ namespace Common
 
             return this.Id == other.Id && this.FirstName == other.FirstName && this.LastName == other.LastName;
 
+        }
+
+        public override string ToString()
+        {
+            return String.Concat(FirstName, " ", LastName);
         }
 
     }
