@@ -61,7 +61,7 @@
   </PropertyGroup>
   <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
   <PropertyGroup>
-    <StartupObject>ConsoleA1._12_Dynamic_Language_Extensions._12Main</StartupObject>
+    <StartupObject>ConsoleA1._13_Asynchronus_Programming._13Main</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>
@@ -131,6 +131,8 @@
     <Compile Include="12 Dynamic Language Extensions\DynamicObj.cs" />
     <Compile Include="12 Dynamic Language Extensions\ILExample.cs" />
     <Compile Include="12 Dynamic Language Extensions\_12Main.cs" />
+    <Compile Include="13 Asynchronus Programming\AFoundationsOfAsync.cs" />
+    <Compile Include="13 Asynchronus Programming\_13Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
