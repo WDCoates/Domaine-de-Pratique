@@ -93,7 +93,6 @@
     <Compile Include="00 Common\ShoeCollection.cs" />
     <Compile Include="00 Common\StringExtenders.cs" />
     <Compile Include="00 Common\Team.cs" />
-    <Compile Include="00 Common\Info.cs" />
     <Compile Include="00 Common\Formula1.cs" />
     <Compile Include="02 Core\Prog02.cs" />
     <Compile Include="05 Generics\GDocMan.cs" />
