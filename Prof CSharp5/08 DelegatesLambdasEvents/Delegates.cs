@@ -106,7 +106,7 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
             }
             catch (Exception ex)
             {
-                Con.WriteLine("Exception caught!");
+                Con.WriteLine($"Exception, {ex.Message}, caught!");
             }
 
             Delegate[] dA = a1.GetInvocationList();
@@ -118,7 +118,7 @@ namespace ConsoleA1._08_DelegatesLambdasEvents
                 }
                 catch (Exception ex)
                 {
-                    Con.WriteLine("Exception what exception!");
+                    Con.WriteLine($"Exception, {ex.Message}, what exception!");
                 }
             }
 

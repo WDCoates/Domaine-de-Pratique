@@ -22,7 +22,7 @@ namespace ConsoleA1._07_Operators_and_Casts
                     object mObj = (object) myLongNumber;
                     int mInt = (int) mObj;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return false;
                 }
@@ -37,7 +37,7 @@ namespace ConsoleA1._07_Operators_and_Casts
             {
                 Cur eCur = (Cur) nObj;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

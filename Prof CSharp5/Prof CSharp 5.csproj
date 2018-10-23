@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ConsoleA1</RootNamespace>
     <AssemblyName>ConsoleA1</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -63,11 +63,7 @@
   </PropertyGroup>
   <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
   <PropertyGroup>
-    <StartupObject>ConsoleA1._14_Memory_and_Pointers._Main</StartupObject>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <StartupObject>ConsoleA1._15_Reflection._Main</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -76,20 +72,21 @@
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\WindowsBase.4.6.1055.0\lib\WindowsBase.dll</HintPath>
-    </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="00 Common\DicEmployee .cs" />
     <Compile Include="00 Common\Employee.cs" />
     <Compile Include="00 Common\EmployeeId.cs" />
+    <Compile Include="00 Common\Info.cs" />
     <Compile Include="00 Common\F1 Teams.cs" />
     <Compile Include="00 Common\Person.cs" />
     <Compile Include="00 Common\Racer.cs" />
@@ -141,6 +138,10 @@
     <Compile Include="14 Memory and Pointers\SelfDestructor.cs" />
     <Compile Include="14 Memory and Pointers\SupperFastArray.cs" />
     <Compile Include="14 Memory and Pointers\_Main.cs" />
+    <Compile Include="15-Reflection\FieldNames.cs" />
+    <Compile Include="15-Reflection\LookupWhatsNew.cs" />
+    <Compile Include="15-Reflection\TypeViewMessages.cs" />
+    <Compile Include="15-Reflection\_Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,7 +162,16 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MyVectorsLibrary\MyVectors.csproj">
+      <Project>{74855b95-674d-4e1c-872a-1933ba425bd0}</Project>
+      <Name>MyVectors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WhatsNewAttributes\WhatsNewAttributes.csproj">
+      <Project>{58f8a01a-7a47-426c-9fa6-434d9d230b9e}</Project>
+      <Name>WhatsNewAttributes</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
