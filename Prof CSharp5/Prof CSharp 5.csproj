@@ -63,7 +63,7 @@
   </PropertyGroup>
   <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
   <PropertyGroup>
-    <StartupObject>ConsoleA1._15_Reflection._Main</StartupObject>
+    <StartupObject>ConsoleA1._16_ErrorAndExceptions._Main</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
