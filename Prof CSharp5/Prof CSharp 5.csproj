@@ -52,6 +52,7 @@
     <DefineConstants>TRACE;/main:ConsoleA1.Test</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
   <PropertyGroup Condition=" '$(Configuration)' != 'Release' ">
