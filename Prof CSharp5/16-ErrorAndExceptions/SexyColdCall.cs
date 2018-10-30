@@ -20,6 +20,7 @@ namespace ConsoleA1._16_ErrorAndExceptions
                 for (var i = 0; i < callList.NList; i++)
                 {
                     callList.ProcessNext();
+                    Cons.ReadLine();
                 }
 
                 Cons.WriteLine($"All on the list called.");
