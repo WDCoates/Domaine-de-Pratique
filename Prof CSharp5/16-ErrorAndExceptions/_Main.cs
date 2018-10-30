@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleA1._16_ErrorAndExceptions;
 
 namespace ConsoleA1._16_ErrorAndExceptions
 {
@@ -47,6 +48,9 @@ namespace ConsoleA1._16_ErrorAndExceptions
 
                 Console.WriteLine($"End of Try block");
             }
+
+            SexyColdCall.Start();
+            
 
             Console.WriteLine($"Press any key to exit.");
             Console.ReadKey();

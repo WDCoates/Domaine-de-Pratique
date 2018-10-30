@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.CodeDom;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Security.Cryptography;
 using Cons = System.Console;
 
 namespace ConsoleA1._16_ErrorAndExceptions
 {
     class SexyColdCall
     {
-        static void Start()
+        public static void Start()
         {
             Cons.Write($"File name:");
             string file = Cons.ReadLine();
@@ -19,9 +17,9 @@ namespace ConsoleA1._16_ErrorAndExceptions
             try
             {
                 callList.Open(file);
-                for (var i = 0; i < callList.nList; i++)
+                for (var i = 0; i < callList.NList; i++)
                 {
-                    callList.ProcessNextOnList();
+                    callList.ProcessNext();
                 }
 
                 Cons.WriteLine($"All on the list called.");
@@ -43,42 +41,113 @@ namespace ConsoleA1._16_ErrorAndExceptions
         }
     }
 
-    class ccFileReader: IDisposable
+    class ccFileReader : IDisposable
     {
-    private FileStream fS;
-    private StreamReader sR;
-    private uint nList;
-    private bool isDisposed = false;
-    private bool isOpen = false;
+        private FileStream fS;
+        private StreamReader sR;
+        private uint nList;
+        private bool isDisposed = false;
+        private bool isOpen = false;
 
-    internal void Open(string file)
-    {
-        if (isDisposed)
-            throw new ObjectDisposedException("callList");
+        internal void Open(string file)
+        {
+            if (isDisposed)
+                throw new ObjectDisposedException("callList");
 
-        fS = new FileStream(file, FileMode.Open);
-        sR = new StreamReader(fS);
+            fS = new FileStream(file, FileMode.Open);
+            sR = new StreamReader(fS);
 
-        try
-        {
-            string fLine = sR.ReadLine();
-            nList = uint.Parse(fLine);
-            isOpen = true;
+            try
+            {
+                string fLine = sR.ReadLine();
+                nList = uint.Parse(fLine);
+                isOpen = true;
+            }
+            catch (FormatException e)
+            {
+                throw new ccFileFormatException("First like isn\'t an integer", e);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
-        catch (FormatException e)
+
+        public uint NList
         {
-            throw new ccFileFormatException("First like isn\'t an integer", e);
+            get
+            {
+                if (isDisposed)
+                {
+                    throw new ObjectDisposedException("ccFileReader");
+                }
+
+                if (!isOpen)
+                {
+                    throw new UnexpectedException("Attempt to access cold call file that is not open!");
+                }
+
+                return nList;
+            }
         }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-    }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            if (isDisposed)
+            {
+                return;
+            }
+
+            isDisposed = true;
+            isOpen = false;
+
+            if (fS != null)
+            {
+                fS.Close();
+                fS = null;
+            }
+
+        }
+
+        public void ProcessNext()
+        {
+            if (isDisposed)
+            {
+                throw new ObjectDisposedException("ccFileReader");
+            }
+
+            if (!isOpen)
+            {
+                throw new UnexpectedException("Attempt to access ccFile file that is not open");
+            }
+
+            try
+            {
+                string name;
+                name = sR.ReadLine();
+                if (name == null)
+                {
+                    throw new ccFileFormatException("Not enough names in the file!");
+                }
+
+                if (name[0] == 'B')
+                {
+                    throw new ssFoundException(name);
+                }
+
+                Cons.WriteLine(name);
+            }
+            catch (ssFoundException ssE)
+            {
+                Cons.WriteLine(ssE.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
         }
     }
 
@@ -91,7 +160,29 @@ namespace ConsoleA1._16_ErrorAndExceptions
         public ccFileFormatException(string message, Exception iException)
             : base(message, iException)
         {
+        }        
+    }
+
+    class ssFoundException : Exception
+    {
+        public ssFoundException(string spyName) : base("Sales spy found, with name " + spyName)
+        {
         }
 
+        public ssFoundException(string spyName, Exception innerException) : base("Sales spy found with name " + spyName,
+            innerException)
+        {
+        }
+    }
+
+    public class UnexpectedException : Exception
+    {
+        public UnexpectedException(string message) : base (message)
+        {
+        }
+
+        public UnexpectedException(string message, Exception inExp) : base (message, inExp)
+        {
+        }
     }
 }
