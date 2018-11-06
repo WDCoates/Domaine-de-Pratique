@@ -57,4 +57,9 @@ namespace ConsoleA1._16_ErrorAndExceptions
         }
 
     }
+
+    class MyClass
+    {
+        
+    }
 }

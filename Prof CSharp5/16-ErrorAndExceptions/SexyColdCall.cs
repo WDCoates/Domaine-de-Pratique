@@ -2,6 +2,7 @@
 using System.CodeDom;
 using System.IO;
 using System.Security.Cryptography;
+using Microsoft.Ajax.Utilities;
 using Cons = System.Console;
 
 namespace ConsoleA1._16_ErrorAndExceptions
