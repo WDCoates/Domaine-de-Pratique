@@ -153,6 +153,7 @@
     <Compile Include="15-Reflection\_Main.cs" />
     <Compile Include="16-ErrorAndExceptions\SexyColdCall.cs" />
     <Compile Include="16-ErrorAndExceptions\_Main.cs" />
+    <Compile Include="17-VSTools\_Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -184,9 +185,7 @@
       <Name>WhatsNewAttributes</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="17-VSTools\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
