@@ -14,6 +14,9 @@ namespace ConsoleA1._17_VSTools
             Console.WriteLine("Some refactoring!");
             Console.WriteLine($"Some Unit testing");
 
+            string wine = "Red";
+            WineSampler wSam = new WineSampler(wine);
+            var res = wSam.GetWineSample("Leather", "Blackberry");
             
         }
     }
@@ -26,8 +29,8 @@ namespace ConsoleA1._17_VSTools
             if (wine.IsNullOrWhiteSpace())
             {
                 throw new ArgumentNullException($"Wine can not be empty!");
-                this.wine = wine;
-            }
+            }   
+            this.wine = wine;
         }
 
         private string wine;

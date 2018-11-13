@@ -23,5 +23,14 @@ namespace ConsoleA1._17_VSTools
             string wine = null;
             WineSampler wSam = new WineSampler(wine);
         }
+
+        [TestMethod]
+        public void TestWineSampleABC()
+        {
+            string wine = "Red";
+            WineSampler wSam = new WineSampler(wine);
+            var res = wSam.GetWineSample("Leather", "Blackberry");
+            Assert.AreEqual("RedLeatherBlackberry", res);
+        }
     }
 }
