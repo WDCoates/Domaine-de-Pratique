@@ -21,7 +21,11 @@ namespace ConsoleA1._17_VSTools
 
             var wines = wSam.WinesByCountry("Italy");
 
-            IChampionLoader iChaps = new IChaps();
+            IChampionLoader iChaps = new TIChaps();
+            
+            WineSampler wS2 = new WineSampler(iChaps);
+
+            var test = wS2.ChampionsByCountry("Italy");
 
         }
     }
@@ -94,7 +98,7 @@ namespace ConsoleA1._17_VSTools
         XElement GetChampions();
     }
 
-    public class TIhaps : IChampionLoader
+    public class TIChaps : IChampionLoader
     {
         public XElement GetChampions()
         {
