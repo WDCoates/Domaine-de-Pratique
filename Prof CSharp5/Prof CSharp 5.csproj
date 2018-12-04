@@ -153,6 +153,7 @@
     <Compile Include="15-Reflection\_Main.cs" />
     <Compile Include="16-ErrorAndExceptions\SexyColdCall.cs" />
     <Compile Include="16-ErrorAndExceptions\_Main.cs" />
+    <Compile Include="21 Tasks Threads Synchronization\TestClass.cs" />
     <Compile Include="21 Tasks Threads Synchronization\_Main1.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
