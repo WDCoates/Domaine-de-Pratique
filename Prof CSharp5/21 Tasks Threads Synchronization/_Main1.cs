@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
+using static ConsoleA1._00_Common.Statics;
 using con = System.Console;
 
 namespace ConsoleA1._21_Tasks_Threads_Synchronization
@@ -13,7 +14,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 4;
+            int doCase = 6;
 
             switch (doCase)
             {
@@ -90,16 +91,16 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                             con.WriteLine(
                                 $"Init for thread {Thread.CurrentThread.ManagedThreadId}, task {Task.CurrentId}");
 
-                            return String.Format($"t{Thread.CurrentThread.ManagedThreadId}");
-                        }, (i, pLs, str1) =>
+                            return String.Format($"t{Thread.CurrentThread.ManagedThreadId}");   //returns to initStr1.
+                        }, (i, pLs, initStr1) =>
                         {
                             // Invoked for each member.
                             con.WriteLine(
-                                $"Body i {i}, str {str1}, thread {Thread.CurrentThread.ManagedThreadId}, task {Task.CurrentId}");
+                                $"Body i {i}, str {initStr1}, thread {Thread.CurrentThread.ManagedThreadId}, task {Task.CurrentId}");
                             Thread.Sleep(10);
-                            return $"i {i}";
+                            return $"i {i}";    //this is the return type for the For<string>
                         },
-                        (str1) =>
+                        (str1) =>   //exit method
                         {
                             //Final action on each thread
                             con.WriteLine($"Finally {str1}");
@@ -107,9 +108,34 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
 
                     con.WriteLine($"What happened there!");
                     break;
+
+                case 5:
+                    //Looping with the Parallel.ForEach
+                    string[] sample =
+                    {
+                        "zéro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze",
+                        "douze", "trize", "quatorze", "quinze", "seize"
+                    };
+                    ParallelLoopResult plRes = Parallel.ForEach<string>(sample, (s, spl, lItr) => {con.WriteLine($"{lItr} - {s}"); });
+                    break;
+
+                case 6:
+                    // Multiple Methods with Parallel.Invoke
+
+                    try
+                    {
+                        Parallel.Invoke(bonjour("Paul"), bienvenue("Jane"), au_revoir("Jon"));
+                    }
+                    catch (Exception e)
+                    {     
+                        con.WriteLine($"{e.Message} - Actions should be null!");
+                    }
+                    break;
             }
 
             con.ReadLine();
         }
+        
     }
+    
 }

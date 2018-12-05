@@ -101,6 +101,7 @@
     <Compile Include="00 Common\Person.cs" />
     <Compile Include="00 Common\Racer.cs" />
     <Compile Include="00 Common\ShoeCollection.cs" />
+    <Compile Include="00 Common\Statics.cs" />
     <Compile Include="00 Common\StringExtenders.cs" />
     <Compile Include="00 Common\Team.cs" />
     <Compile Include="00 Common\Formula1.cs" />
