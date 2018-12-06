@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
 using static ConsoleA1._00_Common.Statics;
+
 using con = System.Console;
 
 namespace ConsoleA1._21_Tasks_Threads_Synchronization
@@ -14,7 +15,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 6;
+            int doCase = 7;
 
             switch (doCase)
             {
@@ -121,21 +122,39 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
 
                 case 6:
                     // Multiple Methods with Parallel.Invoke
-
                     try
                     {
-                        Parallel.Invoke(bonjour("Paul"), bienvenue("Jane"), au_revoir("Jon"));
+                        Parallel.Invoke(bonjour("Jane"),bonjour("Paul"),bonjour("Jon"), bienvenue("Jane"), au_revoir("Jon"));
                     }
                     catch (Exception e)
                     {     
                         con.WriteLine($"{e.Message} - Actions should be null!");
                     }
                     break;
+                case 7:
+                    //Starting Tasks 1. TaskFactory 2. Factory via class 3. Task Constructor 4. Run method 
+                    var tf = new TaskFactory();
+                    Task t1 = tf.StartNew(Tasks.TaskMethod, "Using a TaskFactory Object!");
+                  
+                    Task t2 = Task.Factory.StartNew(Tasks.TaskMethod, "Using the Factory via a Task class");
+                    
+                    var t3 = new Task(Tasks.TaskMethod, "Using a Task constructor and the Start method");
+                    t3.Start();
+
+                    Task t4 = Task.Run(() => Tasks.TaskMethod("Using the Run method and Lambda syntax"));
+
+                    
+
+
+                    break;
+                default:
+                    break;
             }
 
             con.ReadLine();
         }
-        
+    
+      
     }
     
 }
