@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
+using Microsoft.Ajax.Utilities;
 using static ConsoleA1._00_Common.Statics;
 
 using con = System.Console;
@@ -15,7 +16,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 7;
+            int doCase = 8;
 
             switch (doCase)
             {
@@ -31,7 +32,6 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
 
                     con.WriteLine($"First set completed? {pRes.IsCompleted}");
                     break;
-
                 case 2:
                     //Adding the async and wait key words
                     ParallelLoopResult pRes2 = Parallel.For(100, 110, async i =>
@@ -81,7 +81,6 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     con.WriteLine($"3rd Loop - All Threads completed! {pRes3.IsCompleted}");
                     con.WriteLine($"Last iteration: {pRes3.LowestBreakIteration}"); //This is null 
                     break;
-
                 case 4:
                     //Getting funky now...
                     con.WriteLine($"Lets get funky when you are ready hit a key!");
@@ -109,7 +108,6 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
 
                     con.WriteLine($"What happened there!");
                     break;
-
                 case 5:
                     //Looping with the Parallel.ForEach
                     string[] sample =
@@ -141,11 +139,33 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     var t3 = new Task(Tasks.TaskMethod, "Using a Task constructor and the Start method");
                     t3.Start();
 
-                    Task t4 = Task.Run(() => Tasks.TaskMethod("Using the Run method and Lambda syntax"));
-
+                    Task.Run(() => Tasks.TaskMethod("Using the Run method and Lambda syntax"));
                     
+                    break;
 
+                case 8:
+                    //Now with TaskCreation Options
+                    Tasks.TaskMethod("Now sure this will work!");
+                    var t4 = new Task(Tasks.TaskMethod, "Running on new Thread.");
+                    t4.Start();
+                    Tasks.TaskMethod("What Thread Am I?");
+                    var t5 = new Task(Tasks.TaskMethod, "Running Synchronously on the same Thread.");
+                    t5.RunSynchronously();
 
+                    //What if we know a Task is going to take some time!
+                    var lT1 = new Task(Tasks.TaskMethod, "A Long Runner!", TaskCreationOptions.LongRunning);
+                    lT1.Start();
+                    Thread.Sleep(10);
+                    if (lT1.Status == TaskStatus.RanToCompletion)
+                        lT1.Dispose();
+                        // lT1.RunSynchronously(); can't do this !
+
+                    //Futures because the result it going to be in the future!
+                    var rT1 = new Task<Tuple<int, int>>(Tasks.TaskWithRes, Tuple.Create<int, int>(19, 3));
+                    rT1.Start();
+                    rT1.Wait();
+                    con.WriteLine(rT1.Result);                    
+                    con.WriteLine($"Results: Res = {rT1.Result.Item1}; Rem = {rT1.Result.Item2}");                                        
                     break;
                 default:
                     break;
