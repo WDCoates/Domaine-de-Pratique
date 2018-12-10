@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms.VisualStyles;
-using Microsoft.Ajax.Utilities;
 using static ConsoleA1._00_Common.Statics;
+using static ConsoleA1._21_Tasks_Threads_Synchronization.Tasks;
 
 using con = System.Console;
 
@@ -16,7 +12,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 8;
+            int doCase = 10;
 
             switch (doCase)
             {
@@ -167,6 +163,21 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     con.WriteLine(rT1.Result);                    
                     con.WriteLine($"Results: Res = {rT1.Result.Item1}; Rem = {rT1.Result.Item2}");                                        
                     break;
+                case 9:
+                    //Continuation Tasks
+                    Task t1T = new Task(DoOnFirst);
+                    Task cT1 = t1T.ContinueWith(DoOnSecond);
+                    Task cT2 = t1T.ContinueWith(DoOnSecond);
+                    Task cT1_3 = cT1.ContinueWith(DoOnSecond, TaskContinuationOptions.OnlyOnFaulted);
+                    t1T.Start();
+                    break;
+                case 10:
+                    //Task Hierarchies
+                    con.WriteLine($"Parent and Child Tasks....");
+                    Task pC = new Task(ParentAndChild);
+                    pC.Start();
+                    break;
+
                 default:
                     break;
             }
