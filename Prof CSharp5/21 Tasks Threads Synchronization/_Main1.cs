@@ -12,7 +12,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 10;
+            int doCase = 11;
 
             switch (doCase)
             {
@@ -176,6 +176,74 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     con.WriteLine($"Parent and Child Tasks....");
                     Task pC = new Task(ParentAndChild);
                     pC.Start();
+                    break;
+                case 11:
+                    // Cancellation methods.
+                    var cts = new CancellationTokenSource();
+                    cts.Token.Register(() => con.WriteLine($"*** Token Canceled ***"));
+
+                    //Send or Cancel after 500 ms.
+                    cts.CancelAfter(500);
+
+                    try
+                    {
+                        ParallelLoopResult plr = Parallel.For(0, 20, new ParallelOptions()
+                            {
+                                CancellationToken = cts.Token,
+                            },
+                            x =>
+                            {
+                                con.WriteLine($"Itr {x}");
+                                Thread.Sleep(1000);
+                                con.WriteLine($"{x}: Why did I get here?");
+                            }
+                        );
+                    }
+                    catch (OperationCanceledException oce)
+                    {
+                        con.WriteLine($"Operation cancelled in time: {oce.Message}!");
+                    }
+
+                    //Same cancellation pattern used with tasks.
+                    //Can't use the sane token as has already been cancelled!
+                    var cts2 = new CancellationTokenSource();
+                    cts2.Token.Register(() => con.WriteLine($"*** Token Canceled ***"));
+                    cts2.CancelAfter(500);
+                    
+                    //Create the task.
+                    Task ct1 = Task.Run(() =>
+                        {
+                            con.WriteLine($"Im In the Task....");
+                            for (int i = 0; i < 20; i++)
+                            {
+                                Thread.Sleep(100);
+                                CancellationToken cToken = cts2.Token;
+                                if (cToken.IsCancellationRequested)
+                                {
+                                    con.WriteLine($"Cancel has been requested! Cancelling from within task i={i}");
+                                    cToken.ThrowIfCancellationRequested();
+                                    break; //Not liking this breaking all over the place....
+                                }
+                                con.WriteLine($"Bottom of loop {i}");
+                            }
+
+                            con.WriteLine($"Finished with out cancellation.");
+                        }
+                    );
+
+                    //Run the Task
+                    try
+                    {
+                        ct1.Wait();
+                    }
+                    catch (AggregateException aEx)
+                    {
+                        con.WriteLine($"Aggregate Exception: {aEx.GetType()}, {aEx.Message}");
+                        foreach (var iEx in aEx.InnerExceptions)
+                        {
+                            con.WriteLine($"Inner exception: {iEx.GetType()}, {iEx.Message}");
+                        }
+                    }
                     break;
 
                 default:
