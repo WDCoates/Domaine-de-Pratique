@@ -12,10 +12,11 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 11;
+            int doCase = 13;
 
             switch (doCase)
             {
+                #region Cases 1 - nn Done                
                 case 1:
                     con.WriteLine($"Start Looping with Parallel.For!");
 
@@ -198,12 +199,13 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                                 con.WriteLine($"{x}: Why did I get here?");
                             }
                         );
+                        con.WriteLine($"Result: {plr.IsCompleted}");
                     }
                     catch (OperationCanceledException oce)
                     {
                         con.WriteLine($"Operation cancelled in time: {oce.Message}!");
                     }
-
+                    
                     //Same cancellation pattern used with tasks.
                     //Can't use the sane token as has already been cancelled!
                     var cts2 = new CancellationTokenSource();
@@ -244,6 +246,39 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                             con.WriteLine($"Inner exception: {iEx.GetType()}, {iEx.Message}");
                         }
                     }
+                    break;
+                
+                case 12:
+                    //Thread Pools.....Notes: All are background threads and will end when the job does.
+                    int nWorkerThreads;
+                    int nCompletionPortThreads;
+                    ThreadPool.GetMaxThreads(out nWorkerThreads, out nCompletionPortThreads);
+                    con.WriteLine($"Max w threads: {nWorkerThreads}. I/O comp threads: {nCompletionPortThreads}");
+
+                    for (int i = 0; i < 100; i++)
+                    {
+                        ThreadPool.QueueUserWorkItem(JobForAThread);
+                    }
+
+                    break;
+                #endregion Cases 1 - nn
+
+                case 13:
+                    // The Thread Class...
+                    var countDown = new Thread(ThreadMain);
+                    countDown.Start();
+                    con.WriteLine($"Main thread.");
+
+                    //Passing Data To Threads 1.ParameterizedThreadStart 2.Defined Class
+                    var d = new TData {Message = "Far Far Away..."};
+                    var pT1 = new Thread(MThread);
+                    pT1.Start(d);
+                
+                    //2. Use MyThread class....
+                    var tC = new TClass("Stop Stop Stop");
+                    var cT = new Thread(tC.TSend);
+                    cT.Start();
+
                     break;
 
                 default:

@@ -73,5 +73,42 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
             Thread.Sleep(5000);
             con.WriteLine($"Brat Stop!");
         }
+
+        internal static void JobForAThread(object state)
+        {
+            for (int i = 0; i < 8; i++)
+            {
+                con.WriteLine($"Loop number {i}, running inside pooled thread {Thread.CurrentThread.ManagedThreadId}");
+                Thread.Sleep(1500);
+            }
+        }
+
+        internal static void ThreadMain()
+        {
+            con.WriteLine($"Not the main thread!");
+            con.Write($"T minus ");
+            for (var i = 10; i > 0; i--)
+            {
+                con.Write($"{i}.");
+                for (var n = 0; n < 10; n++)
+                {
+                    con.Write($".");
+                    Thread.Sleep(100);
+                }
+            }
+            con.WriteLine($"");
+            con.Write($"Blast Off");
+        }
+
+        internal struct TData
+        {
+            public string Message;
+        }
+
+        internal static void MThread(object m)
+        {
+            TData msg = (TData) m;
+            con.WriteLine($"Message sent from thread {msg.Message}");
+        }
     }
 }
