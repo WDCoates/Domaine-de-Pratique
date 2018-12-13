@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+
 using static ConsoleA1._00_Common.Statics;
 using static ConsoleA1._21_Tasks_Threads_Synchronization.Tasks;
 
@@ -12,7 +13,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 13;
+            int doCase = 14;
 
             switch (doCase)
             {
@@ -260,8 +261,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                         ThreadPool.QueueUserWorkItem(JobForAThread);
                     }
 
-                    break;
-                #endregion Cases 1 - nn
+                    break;                
 
                 case 13:
                     // The Thread Class...
@@ -278,6 +278,20 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     var tC = new TClass("Stop Stop Stop");
                     var cT = new Thread(tC.TSend);
                     cT.Start();
+
+                    //Background Threads
+                    var pT2 = new Thread(MThread) {Name = "MyNewThread", IsBackground = true};
+                    pT2.Start(d);
+                    break;
+                #endregion Cases 1 - nn
+
+               case 14:
+                    //Race Conditions
+                    var state = new StateObject();
+                    for (int i = 0; i < 2; i++)
+                    {
+                        Task.Run(() => new RaceClass().RaceCondition(state));
+                    }
 
                     break;
 

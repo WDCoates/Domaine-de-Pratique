@@ -108,7 +108,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
         internal static void MThread(object m)
         {
             TData msg = (TData) m;
-            con.WriteLine($"Message sent from thread {msg.Message}");
+            con.WriteLine($"Message sent from thread {Thread.CurrentThread.Name}: {msg.Message}");
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace ConsoleA1._21_Tasks_Threads_Synchronization
 {
@@ -13,7 +14,8 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
 
         public void TSend()
         {
-            Console.Write($"From a class {_tdata}");
+            var tType = Thread.CurrentThread.IsBackground ? "Background": "Foreground";
+            Console.Write($"From a {tType} class {_tdata}");
         }
     }
 }
