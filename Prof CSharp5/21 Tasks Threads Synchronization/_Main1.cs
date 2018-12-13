@@ -13,7 +13,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 14;
+            int doCase = 16;
 
             switch (doCase)
             {
@@ -286,13 +286,40 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                 #endregion Cases 1 - nn
 
                case 14:
-                    //Race Conditions
+                    //Race Condition
                     var state = new StateObject();
                     for (int i = 0; i < 2; i++)
                     {
                         Task.Run(() => new RaceClass().RaceCondition(state));
                     }
+                    break;
 
+                case 15:
+                    //Race Condition With Lock
+                    var state2 = new StateObject();
+                    for (int i = 0; i < 2; i++)
+                    {
+                        Task.Run(() => new RaceClass().RaceConditionLock(state2));
+                    }
+                    break;
+
+                case 16:
+                    //Race Condition
+                    var state3 = new StateObjectWithLock();
+                    for (int i = 0; i < 2; i++)
+                    {
+                        Task.Run(() => new RaceClass().RaceConditionSyncObject(state3));
+                    }
+                    break;
+
+                case 17:
+                    //Deadlocks
+                    var stateL1 = new StateObjectWithLock();
+                    var stateL2 = new StateObjectWithLock();
+                    //for (int i = 0; i < 2; i++)
+                    //{
+                    //    Task.Run(() => new RaceClass().RaceConditionSyncObject(state3));
+                    //}
                     break;
 
                 default:
