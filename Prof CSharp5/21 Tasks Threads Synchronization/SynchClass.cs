@@ -8,13 +8,22 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
         internal int State { get; set; }
     }
 
-    internal class Synchronisation
+    static class sLock
+    {
+        internal static int sState { get; set; }
+    }
+
+    internal class SynchClass
     {
         private SharedState sharedState;
 
-        public Synchronisation(SharedState sharedState)
+        public SynchClass(SharedState sharedState)
         {
             this.sharedState = sharedState;
+        }
+
+        internal SynchClass()
+        {
         }
 
         internal void DoIt()
@@ -25,6 +34,18 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                 for (int i = 0; i < 5000; i++)
                 {
                     sharedState.State += 1;
+                } 
+            }
+        }
+
+        internal void DoItStaticLock()
+        {
+
+            lock (typeof(sLock))
+            {
+                for (int i = 0; i < 5000; i++)
+                {
+                    sLock.sState += 1;
                 } 
             }
         }
@@ -40,7 +61,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
 
             for (int i = 0; i < nTasks; i++)
             {
-                tasks[i] = Task.Run(() => new Synchronisation(state).DoIt());
+                tasks[i] = Task.Run(() => new SynchClass(state).DoIt());
             }
 
             for (int i = 0; i < nTasks; i++)
@@ -49,6 +70,20 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
             }
 
             con.WriteLine($"End State = {state.State}");
+
+            int nTasks2 = 50;
+            var tasks2 = new Task[nTasks2];
+            for (int i = 0; i < nTasks2; i++)
+            {
+                tasks2[i] = Task.Run(() => new SynchClass().DoItStaticLock());
+            }
+
+            for (int i = 0; i < nTasks2; i++)
+            {
+                tasks2[i].Wait();
+            }
+
+            con.WriteLine($"End State = {sLock.sState}");
         }
     }
 }

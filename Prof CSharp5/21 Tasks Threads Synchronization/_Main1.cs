@@ -324,7 +324,6 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     //Synchronization to avoid deadlocks
                     SyncWorker.main();
                     SyncWorker.main();
-                    SyncWorker.main();
                     break;
 
                 default:
