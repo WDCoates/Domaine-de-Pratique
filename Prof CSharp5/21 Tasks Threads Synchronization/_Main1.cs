@@ -13,7 +13,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 16;
+            int doCase = 18;
 
             switch (doCase)
             {
@@ -283,7 +283,6 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     var pT2 = new Thread(MThread) {Name = "MyNewThread", IsBackground = true};
                     pT2.Start(d);
                     break;
-                #endregion Cases 1 - nn
 
                case 14:
                     //Race Condition
@@ -311,15 +310,21 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                         Task.Run(() => new RaceClass().RaceConditionSyncObject(state3));
                     }
                     break;
+                #endregion Cases 1 - nn
 
                 case 17:
                     //Deadlocks
                     var stateL1 = new StateObjectWithLock();
                     var stateL2 = new StateObjectWithLock();
-                    //for (int i = 0; i < 2; i++)
-                    //{
-                    //    Task.Run(() => new RaceClass().RaceConditionSyncObject(state3));
-                    //}
+                    new Task(new DeadLock(stateL1, stateL2).DeadLock1).Start();
+                    new Task(new DeadLock(stateL1, stateL2).DeadLock2).Start();
+                    break;
+                
+                case 18:
+                    //Synchronization to avoid deadlocks
+                    SyncWorker.main();
+                    SyncWorker.main();
+                    SyncWorker.main();
                     break;
 
                 default:
