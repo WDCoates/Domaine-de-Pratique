@@ -101,6 +101,7 @@
     <Compile Include="00 Common\Person.cs" />
     <Compile Include="00 Common\Racer.cs" />
     <Compile Include="00 Common\ShoeCollection.cs" />
+    <Compile Include="00 Common\Statics.cs" />
     <Compile Include="00 Common\StringExtenders.cs" />
     <Compile Include="00 Common\Team.cs" />
     <Compile Include="00 Common\Formula1.cs" />
@@ -153,6 +154,11 @@
     <Compile Include="15-Reflection\_Main.cs" />
     <Compile Include="16-ErrorAndExceptions\SexyColdCall.cs" />
     <Compile Include="16-ErrorAndExceptions\_Main.cs" />
+    <Compile Include="21 Tasks Threads Synchronization\RaceClass.cs" />
+    <Compile Include="21 Tasks Threads Synchronization\StateObject.cs" />
+    <Compile Include="21 Tasks Threads Synchronization\SynchClass.cs" />
+    <Compile Include="21 Tasks Threads Synchronization\Tasks.cs" />
+    <Compile Include="21 Tasks Threads Synchronization\TClass.cs" />
     <Compile Include="21 Tasks Threads Synchronization\TestClass.cs" />
     <Compile Include="21 Tasks Threads Synchronization\_Main1.cs" />
     <Compile Include="IAccount.cs" />
