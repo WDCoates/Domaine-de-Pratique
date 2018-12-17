@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using ConsoleA1._21_Tasks_Threads_Synchronization;
 using con = System.Console;
 
 namespace ConsoleA1._21_Tasks_Threads_Synchronization
@@ -49,7 +50,95 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                 } 
             }
         }
+
+
+        //Examples with locks, but locks takes time...
+        public void DoThis()
+        {
+            lock (this)
+            {
+                //ToDo: Add Code
+            }
+        }
+        public void DoThat()
+        {
+            lock (this)
+            {
+                //ToDo: Add Code
+            }
+        }
+
+        private readonly object _syncRoot = new object();
+
+        public void DoThisSyncRoot()
+        {
+            lock (_syncRoot)
+            {
+                //ToDo: Add Code
+                // Only one thread at a time can access these two methods 
+            }
+        }
+        public void DoThatSyncRoot()
+        {
+            lock (_syncRoot)
+            {
+                //ToDo: Add Code
+                // Only one thread at a time can access these two methods 
+            }
+        }
+        //Examples with locks.
     }
+
+    /// <summary>
+    /// Example using the SyncRoot Pattern, but this only synchronizes methods.
+    /// </summary>
+    public class SyncDemo
+    {
+        private class SynchronizedDemo : SyncDemo
+        {
+            private object syncRoot = new object();
+            private SyncDemo sD;
+
+            public SynchronizedDemo(SyncDemo sD)
+            {
+                this.sD = sD;
+            }
+
+            protected override bool IsSynchronised => true;
+
+            protected override void DoThis()
+            {
+                lock (syncRoot)
+                {
+                    sD.DoThis();
+                }
+            }
+
+            protected override void DoThat()
+            {
+                lock (syncRoot)
+                {
+                    sD.DoThat();
+                }
+            }            
+        }
+
+        protected virtual bool IsSynchronised => false;
+
+        public static SyncDemo Synchronized(SyncDemo sD)
+        {
+            if (!sD.IsSynchronised)
+            {
+                return new SynchronizedDemo(sD);
+            }
+
+            return sD;
+        }
+
+        protected virtual void DoThis(){}
+        protected virtual void DoThat(){}
+    }
+
 
     internal static class SyncWorker
     {
@@ -85,5 +174,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
 
             con.WriteLine($"End State = {sLock.sState}");
         }
+
     }
+    
 }
