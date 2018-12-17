@@ -330,6 +330,8 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     break;
             }
 
+            //ToDo: Test Staging
+
             con.ReadLine();
         }
     
