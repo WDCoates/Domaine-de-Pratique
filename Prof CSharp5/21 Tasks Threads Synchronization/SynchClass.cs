@@ -139,6 +139,22 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
         protected virtual void DoThat(){}
     }
 
+    public class SharedState2
+    {
+        private int state = 0;
+        private readonly object syncRoot = new object();
+
+        public int State => state;
+
+        public int IncrementState()
+        {
+            lock (this.syncRoot)
+            {
+                return ++state;
+            }
+        }
+    }
+
 
     internal static class SyncWorker
     {

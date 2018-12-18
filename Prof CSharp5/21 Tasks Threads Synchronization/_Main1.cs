@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,7 +14,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 18;
+            int doCase = 19;
 
             switch (doCase)
             {
@@ -310,8 +311,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                         Task.Run(() => new RaceClass().RaceConditionSyncObject(state3));
                     }
                     break;
-                #endregion Cases 1 - nn
-
+                
                 case 17:
                     //Deadlocks
                     var stateL1 = new StateObjectWithLock();
@@ -325,7 +325,35 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     SyncWorker.main();
                     SyncWorker.main();
                     break;
+                
+                #endregion Cases 1 - nn
 
+                case 19:
+                    Interlocking inter = new Interlocking();
+
+                    Task.Run(() => inter.AddToValue(10));
+                    Task.Run(() => inter.AddToValue(20));
+                    Thread.Sleep(100);
+                    Task.Run(() => inter.AddToValue(30));
+                    Task.Run(() => inter.AddToValue(40));
+
+                    con.WriteLine($"{inter.Total}");
+
+                    Task ct2 = Task.Run(() =>
+                    {
+                        Task.Run(() => inter.AddToValue(10));
+                        Task.Run(() => inter.AddToValue(20));
+                        Thread.Sleep(100);
+                        Task.Run(() => inter.AddToValue(30));
+                        Task.Run(() => inter.AddToValue(40));
+
+                    });
+
+                    ct2.Wait();
+                    
+                    con.WriteLine($"{inter.Total}");
+
+                    break;
                 default:
                     break;
             }
