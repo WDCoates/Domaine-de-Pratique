@@ -155,6 +155,7 @@
     <Compile Include="16-ErrorAndExceptions\SexyColdCall.cs" />
     <Compile Include="16-ErrorAndExceptions\_Main.cs" />
     <Compile Include="21 Tasks Threads Synchronization\Interlocking.cs" />
+    <Compile Include="21 Tasks Threads Synchronization\Monitors.cs" />
     <Compile Include="21 Tasks Threads Synchronization\RaceClass.cs" />
     <Compile Include="21 Tasks Threads Synchronization\StateObject.cs" />
     <Compile Include="21 Tasks Threads Synchronization\SynchClass.cs" />

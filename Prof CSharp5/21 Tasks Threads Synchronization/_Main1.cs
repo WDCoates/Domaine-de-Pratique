@@ -14,7 +14,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 19;
+            int doCase = 20;
 
             switch (doCase)
             {
@@ -326,8 +326,6 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     SyncWorker.main();
                     break;
                 
-                #endregion Cases 1 - nn
-
                 case 19:
                     Interlocking inter = new Interlocking();
 
@@ -354,6 +352,12 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     con.WriteLine($"{inter.Total}");
 
                     break;
+                #endregion Cases 1 - nnn
+
+                case 20:
+                    Monitors.WMain();
+                    break;
+
                 default:
                     break;
             }
