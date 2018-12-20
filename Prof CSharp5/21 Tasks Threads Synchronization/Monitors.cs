@@ -51,7 +51,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
             while (true)
             {
                 Console.WriteLine(".");
-                if (aR.AsyncWaitHandle.WaitOne(50, false))
+                if (aR.AsyncWaitHandle.WaitOne(50, false))      //there is also a WaitAll() and WaitAny()
                 {
                     Console.WriteLine("Can see the result now.");
                     break;

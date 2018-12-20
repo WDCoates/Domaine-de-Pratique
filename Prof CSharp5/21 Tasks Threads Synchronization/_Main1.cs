@@ -14,8 +14,8 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 20;
-
+            int doCase = 21;
+            bool waitReq = true;
             switch (doCase)
             {
                 #region Cases 1 - nn Done                
@@ -352,19 +352,26 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     con.WriteLine($"{inter.Total}");
 
                     break;
-                #endregion Cases 1 - nnn
 
                 case 20:
                     Monitors.WMain();
                     break;
+                #endregion Cases 1 - nnn
 
+                case 21:
+                    MutexesNSemaphores.MainMutex();
+                    con.WriteLine("Now for the Semaphore thing.");
+                    MutexesNSemaphores.MainSemephore();
+                    break;
                 default:
                     break;
             }
 
             //ToDo: Test Staging
-
-            con.ReadLine();
+            if (waitReq)
+            {
+                con.ReadLine();
+            }
         }
     
       

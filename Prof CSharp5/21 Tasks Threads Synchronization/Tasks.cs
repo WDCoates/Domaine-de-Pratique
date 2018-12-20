@@ -110,5 +110,30 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
             TData msg = (TData) m;
             con.WriteLine($"Message sent from thread {Thread.CurrentThread.Name}: {msg.Message}");
         }
+
+        internal static void SemaphoreMain(SemaphoreSlim sSlim)
+        {
+            bool isCompleted = false;
+            while (!isCompleted)
+            {
+                if (sSlim.Wait(600))
+                {
+                    try
+                    {
+                        Console.WriteLine($"Task {Task.CurrentId} has locked the semaphore...");
+                        Thread.Sleep(2000);
+                    }
+                    finally
+                    {
+                        sSlim.Release();
+                        isCompleted = true;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Timedout for task {Task.CurrentId}; Go and wait again!");
+                }
+            }
+        }
     }
 }
