@@ -14,7 +14,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 21;
+            int doCase = 22;
             bool waitReq = true;
             switch (doCase)
             {
@@ -350,19 +350,25 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     ct2.Wait();
                     
                     con.WriteLine($"{inter.Total}");
-
                     break;
 
                 case 20:
                     Monitors.WMain();
                     break;
-                #endregion Cases 1 - nnn
 
                 case 21:
                     MutexesNSemaphores.MainMutex();
                     con.WriteLine("Now for the Semaphore thing.");
                     MutexesNSemaphores.MainSemephore();
                     break;
+
+                #endregion Cases 1 - nnn
+
+                case 22:
+                    con.Write("Some event watching possible!");
+                    SysWideEvents.SWEMain();
+                    break;
+
                 default:
                     break;
             }
