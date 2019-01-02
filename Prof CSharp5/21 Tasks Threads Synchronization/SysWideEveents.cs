@@ -23,8 +23,8 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
 
         internal void Calc(int x, int y)
         {
-            con.WriteLine($"Task {Task.CurrentId} starts to calculate!");
-            Thread.Sleep(new Random().Next(3000));
+            con.WriteLine($"Task {Task.CurrentId} starts to calculate! {x}, {y}");
+            Thread.Sleep(new Random().Next(300));
             Result = x + y;
 
             con.WriteLine($"Task {Task.CurrentId} has completed calculation!");
@@ -87,7 +87,8 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
             for (int i = 0; i < tCount; i++)
             {
                 calcs[i] = new SysWideEvents(cEvent);
-                tFactory.StartNew(() => calcs[i].Calc(i + 1, i * 4));
+                int t = i;
+                tFactory.StartNew(() => calcs[t].Calc(t, t * 4 ));
             }
 
             cEvent.Wait();
