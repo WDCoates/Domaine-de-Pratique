@@ -14,7 +14,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 22;
+            int doCase = 23;
             bool waitReq = true;
             switch (doCase)
             {
@@ -362,13 +362,17 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     MutexesNSemaphores.MainSemephore();
                     break;
 
-                #endregion Cases 1 - nnn
-
                 case 22:
                     con.Write("Some event watching possible!");
                     SysWideEvents.SWEMain();
                     break;
-
+                #endregion Cases 1 - nnn
+                
+                case 23:
+                    con.Write("Using the Countdown event...");
+                    SysWideEvents.SWECountDown();
+                    break;
+                
                 default:
                     break;
             }

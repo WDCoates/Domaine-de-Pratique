@@ -12,6 +12,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     internal class SysWideEvents
     {
         private ManualResetEventSlim mEvent;
+        private CountdownEvent cEvent;
 
         internal int Result { get; set; }
 
@@ -29,9 +30,16 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
             con.WriteLine($"Task {Task.CurrentId} has completed calculation!");
             
             //The Signal ;-)
-            mEvent.Set();   
+            mEvent?.Set();
+
+            cEvent?.Signal();
         }
-        
+
+        internal SysWideEvents (CountdownEvent cE)
+        {
+            this.cEvent = cE;
+        }
+
         internal static void SWEMain()
         {
             con.WriteLine("System Wide Event stuff....");
@@ -66,6 +74,28 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                 }
             }
 
+        }
+
+        internal static void SWECountDown()
+        {
+            const int tCount = 4;
+            var cEvent = new CountdownEvent(tCount);
+            var calcs = new SysWideEvents[tCount];
+            TaskFactory tFactory = new TaskFactory();
+
+
+            for (int i = 0; i < tCount; i++)
+            {
+                calcs[i] = new SysWideEvents(cEvent);
+                tFactory.StartNew(() => calcs[i].Calc(i + 1, i * 4));
+            }
+
+            cEvent.Wait();
+            con.WriteLine("Well they have all finished?");
+            for (int i = 0; i < tCount; i++)
+            {
+                con.WriteLine($"Task {i}, result: {calcs[i].Result}");
+            }
         }
     }
 }
