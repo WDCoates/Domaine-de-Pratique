@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
+using System.Collections.Generic;
+
 using System.Threading;
 using System.Threading.Tasks;
-
+using ConsoleA1._00_Common;
 using static ConsoleA1._00_Common.Statics;
 using static ConsoleA1._21_Tasks_Threads_Synchronization.Tasks;
 
@@ -14,7 +15,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 23;
+            int doCase = 24;
             bool waitReq = true;
             switch (doCase)
             {
@@ -366,13 +367,25 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     con.Write("Some event watching possible!");
                     SysWideEvents.SWEMain();
                     break;
-                #endregion Cases 1 - nnn
                 
                 case 23:
                     con.Write("Using the Countdown event...");
                     SysWideEvents.SWECountDown();
                     break;
-                
+                #endregion Cases 1 - nnn
+
+                case 24:
+                    const int nTasks = 2;
+                    const int pSize = 100000;
+                    var data = new List<string>(DataFunctions.FillData(pSize * nTasks));
+                    
+                    var bar = new Barrier(nTasks + 1);
+
+                    var tasks = new Task<int[]>[nTasks];
+                    
+                    for 
+                    
+                    break;
                 default:
                     break;
             }

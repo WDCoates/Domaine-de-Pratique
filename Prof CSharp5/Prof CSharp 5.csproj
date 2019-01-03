@@ -96,6 +96,7 @@
     <Compile Include="00 Common\DicEmployee .cs" />
     <Compile Include="00 Common\Employee.cs" />
     <Compile Include="00 Common\EmployeeId.cs" />
+    <Compile Include="00 Common\DataFunctions.cs" />
     <Compile Include="00 Common\Info.cs" />
     <Compile Include="00 Common\F1 Teams.cs" />
     <Compile Include="00 Common\Person.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="15-Reflection\_Main.cs" />
     <Compile Include="16-ErrorAndExceptions\SexyColdCall.cs" />
     <Compile Include="16-ErrorAndExceptions\_Main.cs" />
+    <Compile Include="21 Tasks Threads Synchronization\Barrier.cs" />
     <Compile Include="21 Tasks Threads Synchronization\Interlocking.cs" />
     <Compile Include="21 Tasks Threads Synchronization\Monitors.cs" />
     <Compile Include="21 Tasks Threads Synchronization\MutexesNSemaphores.cs" />
