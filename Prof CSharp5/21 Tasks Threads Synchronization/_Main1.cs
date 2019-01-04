@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+
 using ConsoleA1._00_Common;
 using static ConsoleA1._00_Common.Statics;
 using static ConsoleA1._21_Tasks_Threads_Synchronization.Tasks;
@@ -17,6 +18,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
         {
             int doCase = 24;
             bool waitReq = true;
+            CancellationTokenSource cts2 = null;
             switch (doCase)
             {
                 #region Cases 1 - nn Done                
@@ -211,7 +213,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     
                     //Same cancellation pattern used with tasks.
                     //Can't use the sane token as has already been cancelled!
-                    var cts2 = new CancellationTokenSource();
+
                     cts2.Token.Register(() => con.WriteLine($"*** Token Canceled ***"));
                     cts2.CancelAfter(500);
                     
@@ -382,9 +384,29 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     var bar = new Barrier(nTasks + 1);
 
                     var tasks = new Task<int[]>[nTasks];
+
+                    for (int i = 0; i < nTasks; i++)
+                    {
+                        int jNo = i;
+                        tasks[i] = Task.Run(() => BarrierStuff.CalcInTask(jNo, pSize, bar, data));
+                    }
+
+                    con.WriteLine($"Signal and Wait! bar pCount{bar.ParticipantCount} ");
+                    bar.SignalAndWait();
+                    var resultCol = tasks[0].Result.Zip(tasks[1].Result, (c1, c2) => c1 + c2);
                     
-                    for 
-                    
+
+                    char ch = 'a';
+                    int sum = 0;
+                    foreach (var x in resultCol)
+                    {
+                        con.WriteLine($"{ch++}, count: {x}");
+                        sum += x;
+                    }
+
+                    con.WriteLine($"Main finished {sum}");
+                    con.WriteLine("remaining {0}, phase {1}", bar.ParticipantsRemaining, bar.CurrentPhaseNumber);
+
                     break;
                 default:
                     break;

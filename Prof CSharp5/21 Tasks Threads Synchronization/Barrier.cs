@@ -9,6 +9,11 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static int[] CalcInTask(int jNo, int pSize, Barrier bar, IList<string> coll)
         {
+            if (jNo == 1)
+            {
+                Thread.Sleep(6000);
+            }
+
             List<string> data = new List<string>(coll);
 
             int start = jNo * pSize;
