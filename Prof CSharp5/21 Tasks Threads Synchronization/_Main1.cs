@@ -16,7 +16,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 24;
+            int doCase = 25;
             bool waitReq = true;
             CancellationTokenSource cts2 = null;
             switch (doCase)
@@ -374,7 +374,6 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     con.Write("Using the Countdown event...");
                     SysWideEvents.SWECountDown();
                     break;
-                #endregion Cases 1 - nnn
 
                 case 24:
                     const int nTasks = 2;
@@ -408,9 +407,27 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     con.WriteLine("remaining {0}, phase {1}", bar.ParticipantsRemaining, bar.CurrentPhaseNumber);
 
                     break;
+
+                #endregion Cases 1 - nnn
+
+                case 25:
+                    con.WriteLine($"Read Writer Lock Simulation when one needs many readers but only one writer!");
+
+
+                    break;
                 default:
                     break;
             }
+
+            
+            
+            var test = "Abc";
+            switch (test)
+            {
+                case "Abc":
+                    break;
+            }
+
 
             //ToDo: Test Staging
             if (waitReq)
