@@ -9,6 +9,7 @@ using static ConsoleA1._00_Common.Statics;
 using static ConsoleA1._21_Tasks_Threads_Synchronization.Tasks;
 
 using con = System.Console;
+using rws = ConsoleA1._21_Tasks_Threads_Synchronization.ReaderWriterSim;
 
 namespace ConsoleA1._21_Tasks_Threads_Synchronization
 {
@@ -413,8 +414,28 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                 case 25:
                     con.WriteLine($"Read Writer Lock Simulation when one needs many readers but only one writer!");
 
+                    var tFact = new TaskFactory(TaskCreationOptions.LongRunning, TaskContinuationOptions.None);
+                    var t25 = new Task[16];
 
+                    t25[0] = tFact.StartNew(rws.WriteMethod, 1);
+                    t25[1] = tFact.StartNew(rws.ReaderMethod, 1);
+                    
+                    t25[2] = tFact.StartNew(rws.ReaderMethod, 2);
+                    t25[3] = tFact.StartNew(rws.WriteMethod, 2);
+                    
+                    t25[4] = tFact.StartNew(rws.ReaderMethod, 3);
+                    
+                    t25[5] = tFact.StartNew(rws.ReaderMethod, 4);
+
+                    for (int i = 0; i < 6; i++)
+                    {
+                        t25[i].Wait();
+                    }
+
+                    con.WriteLine($"All Done!");
                     break;
+
+                
                 default:
                     break;
             }
