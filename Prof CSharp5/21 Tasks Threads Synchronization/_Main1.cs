@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-
+using System.Threading.Tasks.Dataflow;          //Install-Package System.Threading.Tasks.Dataflow -Version 4.9.0 
 using ConsoleA1._00_Common;
 using static ConsoleA1._00_Common.Statics;
 using static ConsoleA1._21_Tasks_Threads_Synchronization.Tasks;
@@ -17,7 +17,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 25;
+            int doCase = 27;
             bool waitReq = true;
             CancellationTokenSource cts2 = null;
             switch (doCase)
@@ -407,9 +407,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     con.WriteLine($"Main finished {sum}");
                     con.WriteLine("remaining {0}, phase {1}", bar.ParticipantsRemaining, bar.CurrentPhaseNumber);
 
-                    break;
-
-                #endregion Cases 1 - nnn
+                    break;                
 
                 case 25:
                     con.WriteLine($"Read Writer Lock Simulation when one needs many readers but only one writer!");
@@ -435,12 +433,49 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     con.WriteLine($"All Done!");
                     break;
 
-                
+
+                case 26:
+                    con.WriteLine($"Looking at Timers....");
+                    Timers.ThreadingTimer();
+
+                    con.WriteLine($"Looking at Timers....");
+                    Timers.TTimer();
+                    break;
+
+                #endregion Cases 1 - nnn
+
+                case 27:
+                    con.WriteLine($"Task Parallel Library Data Flow....");
+
+                    var pInput = new ActionBlock<string>(s =>
+                    {
+                        con.WriteLine($"Last Entry: {s}");
+                    });
+
+                    bool exit = false;
+                    while (!exit)
+                    {
+                        Thread.Sleep(1000);
+                        con.Write($"Enter:");
+                        string input = con.ReadLine();
+                        if (string.Compare(input, "exit", ignoreCase: true) == 0)
+                        {
+                            exit = true;
+                        }
+                        else
+                        {
+                            pInput.Post(input);
+                        }
+                    }
+                    
+                    break;
                 default:
                     break;
             }
 
             
+            
+
             
             var test = "Abc";
             switch (test)

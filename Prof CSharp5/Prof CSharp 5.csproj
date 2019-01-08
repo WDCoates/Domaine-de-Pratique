@@ -79,6 +79,9 @@
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Threading.Tasks.Dataflow, Version=4.6.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Dataflow.4.9.0\lib\netstandard2.0\System.Threading.Tasks.Dataflow.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -167,6 +170,7 @@
     <Compile Include="21 Tasks Threads Synchronization\Tasks.cs" />
     <Compile Include="21 Tasks Threads Synchronization\TClass.cs" />
     <Compile Include="21 Tasks Threads Synchronization\TestClass.cs" />
+    <Compile Include="21 Tasks Threads Synchronization\Timers.cs" />
     <Compile Include="21 Tasks Threads Synchronization\_Main1.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
