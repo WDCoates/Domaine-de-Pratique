@@ -159,6 +159,7 @@
     <Compile Include="16-ErrorAndExceptions\SexyColdCall.cs" />
     <Compile Include="16-ErrorAndExceptions\_Main.cs" />
     <Compile Include="21 Tasks Threads Synchronization\Barrier.cs" />
+    <Compile Include="21 Tasks Threads Synchronization\DataFlowStuff.cs" />
     <Compile Include="21 Tasks Threads Synchronization\Interlocking.cs" />
     <Compile Include="21 Tasks Threads Synchronization\Monitors.cs" />
     <Compile Include="21 Tasks Threads Synchronization\MutexesNSemaphores.cs" />

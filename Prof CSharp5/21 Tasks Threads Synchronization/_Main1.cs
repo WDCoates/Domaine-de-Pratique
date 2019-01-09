@@ -468,6 +468,10 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                         }
                     }
                     
+                    //BufferBlock for Source and Target
+                    Task b1 = Task.Run(() => DataFlowStuff.Producer());
+                    Task b2 = Task.Run(() => DataFlowStuff.Consumer());
+                    Task.WaitAll(b1, b2);
                     break;
                 default:
                     break;
