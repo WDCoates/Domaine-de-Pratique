@@ -17,7 +17,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
     {
         public static void Main(string[] args)
         {
-            int doCase = 27;
+            int doCase = 28;
             bool waitReq = true;
             CancellationTokenSource cts2 = null;
             switch (doCase)
@@ -442,8 +442,7 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     Timers.TTimer();
                     break;
 
-                #endregion Cases 1 - nnn
-
+                
                 case 27:
                     con.WriteLine($"Task Parallel Library Data Flow....");
 
@@ -473,6 +472,14 @@ namespace ConsoleA1._21_Tasks_Threads_Synchronization
                     Task b2 = Task.Run(() => DataFlowStuff.Consumer());
                     Task.WaitAll(b1, b2);
                     break;
+
+                #endregion Cases 1 - nnn
+
+                case 28:
+                    var target = DataFlowStuff.SetupPipeline();
+                    target.Post("../..");
+                    break;
+
                 default:
                     break;
             }
