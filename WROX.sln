@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WhatsNewAttributes", "Whats
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyVectors", "MyVectorsLibrary\MyVectors.csproj", "{74855B95-674D-4E1C-872A-1933BA425BD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MembershipProv", "MembershipProv\MembershipProv.csproj", "{84A76DC8-A138-471A-A746-3B8B74A2E773}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "22-Security", "WcfService2\22-Security.csproj", "{896CB379-43E7-4980-9F6C-DA5F4EA7B09C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{74855B95-674D-4E1C-872A-1933BA425BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74855B95-674D-4E1C-872A-1933BA425BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74855B95-674D-4E1C-872A-1933BA425BD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84A76DC8-A138-471A-A746-3B8B74A2E773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84A76DC8-A138-471A-A746-3B8B74A2E773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84A76DC8-A138-471A-A746-3B8B74A2E773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84A76DC8-A138-471A-A746-3B8B74A2E773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{896CB379-43E7-4980-9F6C-DA5F4EA7B09C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{896CB379-43E7-4980-9F6C-DA5F4EA7B09C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{896CB379-43E7-4980-9F6C-DA5F4EA7B09C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{896CB379-43E7-4980-9F6C-DA5F4EA7B09C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
