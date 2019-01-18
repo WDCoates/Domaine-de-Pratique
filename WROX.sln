@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyVectors", "MyVectorsLibra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MembershipProv", "MembershipProv\MembershipProv.csproj", "{84A76DC8-A138-471A-A746-3B8B74A2E773}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "22-Security", "WcfService2\22-Security.csproj", "{896CB379-43E7-4980-9F6C-DA5F4EA7B09C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "22-Security", "22-Security\22-Security.csproj", "{896CB379-43E7-4980-9F6C-DA5F4EA7B09C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

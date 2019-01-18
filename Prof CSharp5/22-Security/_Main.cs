@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Security;
 using System.Security.Permissions;
 using System.Security.Principal;
+using System.Web.Security;
 
 using System.Collections.Generic;
 using System.Linq;
@@ -20,28 +21,39 @@ namespace ConsoleA1._22_Security
         {
             Console.WriteLine($"This is all about Security!");
 
-            AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.WindowsPrincipal);
-            var principal = WindowsPrincipal.Current as WindowsPrincipal;
-            var identity = principal.Identity as WindowsIdentity;
-
-            con.WriteLine($"Identity Type: {identity}");
-            con.WriteLine($"Name: {identity.Name}");
-
-            //Declarative Role-Based Security
-            try
+            var section = 3;
+            switch (section)
             {
-                ShowMessage();
-            }
-            catch (SecurityException sE)
-            {
-                con.WriteLine($"Exception Message: {sE.Message}");
-            }
+                case 1:
+                    AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.WindowsPrincipal);
+                    var principal = WindowsPrincipal.Current as WindowsPrincipal;
+                    var identity = principal.Identity as WindowsIdentity;
 
+                    con.WriteLine($"Identity Type: {identity}");
+                    con.WriteLine($"Name: {identity.Name}");
+                    break;
+                case 2:
+                    //Declarative Role-Based Security
+                    try
+                    {
+                        ShowMessage();
+                    }
+                    catch (SecurityException sE)
+                    {
+                        con.WriteLine($"Exception Message: {sE.Message}");
+                    }
+                    break;
+                case 3:
+                    var res = Membership.ValidateUser("Manager", "secret@Pa$$w0rd");
+                    con.WriteLine(res);
+                    break;
+
+            }
 
             Console.Write($"Thank you.");
             Console.ReadLine();
         }
-        
+
         [PrincipalPermission(SecurityAction.Demand, Role = "BUILTIN\\Devs")]
         static void ShowMessage()
         {
