@@ -21,7 +21,7 @@ namespace ConsoleA1._22_Security
         {
             Console.WriteLine($"This is all about Security!");
 
-            var section = 3;
+            var section = 4;
             switch (section)
             {
                 case 1:
@@ -44,8 +44,17 @@ namespace ConsoleA1._22_Security
                     }
                     break;
                 case 3:
-                    var res = Membership.ValidateUser("Manager", "secret@Pa$$w0rd");
+                    var res = Membership.ValidateUser("Manager", "secret@Pa$$w0rd"); //Could never quite get this to work but the book example works without changing the names of services etc.
                     con.WriteLine(res);
+                    break;
+                case 4:
+
+                    Encryptions e = new Encryptions();
+                    e.CreateKeys();
+
+                    con.WriteLine(e.aSigKey);
+                    con.WriteLine(e.aPubKey);
+
                     break;
 
             }
