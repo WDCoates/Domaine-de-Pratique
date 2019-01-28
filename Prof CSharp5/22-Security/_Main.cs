@@ -52,8 +52,16 @@ namespace ConsoleA1._22_Security
                     Encryptions e = new Encryptions();
                     e.CreateKeys();
 
-                    con.WriteLine(e.aSigKey);
-                    con.WriteLine(e.aPubKey);
+                    var aData = Encoding.UTF8.GetBytes("Alice's Boots are long.");
+                    byte[] aSig = e.CreateSignature(aData, e.aSigKey);
+
+                    con.WriteLine($"A Created Sig: {Convert.ToBase64String(aSig)}");
+
+                    var r = e.VerifySignature(aData, aSig, e.aPubKey);
+                    var r2 = e.VerifySignature(aData, aSig, aSig);
+
+                    //Now for key exchange and secure transfer.
+
 
                     break;
 
