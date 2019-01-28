@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Text;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 
@@ -69,7 +69,11 @@ namespace ConsoleA1._22_Security
 
         private async Task<byte[]> ASendData(string message)
         {
-            Console.WriteLine
+            Console.WriteLine($"ASendData: {message}");
+            var rawData = Encoding.UTF8.GetBytes(message);
+            byte[] encryptedData = null;
+
+
         }
     }
 }
