@@ -61,7 +61,7 @@ namespace ConsoleA1._22_Security
                     var r2 = e.VerifySignature(aData, aSig, aSig);
 
                     //Now for key exchange and secure transfer.
-
+                    e.Start();
 
                     break;
 
