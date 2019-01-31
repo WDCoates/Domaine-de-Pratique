@@ -1,6 +1,8 @@
 ﻿using System;
+using System.IO;
 using System.Security.Claims;
 using System.Security;
+using System.Security.AccessControl;
 using System.Security.Permissions;
 using System.Security.Principal;
 using System.Web.Security;
@@ -21,7 +23,7 @@ namespace ConsoleA1._22_Security
         {
             Console.WriteLine($"This is all about Security!");
 
-            var section = 4;
+            var section = 5;
             switch (section)
             {
                 case 1:
@@ -48,7 +50,6 @@ namespace ConsoleA1._22_Security
                     con.WriteLine(res);
                     break;
                 case 4:
-
                     Encryptions e = new Encryptions();
                     e.CreateKeys();
 
@@ -62,6 +63,22 @@ namespace ConsoleA1._22_Security
 
                     //Now for key exchange and secure transfer.
                     e.Start();
+                    break;
+                case 5:
+                    //Access to file system objects
+                    string fName = "C:\\Windows\\win.ini";
+
+                    using (FileStream fStream = File.Open(fName, FileMode.Open))
+                    {
+                        FileSecurity secDes = fStream.GetAccessControl();
+                        AuthorizationRuleCollection aRC = secDes.GetAccessRules(true, true, typeof(NTAccount));
+
+                        foreach (AuthorizationRule rule in aRC)
+                        {
+                            var fRule = rule as FileSystemAccessRule;
+
+                        }
+                    }
 
                     break;
 
