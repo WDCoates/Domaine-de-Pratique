@@ -66,7 +66,7 @@ namespace ConsoleA1._22_Security
                     break;
                 case 5:
                     //Access to file system objects
-                    string fName = "C:\\Windows\\win.ini";
+                    string fName = "..\\..\\..\\Test Access.txt";
 
                     using (FileStream fStream = File.Open(fName, FileMode.Open))
                     {
@@ -78,6 +78,15 @@ namespace ConsoleA1._22_Security
                             var fRule = rule as FileSystemAccessRule;
 
                         }
+
+                        var everyOneIdentity = new NTAccount("Everyone");
+                        var everyoneReadOnlyAce = new FileSystemAccessRule(everyOneIdentity, FileSystemRights.Read,
+                            AccessControlType.Allow);
+                        var securityDescriptor = new FileSecurity();
+
+                        securityDescriptor.SetAccessRule(everyoneReadOnlyAce);
+
+                        File.SetAccessControl(fName, securityDescriptor);
                     }
 
                     break;
