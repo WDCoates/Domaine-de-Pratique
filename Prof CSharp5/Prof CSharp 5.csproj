@@ -158,6 +158,7 @@
     <Compile Include="16-ErrorAndExceptions\SexyColdCall.cs" />
     <Compile Include="16-ErrorAndExceptions\_Main.cs" />
     <Compile Include="22-Security\Encryptions.cs" />
+    <Compile Include="22-Security\Transparency Level 2.cs" />
     <Compile Include="22-Security\_Main.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />

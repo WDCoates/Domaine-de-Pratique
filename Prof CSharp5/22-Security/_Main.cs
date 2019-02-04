@@ -23,7 +23,7 @@ namespace ConsoleA1._22_Security
         {
             Console.WriteLine($"This is all about Security!");
 
-            var section = 5;
+            var section = 6;
             switch (section)
             {
                 case 1:
@@ -87,6 +87,22 @@ namespace ConsoleA1._22_Security
                         securityDescriptor.SetAccessRule(everyoneReadOnlyAce);
 
                         File.SetAccessControl(fName, securityDescriptor);
+                    }
+                    break;
+
+                case 6:
+                    //Demanding Permissions!
+                    try
+                    {
+                        string fName2 = "D:\\Exclusive\\";
+
+                        Transparency_Level_2 T2 = new Transparency_Level_2();
+                        var res2 = T2.AskPermissions(fName2);
+
+                    }
+                    catch (Exception)
+                    {
+                        throw;
                     }
 
                     break;
