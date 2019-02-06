@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security;
 using System.Security.Permissions;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 [assembly: SecurityRules(SecurityRuleSet.Level2)]
 [assembly: SecurityTransparent()]
+[assembly: AllowPartiallyTrustedCallers()]
 namespace ConsoleA1._22_Security
 {
     
@@ -38,4 +40,28 @@ namespace ConsoleA1._22_Security
 
         }
     }
+
+    [SecuritySafeCritical]
+    public class RequirePermission : MarshalByRefObject
+    {
+        public bool RequiredFilePermission(string path)
+        {
+            bool accGranted = true;
+
+            try
+            {
+                StreamWriter sWriter = File.CreateText(path);
+                sWriter.WriteLine("Write successfully wow!");
+                sWriter.Close();
+            }
+            catch (SecurityException)
+            {
+                accGranted = false;
+            }
+
+            return accGranted;
+        }
+    }
+
+
 }

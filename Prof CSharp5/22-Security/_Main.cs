@@ -9,7 +9,7 @@ using System.Web.Security;
 
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -91,13 +91,27 @@ namespace ConsoleA1._22_Security
                     break;
 
                 case 6:
-                    //Demanding Permissions!
+                    //Demanding Permissions using a sandbox!
                     try
                     {
-                        string fName2 = "D:\\Exclusive\\";
+                        string fName2 = @"D:\Exclusive\MyFile.txt";
 
                         Transparency_Level_2 T2 = new Transparency_Level_2();
                         var res2 = T2.AskPermissions(fName2);
+
+                        //Sand boxing
+                        var permSet = new PermissionSet(PermissionState.None);
+                        permSet.AddPermission(new SecurityPermission(SecurityPermissionFlag.Execution));
+                        
+                        AppDomainSetup aDS = AppDomain.CurrentDomain.SetupInformation;
+                        AppDomain aDom = AppDomain.CreateDomain("MyBox Dom", AppDomain.CurrentDomain.Evidence, aDS, permSet);
+
+                        ObjectHandle oHndl = aDom.CreateInstance("ConsoleA1", "ConsoleA1._22_Security.RequirePermission");
+                        object obj = oHndl.Unwrap();
+                        var io = obj as RequirePermission;
+
+                        con.WriteLine("Has {0} permission to write to {1}",
+                            io.RequiredFilePermission(fName2) ? null : "no ", fName2);
 
                     }
                     catch (Exception)
@@ -109,6 +123,7 @@ namespace ConsoleA1._22_Security
 
             }
 
+            
             Console.Write($"Thank you.");
             Console.ReadLine();
         }
