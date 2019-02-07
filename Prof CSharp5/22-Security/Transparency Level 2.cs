@@ -51,7 +51,7 @@ namespace ConsoleA1._22_Security
             try
             {
                 StreamWriter sWriter = File.CreateText(path);
-                sWriter.WriteLine("Write successfully wow!");
+                sWriter.WriteLine("Write successfully wow! And again!");
                 sWriter.Close();
             }
             catch (SecurityException)

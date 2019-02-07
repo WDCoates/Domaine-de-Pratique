@@ -102,7 +102,17 @@ namespace ConsoleA1._22_Security
                         //Sand boxing
                         var permSet = new PermissionSet(PermissionState.None);
                         permSet.AddPermission(new SecurityPermission(SecurityPermissionFlag.Execution));
+                        //Add permission to write to file
+                        permSet.AddPermission(new FileIOPermission(FileIOPermissionAccess.AllAccess, @"D:\Exclusive"));
                         
+                        //Checking Implicit Permissions granted
+                        CodeAccessPermission permA = new FileIOPermission(FileIOPermissionAccess.Read, @"C:\Exclusive");
+                        CodeAccessPermission permB = new FileIOPermission(FileIOPermissionAccess.Write, @"C:\Exclusive");
+                        if (permB.IsSubsetOf(permA))
+                            Console.WriteLine($"PermB is a SubSet of PermA");
+                        else
+                            con.WriteLine($"Not enough perms...");
+
                         AppDomainSetup aDS = AppDomain.CurrentDomain.SetupInformation;
                         AppDomain aDom = AppDomain.CreateDomain("MyBox Dom", AppDomain.CurrentDomain.Evidence, aDS, permSet);
 
