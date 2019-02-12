@@ -11,7 +11,8 @@ namespace ConsoleA1._24_MaipulatingFiles
         public static void Main(string[] args)
         {
             con.WriteLine($"Looking at string manipulation!");
-            
+
+            var e = DirsAndFiles.Initialise();
 
             con.ReadLine();
         }
