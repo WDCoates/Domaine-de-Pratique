@@ -64,7 +64,7 @@
   </PropertyGroup>
   <!-- For netstandard and netcoreapp, DebugType must be full or pdbonly for ccrewrite to work -->
   <PropertyGroup>
-    <StartupObject>ConsoleA1._22_Security._Main</StartupObject>
+    <StartupObject>QuoteServer._TestProg</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
@@ -154,6 +154,7 @@
     <Compile Include="16-ErrorAndExceptions\SexyColdCall.cs" />
     <Compile Include="16-ErrorAndExceptions\_Main.cs" />
     <Compile Include="22-Security\_Main.cs" />
+    <Compile Include="27-WindowServices\_TestProg.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -179,6 +180,10 @@
     <ProjectReference Include="..\MyVectorsLibrary\MyVectors.csproj">
       <Project>{74855b95-674d-4e1c-872a-1933ba425bd0}</Project>
       <Name>MyVectors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuoteServer\QuotesServerLib.csproj">
+      <Project>{8538fd8e-46c7-45b5-817d-084b9794e53b}</Project>
+      <Name>QuotesServerLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\WhatsNewAttributes\WhatsNewAttributes.csproj">
       <Project>{58f8a01a-7a47-426c-9fa6-434d9d230b9e}</Project>

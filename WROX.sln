@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyVectors", "MyVectorsLibra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuotesServer", "QuotesServer\QuotesServer.csproj", "{713C047E-D9BC-49E3-B2F4-E0430E1211D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuotesServerLib", "QuoteServer\QuotesServerLib.csproj", "{8538FD8E-46C7-45B5-817D-084B9794E53B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{713C047E-D9BC-49E3-B2F4-E0430E1211D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{713C047E-D9BC-49E3-B2F4-E0430E1211D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{713C047E-D9BC-49E3-B2F4-E0430E1211D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8538FD8E-46C7-45B5-817D-084B9794E53B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8538FD8E-46C7-45B5-817D-084B9794E53B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8538FD8E-46C7-45B5-817D-084B9794E53B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8538FD8E-46C7-45B5-817D-084B9794E53B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
