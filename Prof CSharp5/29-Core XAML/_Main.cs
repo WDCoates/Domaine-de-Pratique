@@ -16,10 +16,12 @@ namespace ConsoleA1._29_Core_XAML
 
             var w = new Window {Title = "Code First!", Content = b};
 
-
+            //
             var app = new Application();
             app.Run(w);
 
+
+            //
             Console.Write($"Thank you.");
             Console.ReadLine();
         }
