@@ -96,9 +96,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Prof CSharp5\Prof CSharp 5.csproj">
-      <Project>{81a51005-b611-411f-b1b9-a5fdaca2ceb0}</Project>
-      <Name>Prof CSharp 5</Name>
+    <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">
+      <Project>{cafcf7d2-ea9d-4b86-86b5-9aee7238aa5a}</Project>
+      <Name>ClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

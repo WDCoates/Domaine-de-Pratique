@@ -4,11 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:locals="clr-namespace:WpfApp1.Common"
+        xmlns:C1="clr-namespace:ClassLibrary;assembly=ClassLibrary"
         mc:Ignorable="d"
         Title="MainWindow - First XAML Development" Height="450" Width="800">
-    <Button Content="Click Me!" BorderThickness="1" Background="Azure" Height="50" Width="75"></Button>
-    <ListBox>
-        <locals:Person FirstName="Stephanie" LastName="Black" />
-        <locals:Person FirstName="Joanne" LastName="White" />
-    </ListBox>
+    <StackPanel>
+        <Button Content="Click Me!" BorderThickness="1" Background="Azure" Height="50" Width="75"></Button>
+        <ListBox>
+            <locals:Person FirstName="Stephanie" LastName="Black" />
+            <locals:Person FirstName="Joanne" LastName="White" />
+            <C1:Class1 Name="Test The Fuck out of it!" />
+        </ListBox>
+    </StackPanel>
 </Window>
