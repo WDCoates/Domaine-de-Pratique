@@ -5,8 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow - First XAML Development" Height="450" Width="800">
+    <Button Content="Click Me!" BorderThickness="1" Background="Azure" Height="50" Width="75"></Button>
 </Window>
