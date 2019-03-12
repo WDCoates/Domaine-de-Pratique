@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:localP1="clr-namespace:WpfApp1.Common"
         xmlns:localP2="clr-namespace:WpfApp1.Common"
+        xmlns:P3="clr-namespace:WpfApp1.Common"
         xmlns:C1="clr-namespace:ClassLibrary;assembly=ClassLibrary"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:objectModel="clr-namespace:System.Collections.ObjectModel;assembly=System"
         mc:Ignorable="d"
         Title="MainWindow - First XAML Development" Height="450" Width="800">
 
@@ -34,14 +36,28 @@
             <localP1:Person FirstName="Joanne" LastName="White" />
             <C1:Class1 Name="Test The Fuck out of it!" />
         </ListBox>
-
-        <x:Array Type="localP2:Person">
-            <localP2:Person FirstName="Adam" LastName="Antz"></localP2:Person>
-            <localP2:Person FirstName="Bob" LastName="Builder"></localP2:Person>
-            <localP2:Person FirstName="Clair" LastName="Calum"></localP2:Person>
-        </x:Array>
-
+        <ListBox>
+            <x:Array Type="localP2:Person">
+                <localP2:Person FirstName="Adam" LastName="Antz"></localP2:Person>
+                <localP2:Person FirstName="Bob" LastName="Builder"></localP2:Person>
+                <localP2:Person FirstName="Clair" LastName="Calum"></localP2:Person>
+            </x:Array>
+        </ListBox>
+        <!--<ListBox>
+            <objectModel:ObservableCollection x:TypeArguments="P3:Person">
+                <P3:Person FirstName="Peter" LastName="Paul"></P3:Person>
+            </objectModel:ObservableCollection>
+        </ListBox>-->
+        <!--Calling Constructors-->        
 
     </StackPanel>
-    
+
+    <!-- Not sure where this can go or be used yet!
+    <P3:Person>
+        <x:Arguments>
+            <x:String>Justin</x:String>
+            <x:String>Naga</x:String>
+        </x:Arguments>
+    </P3:Person>-->
+
 </Window>
