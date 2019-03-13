@@ -5,6 +5,7 @@ namespace WpfClasses
 {
     public class MyDepObj : DependencyObject
     {
+
         public int Value
         {
             get { return (int) GetValue(ValueProperty); }
@@ -13,7 +14,7 @@ namespace WpfClasses
 
         public static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register("Value", typeof(int), typeof(MyDepObj),
-            new PropertyMetadata(0, null, CoerceValue));
+            new PropertyMetadata(0, OnChangeValue, CoerceValue));
 
 
         public int Minimum
@@ -31,6 +32,15 @@ namespace WpfClasses
         }
         public static readonly DependencyProperty MaxProp =
             DependencyProperty.Register("Maximum", typeof(int), typeof(MyDepObj), new PropertyMetadata(999));
+
+        public static int _oldValue;
+        public static int _newValue;
+
+        private static void OnChangeValue(DependencyObject obj, DependencyPropertyChangedEventArgs ceArgs)
+        {
+            _oldValue = (int) ceArgs.OldValue;
+            _newValue = (int) ceArgs.NewValue;
+        }
 
         private static object CoerceValue(DependencyObject dObj, object value)
         {

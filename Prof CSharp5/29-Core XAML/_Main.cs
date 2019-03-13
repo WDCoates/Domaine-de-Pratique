@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
+using WpfClasses;
+
 
 namespace ConsoleA1._29_Core_XAML
 {
@@ -20,6 +21,12 @@ namespace ConsoleA1._29_Core_XAML
             var app = new Application();
             app.Run(w);
 
+
+            MyDepObj x = new MyDepObj();
+
+            x.Value = 44;
+
+            Console.WriteLine($"X.Value is {x.Value}");
 
             //
             Console.Write($"Thank you.");

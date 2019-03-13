@@ -180,6 +180,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">
+      <Project>{cafcf7d2-ea9d-4b86-86b5-9aee7238aa5a}</Project>
+      <Name>ClassLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyVectorsLibrary\MyVectors.csproj">
       <Project>{74855b95-674d-4e1c-872a-1933ba425bd0}</Project>
       <Name>MyVectors</Name>
