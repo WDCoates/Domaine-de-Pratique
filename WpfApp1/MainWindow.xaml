@@ -12,7 +12,7 @@
         mc:Ignorable="d"
         Title="MainWindow - First XAML Development" Height="450" Width="800">
 
-    <StackPanel>
+    <StackPanel x:Name="SP1" ButtonBase.Click="OnOuterButtonClick">
         <Button Content="Button Number 1" BorderThickness="1" Background="Azure" Height="50" Width="75"></Button>
         <Button>
             Button Number 2
@@ -43,6 +43,13 @@
                 <localP2:Person FirstName="Clair" LastName="Calum"></localP2:Person>
             </x:Array>
         </ListBox>
+        <Button x:Name="Button1" Content="Button 1" Margin="5" />
+        <Button x:Name="Button2" Margin="5" Click="OnClickButton2">
+            <ListBox x:Name="ListBox3">
+                <Button x:Name="InnerButton1" Content="Inner Button 1" Margin="4" Padding="4" Click="OnInner1" />
+                <Button x:Name="InnerButton2" Content="Inner Button 2" Margin="4" Padding="4" Click="OnInner2" />
+            </ListBox>
+        </Button>
         <!--<ListBox>
             <objectModel:ObservableCollection x:TypeArguments="P3:Person">
                 <P3:Person FirstName="Peter" LastName="Paul"></P3:Person>

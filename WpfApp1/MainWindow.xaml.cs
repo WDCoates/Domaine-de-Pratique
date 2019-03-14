@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,39 @@ namespace WpfClasses
     /// </summary>
     public partial class MainWindow : Window
     {
+        public ObservableCollection<string> Messages { get; set; } = new ObservableCollection<string>();
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = Messages;
+        }
+
+        private void AddMessage(string message, object sender, RoutedEventArgs eArgs)
+        {
+            Messages.Add(
+                $"{message}, Sender: {(sender as FrameworkElement).Name}; Source: {(eArgs.Source as FrameworkElement).Name}; Origin: {(eArgs.OriginalSource as FrameworkElement).Name}");
+        }
+
+        private void OnOuterButtonClick(object sender, RoutedEventArgs e)
+        {
+            AddMessage("Outer Button Event", sender, e);
+        }
+
+        private void OnClickButton2(object sender, RoutedEventArgs e)
+        {
+            AddMessage("Button 2 Event", sender, e);
+            e.Source = sender;
+        }
+
+        private void OnInner1(object sender, RoutedEventArgs e)
+        {
+            AddMessage("Inner 1 Button Event", sender, e);
+        }
+
+        private void OnInner2(object sender, RoutedEventArgs e)
+        {
+            AddMessage("Inner 2 Button Event", sender, e);
+            e.Handled = true;
         }
     }
 }
