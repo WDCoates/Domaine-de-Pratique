@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace WpfClasses
 {
-    public class MyDepObj : DependencyObject
+    public class MyDepObj : UIElement    //changed to UIElement as it extends the DependencyObject
     {
 
         public int Value
@@ -30,6 +30,16 @@ namespace WpfClasses
             get { return (int)GetValue(MaxProp); }
             set { SetValue(MaxProp, value); }
         }
+
+        private static object CoerceValue(DependencyObject dObj, object value)
+        {
+            int newValue = (int)value;
+            MyDepObj cont = (MyDepObj)dObj;
+
+            newValue = Math.Max(cont.Minimum, Math.Min(cont.Maximum, newValue));
+            return newValue;
+        }
+        
         public static readonly DependencyProperty MaxProp =
             DependencyProperty.Register("Maximum", typeof(int), typeof(MyDepObj), new PropertyMetadata(999));
 
@@ -40,15 +50,28 @@ namespace WpfClasses
         {
             _oldValue = (int) ceArgs.OldValue;
             _newValue = (int) ceArgs.NewValue;
+
+            MyDepObj control = (MyDepObj)obj;
+            var e = new RoutedPropertyChangedEventArgs<int>((int) ceArgs.OldValue, (int) ceArgs.NewValue,
+                ValueChangedEvent);
+
+            control.OnValueChanged(e);
+
         }
 
-        private static object CoerceValue(DependencyObject dObj, object value)
+        protected virtual void OnValueChanged(RoutedPropertyChangedEventArgs<int> args)
         {
-            int newValue = (int)value;
-            MyDepObj cont = (MyDepObj) dObj;
+            RaiseEvent(args);
+        }
 
-            newValue = Math.Max(cont.Minimum, Math.Min(cont.Maximum, newValue));
-            return newValue;
+        public static readonly RoutedEvent ValueChangedEvent = EventManager.RegisterRoutedEvent("ValueChanged",
+            RoutingStrategy.Bubble, typeof(RoutedPropertyChangedEventHandler<int>), typeof(MyDepObj));
+
+        
+        public event RoutedPropertyChangedEventHandler<int> ValueChanged
+        {
+            add => AddHandler(ValueChangedEvent, value);
+            remove => RemoveHandler(ValueChangedEvent, value);
         }
 
     }
