@@ -2,7 +2,8 @@
 using System.CodeDom;
 using System.IO;
 using System.Security.Cryptography;
-using Microsoft.Ajax.Utilities;
+using Microsoft.Ajax.Utilities;     //Comes from package AjaxMin    
+
 using Cons = System.Console;
 
 namespace ConsoleA1._16_ErrorAndExceptions

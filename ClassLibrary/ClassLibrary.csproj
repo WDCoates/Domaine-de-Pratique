@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="MyAttachedProp.cs" />
     <Compile Include="MyDepObj.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

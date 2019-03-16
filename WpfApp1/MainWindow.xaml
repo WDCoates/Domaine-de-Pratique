@@ -50,6 +50,11 @@
                 <Button x:Name="InnerButton2" Content="Inner Button 2" Margin="4" Padding="4" Click="OnInner2" />
             </ListBox>
         </Button>
+        <DockPanel>
+            <Button Content="Top" DockPanel.Dock="Top" Background="Yellow"/>
+            <Button Content="Botton" DockPanel.Dock="Bottom" Background="Blue" 
+                    C1:MyAttachedProp.MyProp1="5"/>
+        </DockPanel>
         <!--<ListBox>
             <objectModel:ObservableCollection x:TypeArguments="P3:Person">
                 <P3:Person FirstName="Peter" LastName="Paul"></P3:Person>
