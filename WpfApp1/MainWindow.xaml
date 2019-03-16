@@ -53,7 +53,7 @@
         <DockPanel>
             <Button Content="Top" DockPanel.Dock="Top" Background="Yellow"/>
             <Button Content="Botton" DockPanel.Dock="Bottom" Background="Blue" 
-                    C1:MyAttachedProp.MyProp1="5"/>
+                    C1:MyAttachedProp.MyProp="5"/>
         </DockPanel>
         <!--<ListBox>
             <objectModel:ObservableCollection x:TypeArguments="P3:Person">

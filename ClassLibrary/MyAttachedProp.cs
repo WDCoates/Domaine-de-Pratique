@@ -7,14 +7,14 @@ namespace ClassLibrary
     {
         public int MyProp1 { get { return (int)GetValue(MyPropProp); } set { SetValue(MyPropProp, value); } }
 
-        private static readonly DependencyProperty MyPropProp = DependencyProperty.RegisterAttached("MyProp1", typeof(int), typeof(MyAttachedProp));
+        public static readonly DependencyProperty MyPropProp = DependencyProperty.RegisterAttached("MyProp1", typeof(int), typeof(MyAttachedProp));
 
-        private static void SetMyProp(UIElement u, int value)
+        public static void SetMyProp(UIElement u, int value)
         {
             u.SetValue(MyPropProp, value);
         }
 
-        private static int GetMyProp(UIElement u)
+        public static int GetMyProp(UIElement u)
         {
             return (int)u.GetValue(MyPropProp);
         }
