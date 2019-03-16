@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClassLibrary;
 
 namespace WpfClasses
 {
@@ -22,10 +23,19 @@ namespace WpfClasses
     public partial class MainWindow : Window
     {
         public ObservableCollection<string> Messages { get; set; } = new ObservableCollection<string>();
+
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = Messages;
+
+            MyAttachedProp.SetMyProp(mapButtonT, 44);
+            foreach (object i in LogicalTreeHelper.GetChildren(dp1))
+            {
+                FrameworkElement fE = i as FrameworkElement;
+                if (fE != null)
+                    dp1List.Items.Add($"{MyAttachedProp.GetMyProp(fE)}: {fE.Name}");
+            }
         }
 
         private void AddMessage(string message, object sender, RoutedEventArgs eArgs)
