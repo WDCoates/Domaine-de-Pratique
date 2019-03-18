@@ -11,7 +11,14 @@
         xmlns:objectModel="clr-namespace:System.Collections.ObjectModel;assembly=System"
         mc:Ignorable="d"
         Title="MainWindow - First XAML Development" Height="450" Width="800">
-
+    <Window.Resources>
+        <LinearGradientBrush x:Key="GBrush1" StartPoint="0.5, 0.0" EndPoint="0.5, 1.0">
+            <GradientStop Offset="0" Color="Green" />
+            <GradientStop Offset="0.4" Color="DarkGreen" />
+            <GradientStop Offset="0.8" Color="Blue" />
+            <GradientStop Offset="1" Color="DarkBlue" />
+        </LinearGradientBrush>
+    </Window.Resources>
     <StackPanel x:Name="SP1" ButtonBase.Click="OnOuterButtonClick">
         <Button Content="Button Number 1" BorderThickness="1" Background="Azure" Height="50" Width="75"></Button>
         <Button>
@@ -61,8 +68,14 @@
                 <P3:Person FirstName="Peter" LastName="Paul"></P3:Person>
             </objectModel:ObservableCollection>
         </ListBox>-->
-        <!--Calling Constructors-->        
-
+        <!--Calling Constructors-->
+        <TextBlock Height="50"  Text="Testing Testing 123" Background="{StaticResource GBrush1}"/>  <!--Order is important GBrush1 had to be declared before being used.-->
+        <TextBlock Height="50" Text="Testing Testing 456">
+            <TextBlock.Background>
+                <StaticResourceExtension ResourceKey="GBrush1" />
+            </TextBlock.Background>
+        </TextBlock>
+        
     </StackPanel>
 
     <!-- Not sure where this can go or be used yet!
@@ -72,5 +85,6 @@
             <x:String>Naga</x:String>
         </x:Arguments>
     </P3:Person>-->
-
+    
 </Window>
+
