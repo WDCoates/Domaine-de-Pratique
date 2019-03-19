@@ -76,6 +76,20 @@
             </TextBlock.Background>
         </TextBlock>
         
+    <!-- Using Custom Markup -->
+        <TextBlock Text="{C1:CustomMarkup Operation=Add, X=3, Y=4}" />
+        <TextBlock>
+            <TextBlock.Text>
+                <C1:CustomMarkup>
+                    <C1:CustomMarkup.Operation>
+                        <C1:Operation>Multiply</C1:Operation>
+                    </C1:CustomMarkup.Operation>
+                    <C1:CustomMarkup.X>7</C1:CustomMarkup.X>
+                    <C1:CustomMarkup.Y>4</C1:CustomMarkup.Y>
+                </C1:CustomMarkup>
+            </TextBlock.Text>
+        </TextBlock>
+
     </StackPanel>
 
     <!-- Not sure where this can go or be used yet!
