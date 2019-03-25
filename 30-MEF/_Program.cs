@@ -20,7 +20,7 @@ namespace _30_MEF
 
         public void Run()
         {
-            var catalog = new DirectoryCatalog("~\\AddIns");
+            var catalog = new DirectoryCatalog(@"..\..\SimpleCalculator\Bin\Debug");
             var container = new CompositionContainer(catalog);
 
             try
