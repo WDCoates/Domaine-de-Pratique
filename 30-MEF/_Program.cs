@@ -56,7 +56,7 @@ namespace _30_MEF
 
                     for (int i = 0; i < operation.NumberOperands; i++)
                     {
-                        Console.Write($"\t operand {i + 1}");
+                        Console.Write($"\t operand {i + 1}? ");
                         string selectedOperand = Console.ReadLine();
                         operands[i] = double.Parse(selectedOperand);
                     }

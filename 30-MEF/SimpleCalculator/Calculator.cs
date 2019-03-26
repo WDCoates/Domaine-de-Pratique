@@ -18,7 +18,8 @@ namespace SimpleCalculator
                 new Operation {Name = "+", NumberOperands = 2},
                 new Operation {Name = "-", NumberOperands = 2},
                 new Operation {Name = "/", NumberOperands = 2},
-                new Operation {Name = "*", NumberOperands = 2}
+                new Operation {Name = "*", NumberOperands = 2},
+                new Operation {Name = "%", NumberOperands = 2}
             };
         }
 
@@ -39,6 +40,9 @@ namespace SimpleCalculator
                     break;
                 case "/":
                     result = operands[0] / operands[1];
+                    break;
+                case "%":
+                    result = operands[0] % operands[1];
                     break;
                 default:
                     throw new InvalidOperationException($"Invalid operation {operation.Name}");
