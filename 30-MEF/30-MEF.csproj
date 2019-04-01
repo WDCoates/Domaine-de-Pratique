@@ -31,12 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>_30_MEF._Program</StartupObject>
+    <StartupObject>_30_MEF._ProgramNE</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.Composition.Registration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Reflection.Context" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +49,7 @@
   <ItemGroup>
     <Compile Include="_Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_ProgramNE.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="CalculatorContract\CalculatorContract.csproj">
