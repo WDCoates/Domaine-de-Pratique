@@ -10,12 +10,15 @@ namespace _30_MEF
 {
     public class _Program
     {
-        [Import]
+        [Import]        
         public ICalculator Calculator { get; set;}
         public static void Main()
         {
             var p = new _Program();
             p.Run();
+
+            //Simple Test
+            Simple.Main();
         }
 
         public void Run()
